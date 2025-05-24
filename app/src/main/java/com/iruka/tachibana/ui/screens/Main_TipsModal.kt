@@ -28,43 +28,32 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import com.iruka.tachibana.R
-
-
-
 
 @Composable
 fun TipsModal(
     onClose: () -> Unit,
-    setComment: (String) -> Unit = {} // 互換のため残すだけで使わない
+    setComment: (String) -> Unit = {}
 ) {
 
 
-    // ─── 表示切替ステート ─────
-
-
     ModalWrapper(onClose = onClose) {
-        // Tips吹き出しUI
         Row(
             modifier = Modifier
                 .align(Alignment.BottomStart)
                 .padding(start = 8.dp, bottom = 12.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            // 1. 招待（反転）
             TipBox(
                 imageRes = R.drawable.fukidasshihomeandcalendar,
                 text = "招待するね！\n我が家に！",
                 flip = true
             )
-
-            // 2. 進捗
             TipBox(
                 imageRes = R.drawable.fukidasshihomeandcalendar,
                 text = "進捗を見て\n見よう"
             )
-
-            // 3. メニュー
             TipBox(
                 imageRes = R.drawable.fukidashimenu,
                 text = "これが\nメニュー",
@@ -74,7 +63,6 @@ fun TipsModal(
             )
         }
 
-        // 4. 設定
         Box(
             modifier = Modifier
                 .size(95.dp, 79.dp)
@@ -94,12 +82,26 @@ fun TipsModal(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("設定", fontSize = 16.sp, color = Color.Black, fontFamily = YuseiMagic, textAlign = TextAlign.Center)
-                Text("ふがふが", fontSize = 8.sp, color = Color.Black, fontFamily = YuseiMagic, textAlign = TextAlign.Center)
+                Text(
+                    "設定",
+                    fontSize = 16.sp,
+                    color = Color.Black,
+                    fontFamily = YuseiMagic,
+                    textAlign = TextAlign.Center
+                )
+                Text(
+                    "ふがふが",
+                    fontSize = 8.sp,
+                    color = Color.Black,
+                    fontFamily = YuseiMagic,
+                    textAlign = TextAlign.Center
+                )
             }
         }
     }
 }
+
+
 
 @Composable
 fun TipBox(

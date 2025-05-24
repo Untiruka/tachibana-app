@@ -419,6 +419,10 @@ fun InitialScreen(modifier: Modifier = Modifier,
                                                 ).show()
                                                 return
                                             }
+// 🧠 保存する！（←これを追加）
+                                            val sharedPref = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
+                                            sharedPref.edit().putLong("startTimeInMillis", pickedDateTime.timeInMillis).apply()
+
 
                                             selectedDateTime = "%04d/%02d/%02d %02d:%02d".format(
                                                 year, month + 1, day, hour, minute

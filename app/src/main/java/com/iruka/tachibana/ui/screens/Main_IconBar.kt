@@ -14,6 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.iruka.tachibana.R
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.zIndex
 
 @Composable
 fun Main_IconBar(
@@ -23,7 +24,8 @@ fun Main_IconBar(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(8.dp),
+            .padding(8.dp)
+            ,
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         for (i in 1..5) {

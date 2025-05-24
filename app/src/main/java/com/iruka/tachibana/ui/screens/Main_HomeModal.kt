@@ -41,9 +41,8 @@ fun HomeModal(onClose: () -> Unit) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color(0x99000000)) // 半透明ブラック
-                    .blur(8.dp)
-                    .zIndex(0f)
+
+
             )
 
             // モーダルの背景BOX

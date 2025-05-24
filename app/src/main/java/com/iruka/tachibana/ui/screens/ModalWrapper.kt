@@ -21,8 +21,8 @@ fun ModalWrapper(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black.copy(alpha = 0.3f))
-            .blur(8.dp)
+            .background(Color.Black.copy(alpha = 0.8f))
+            .blur(1.dp)
             .pointerInput(Unit) {
                 detectTapGestures(onTap = { onClose() })
             }

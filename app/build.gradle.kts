@@ -1,6 +1,7 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id("com.android.application") version "8.9.1"
+    id("org.jetbrains.kotlin.android") version "2.1.21"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.1.21"
 
 }
 
@@ -32,7 +33,8 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.11"
+
+        kotlinCompilerExtensionVersion = "1.6.10"
     }
 
     kotlinOptions {
@@ -66,6 +68,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.androidx.navigation.compose)
+
+
+    implementation("com.kizitonwose.calendar:compose:2.7.0")
+
+
 
     implementation(platform("io.coil-kt:coil-bom:2.6.0"))
 
