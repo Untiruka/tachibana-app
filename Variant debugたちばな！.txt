@@ -1,0 +1,24 @@
+Variant: debug
+Config: debug
+Store: C:\Users\IRUKA\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 86:A1:38:DB:F7:12:1A:83:27:61:97:92:CF:E1:20:2C
+SHA1: D5:F7:F1:4A:E6:C3:5C:86:79:B6:CD:FE:FC:5C:D7:DE:0A:DC:D4:DD
+SHA-256: 8D:1A:42:F7:F1:CF:21:DD:6B:D6:FD:F4:A6:10:46:CA:9C:FE:3D:BD:89:72:D4:28:F5:46:A7:8D:FD:8D:C8:13
+Valid until: 2055年4月21日水曜日
+----------
+Variant: release
+Config: null
+Store: null
+Alias: null
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\IRUKA\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 86:A1:38:DB:F7:12:1A:83:27:61:97:92:CF:E1:20:2C
+SHA1: D5:F7:F1:4A:E6:C3:5C:86:79:B6:CD:FE:FC:5C:D7:DE:0A:DC:D4:DD
+SHA-256: 8D:1A:42:F7:F1:CF:21:DD:6B:D6:FD:F4:A6:10:46:CA:9C:FE:3D:BD:89:72:D4:28:F5:46:A7:8D:FD:8D:C8:13
+Valid until: 2055年4月21日水曜日
+
+1020179210252-bi884v6m190k2hh83nvbvq0421ua9a5p.apps.googleusercontent.com

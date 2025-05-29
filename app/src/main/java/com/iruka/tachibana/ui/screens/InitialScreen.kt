@@ -2,221 +2,208 @@ package com.iruka.tachibana.ui.screens
  // ← パッケージ名は合ってる場所に
 
 // 標準 Compose
+
+
+// Coil（GIF画像系）
+
+// Compose UIコンポーネント
+
+
+// Material3
+
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.os.Build
 import android.widget.TimePicker
 import android.widget.Toast
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.compose.ui.text.input.TextFieldValue
-
-
-
-// Coil（GIF画像系）
-import coil.compose.AsyncImage
-import coil.decode.GifDecoder
-import coil.decode.ImageDecoderDecoder
-import coil.request.ImageRequest
-
-// Compose UIコンポーネント
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.relocation.bringIntoViewRequester
-
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.navigation.NavController
-import androidx.compose.animation.AnimatedVisibility
-
-
-// Material3
 import androidx.compose.material3.*
-
-import kotlinx.coroutines.launch
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextRange
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
+import androidx.navigation.NavController
+import coil.compose.AsyncImage
+import coil.decode.GifDecoder
+import coil.decode.ImageDecoderDecoder
+import coil.request.ImageRequest
 import com.iruka.tachibana.R
+import com.iruka.tachibana.ui.screens.AudioManager.playSE
 import kotlinx.coroutines.delay
-import java.util.Calendar
+import kotlinx.coroutines.launch
 import java.net.URLEncoder
+import java.util.Calendar
 
+
+@Composable
+fun animatedBorderModifier(isDone: State<Boolean>, targetColor: Color): Modifier {
+    val borderColor by animateColorAsState(
+        targetValue = if (isDone.value) targetColor else Color.Transparent,
+        animationSpec = tween(durationMillis = 500),
+        label = "borderColor"
+    )
+
+    return Modifier.drawBehind {
+        drawRect(
+            color = borderColor,
+            style = Stroke(width = 3.dp.toPx())
+        )
+    }
+}
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun InitialScreen(modifier: Modifier = Modifier,
-                  navController: NavController) {
+fun InitialScreen(
+    modifier: Modifier = Modifier,
+    navController: NavController
+) {
+    DoubleBackToExitHandler()
+    val context = LocalContext.current
+    val sharedPref = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
 
-    var showWelcome by remember { mutableStateOf(true) }
-// スクロール制御・フォーカス制御
+
+    val isNarrativeMode = remember {
+        mutableStateOf(PlayModeManager.getCurrentMode(context) == PlayMode.NARRATIVE)
+    }
+    // スクロール・フォーカス関連
     val scrollState = rememberScrollState()
     val focusManager = LocalFocusManager.current
     val scope = rememberCoroutineScope()
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
     val focusRequester = remember { FocusRequester() }
-    Modifier.focusRequester(focusRequester)
 
-    val context = LocalContext.current
+    // 入力関連
     var selectedDateTime by remember { mutableStateOf("") }
     var selectedUnit by remember { mutableStateOf(TextFieldValue("")) }
     var expanded by remember { mutableStateOf(false) }
     var enteredValue by remember { mutableStateOf("") }
     var selected by remember { mutableStateOf("お金") }
     var amount by remember { mutableStateOf("") }
-    val yuseiFont = FontFamily(Font(R.font.yuseimagicregular))
-
-// 入力完了状態
     val isUnitDone = remember { mutableStateOf(false) }
 
+    val yuseiFont = FontFamily(Font(R.font.yuseimagicregular))
+
+    // エンディング分岐テスト用（仮）
+    val elapsedDays = 10
 
 
+    val showWelcome = remember { mutableStateOf(true) }
 
-    // 共通アニメーション付き修飾子
-    @Composable
-    fun animatedBorderModifier(isDone: State<Boolean>, color: Color): Modifier {
-        val animateColor by animateColorAsState(
-            targetValue = if (isDone.value) color else Color.Transparent,
-            animationSpec = tween(300)
-        )
-        return Modifier
-            .border(2.dp, animateColor, RoundedCornerShape(10.dp))
-            .drawBehind {
-                if (isDone.value) {
-                    drawRect(
-                        color = animateColor,
-                        size = size,
-                        alpha = 0.3f
-                    )
-                }
-            }
-    }
-
-
-
-
-    Box(modifier = modifier.fillMaxSize()) {
-        // 背景画像
-        Image(
-            painter = painterResource(id = R.drawable.background_all), // ← これ
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize()
-        )
-        if (showWelcome) {
-            Box(
+    if (showWelcome.value) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White)
+                .zIndex(10f),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
                 modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color.Black.copy(alpha = 0.3f))
-                    .zIndex(999f),
-                contentAlignment = Alignment.Center
+                    .wrapContentHeight()
+                    .zIndex(11f)
             ) {
-                // 立ち絵：上に浮かせてCardと独立
                 Image(
                     painter = painterResource(id = R.drawable.initial_tachibana_welcome1),
                     contentDescription = "たちばな立ち絵",
-                    modifier = Modifier
-                        .size(300.dp)
-                        .absoluteOffset(y = (-160).dp)
-                        .zIndex(2f)
+                    modifier = Modifier.size(300.dp)
                 )
 
-                // カード本体
                 Card(
-                    modifier = Modifier
-                        .width(320.dp)
-                        .wrapContentHeight()
-                        .padding(top = 100.dp) // Imageとのスペース
-                        .zIndex(1f),
+                    modifier = Modifier.width(320.dp),
                     shape = RoundedCornerShape(20.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White)
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFFF8F5F0))
                 ) {
                     Column(
-                        modifier = Modifier
-                            .padding(
-                                top = 100.dp,
-                                bottom = 24.dp,
-                                start = 24.dp,
-                                end = 24.dp
-                            ), // ← たちばな頭スペース
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        modifier = Modifier.padding(24.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
                     ) {
-                        val welcomeText = "来てくれて、ありがとう!\n私が断ち花。"
-
                         Text(
-                            buildAnnotatedString {
-                                withStyle(
-                                    style = SpanStyle(
-                                        fontSize = 28.sp,
-                                        color = Color(0xFFDA6E6E)
-                                    )
-                                ) {
-                                    append(welcomeText.first())
-                                }
-                                withStyle(
-                                    style = SpanStyle(
-                                        fontSize = 18.sp,
-                                        color = Color.Black
-                                    )
-                                ) {
-                                    append(welcomeText.drop(1))
-                                }
-                            },
-                            fontFamily = yuseiFont
-                        )
-
-                        Spacer(modifier = Modifier.height(8.dp))
-                        Text(
-                            "わたし…うれしいの。\nあなたとなら、がんばれる気がするんだ。",
-                            fontSize = 14.sp,
-                            lineHeight = 20.sp,
+                            "ようこそ！",
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Center,
                             fontFamily = yuseiFont,
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold,
                             color = Color.Black
                         )
-                        Spacer(modifier = Modifier.height(24.dp))
-                        Button(onClick = { showWelcome = false }) {
-                            Text("いっしょにはじめる", fontFamily = yuseiFont)
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Text(
+                            "一緒にがんばろうね",
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Center,
+                            fontFamily = yuseiFont,
+                            fontSize = 14.sp,
+                            color = Color.Gray
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        Button(onClick = {
+                            AudioManager.playSE(context, R.raw.cursor_move_se)
+                            showWelcome.value = false
+                        }) {
+                            Text("はじめる", fontFamily = yuseiFont)
                         }
                     }
                 }
             }
         }
+    } else
 
 
 
 
-        Row(
+
+
+
+    Image(
+        painter = painterResource(id = R.drawable.background_all),
+        contentDescription = null,
+        contentScale = ContentScale.Crop,
+        modifier = Modifier.fillMaxSize()
+    )
+
+
+
+
+    Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 60.dp)
@@ -420,8 +407,14 @@ fun InitialScreen(modifier: Modifier = Modifier,
                                                 return
                                             }
 // 🧠 保存する！（←これを追加）
-                                            val sharedPref = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
-                                            sharedPref.edit().putLong("startTimeInMillis", pickedDateTime.timeInMillis).apply()
+                                            val sharedPref = context.getSharedPreferences(
+                                                "tachibana_prefs",
+                                                Context.MODE_PRIVATE
+                                            )
+                                            sharedPref.edit().putLong(
+                                                "startTimeInMillis",
+                                                pickedDateTime.timeInMillis
+                                            ).apply()
 
 
                                             selectedDateTime = "%04d/%02d/%02d %02d:%02d".format(
@@ -462,6 +455,11 @@ fun InitialScreen(modifier: Modifier = Modifier,
             }
 
 
+        }
+
+        LaunchedEffect(Unit) {
+            AudioManager.stopBgm() // ← bad1bgm止める
+          //  AudioManager.playBgm(context, R.raw.marinba_march) // ← 通常用BGMへ切替
         }
 
 
@@ -545,8 +543,12 @@ fun InitialScreen(modifier: Modifier = Modifier,
                     .fillMaxSize()
             ) {
 
+                val context = LocalContext.current
+
                 Button(
                     onClick = {
+
+                        playSE(context, R.raw.close_door_se)
                         val parts = selectedDateTime.split(" ", ":", "/")
                         if (parts.size >= 5) {
                             val year = parts[0].toInt()
@@ -573,8 +575,7 @@ fun InitialScreen(modifier: Modifier = Modifier,
                                 putString("calorie", enteredValue)
                                 apply() // UIがカクつかないように非同期で保存！
                             }
-
-                            navController.navigate("loading") {
+                            navController.navigate("loading/main") {
                                 popUpTo("initial") { inclusive = true }
                             }
 }
@@ -591,4 +592,4 @@ fun InitialScreen(modifier: Modifier = Modifier,
             }
         }
     }
-}
+

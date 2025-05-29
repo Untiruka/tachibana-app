@@ -16,15 +16,25 @@ import com.iruka.tachibana.R
 import kotlinx.coroutines.delay
 
 @Composable
-fun LoadingScreen(navController: NavController) {
-    val yuseiFont = FontFamily(Font(R.font.yuseimagicregular))
+fun LoadingScreen(navController: NavController, next: String) {
+    // ここでBGMなどを止める処理とかあればやる
 
     LaunchedEffect(Unit) {
-        delay(1500) // ✨1.5秒の余韻
-        navController.navigate("main") {
+        delay(1500)
+        navController.navigate(next) {
             popUpTo("loading") { inclusive = true }
         }
     }
+
+    // ローディング画面のUI（アニメーション等）
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+
+    }
+
+
 
     Box(
         modifier = Modifier.fillMaxSize(),

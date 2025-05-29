@@ -10,21 +10,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import com.iruka.tachibana.R
 
 @Composable
 fun ModalWrapper(
     onClose: () -> Unit,
     content: @Composable BoxScope.() -> Unit
 ) {
+    val context = LocalContext.current
+
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black.copy(alpha = 0.8f))
             .blur(1.dp)
             .pointerInput(Unit) {
-                detectTapGestures(onTap = { onClose() })
+                detectTapGestures(onTap = {
+                    AudioManager.playSE(context, R.raw.close_door_se) // ← ここでSE鳴らす！
+                    onClose()
+                })
             }
             .zIndex(9f)
     )

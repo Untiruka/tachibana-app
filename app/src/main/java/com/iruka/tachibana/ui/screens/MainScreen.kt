@@ -47,6 +47,7 @@ import androidx.compose.animation.core.*
 import androidx.navigation.NavController
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.ui.tooling.preview.Preview
 
 // ─── Coil (画像読み込み) ───────────────
 import coil.compose.AsyncImage
@@ -58,17 +59,44 @@ import coil.decode.ImageDecoderDecoder
 import com.iruka.tachibana.R
 import com.iruka.tachibana.ui.screens.ModalType
 import com.iruka.tachibana.data.*
+import com.iruka.tachibana.ui.screens.AudioManager.isBgmEnabled
+import com.iruka.tachibana.ui.screens.AudioManager.isSoundEnabled
+import java.time.LocalDate
+
+// ─── フェッチ受け取り ─────────────────
+//import com.iruka.tachibana.ui.screens.fetchCalendarEvents
 
 
+import com.iruka.tachibana.ui.screens.EdgeSide
 
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
     navController: NavController
 ) {
+    DoubleBackToExitHandler()
     // ─── Context & フォント ─────
     val context = LocalContext.current
     val yuseiFont = FontFamily(Font(R.font.yuseimagicregular))
+
+    // ─── googleカレンダーの予約取得─────
+
+   // val prefs = remember { context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE) }
+  //  val accessToken = prefs.getString("access_token", null)
+
+ //   val eventsByDate = remember { mutableStateMapOf<LocalDate, List<String>>() }
+
+ //   LaunchedEffect(accessToken) {
+ //       if (!accessToken.isNullOrBlank()) {
+ //           try {
+ //               val result = fetchCalendarEvents(accessToken)
+////                Log.d("CALENDAR_EVENT", "取得した予定：${result}")
+ //               eventsByDate.putAll(result)
+ //           } catch (e: Exception) {
+ ///               Log.e("GOOGLE_CALENDAR", "予定取得失敗: ${e.message}")
+ ////           }
+ //       }
+ //   }
 
     // ─── 基本ステート（SharedPreferences & 時刻関連）─────
     var startTimeInMillis by remember { mutableStateOf(0L) }
@@ -111,7 +139,7 @@ fun MainScreen(
     val savedAmount = elapsedDays * amountPerDay
     val savedCalories = elapsedDays * caloriesPerDay
 
-    // ─── 次の目標日計算 ─────
+
     val goalDaysList = listOf(7, 14, 21, 30)
     val nextGoalDays =
         goalDaysList.firstOrNull { it > elapsedDays } ?: ((elapsedDays / 30 + 1) * 30)
@@ -200,29 +228,10 @@ fun MainScreen(
     )
     val isExhaling = breathing > 0.8f
 
-
-    ////桜アニメーション制御
-
-
-    val opacity = remember { Animatable(1f) }
-
-    LaunchedEffect(Unit) {
-        delay(8000) // アニメ終わるタイミング（ミリ秒）
-        opacity.animateTo(
-            targetValue = 0f,
-            animationSpec = tween(durationMillis = 1000) // 1秒で消える
-        )
-    }
-
-
-    val showSakura = remember { mutableStateOf(false) }
-
-    LaunchedEffect(Unit) {
-        // ガロウマックス級確率（例：3〜5%くらい）
-        val rareChance = (1..100).random()
-        if (rareChance <= 5) { // ← 5%の確率で桜演出発生
-            showSakura.value = true
-        }
+/////エンディング分岐
+    val isNarrativeMode = remember {
+        context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
+            .getBoolean("isNarrativeMode", false)
     }
 
 
@@ -251,6 +260,31 @@ fun MainScreen(
 
         // ─── 表示切替ステート tipsModal.kt─────
         val isTipsOpen = remember { derivedStateOf { activeModal == ModalType.Tips } }
+
+
+
+        ////桜アニメーション制御
+        val opacity = remember { Animatable(1f) }
+
+        LaunchedEffect(Unit) {
+            delay(10000) // アニメ終わるタイミング（ミリ秒）
+            opacity.animateTo(
+                targetValue = 0f,
+                animationSpec = tween(durationMillis = 1000) // 1秒で消える
+            )
+        }
+
+
+        val showSakura = remember { mutableStateOf(false) }
+
+        LaunchedEffect(Unit) {
+            // ガロウマックス級確率（例：3〜5%くらい）
+            val rareChance = (1..100).random()
+            if (rareChance <= 5) { // ← 5%の確率で桜演出発生
+                showSakura.value = true
+            }
+        }
+
 
 //桜アニメーション
         if (showSakura.value) {
@@ -328,13 +362,17 @@ fun MainScreen(
         }
 
         // ─── 表情差分画像の切り替え（currentLine.typeに応じて）───
-        val tachibanaImageRes = when (currentLine?.type) {
-            CommentType.Mind -> R.drawable.home_tachibana_neutral1
-            CommentType.Brain -> R.drawable.home_tachibana_blush
-            CommentType.Heart -> R.drawable.home_tachibana_sweat
-            CommentType.Life -> R.drawable.home_tachibana_wink
-            CommentType.ExtraMind -> R.drawable.home_tachibana_neutral1
-            else -> R.drawable.home_tachibana_neutral1
+        val tachibanaImageRes: Any = when (elapsedDays) {
+            21 -> R.drawable.tachibana_day21
+            28 -> R.drawable.tachibana_day28
+            else -> when (currentLine?.type) {
+                CommentType.Mind -> R.drawable.home_tachibana_neutral1
+                CommentType.Brain -> R.drawable.home_tachibana_blush
+                CommentType.Heart -> R.drawable.home_tachibana_sweat
+                CommentType.Life -> R.drawable.home_tachibana_wink
+                CommentType.ExtraMind -> R.drawable.home_tachibana_neutral1
+                else -> R.drawable.home_tachibana_neutral1
+            }
         }
 
         // ─── 呼吸＋上下に揺れる動き（Y方向オフセット + スケール）───
@@ -348,10 +386,77 @@ fun MainScreen(
         val offsetY = (cos(cosTime.toDouble()) * 2f).toFloat().dp
         val scaleValue = 1f + (breathing * 0.01f)
 
+        // ─── BGM　───
+
+
 //////
         // 💡 モーダル表示：activeModal に応じて1か所に集約！
+
+
+
+
+
+// AudioManager にも反映しておく
+        val context = LocalContext.current
+
+        val prefs = remember { context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE) }
+
+        var isPrefsLoaded by remember { mutableStateOf(false) }
+
+        val isBgmEnabledState = remember {
+            mutableStateOf(prefs.getBoolean("bgm_enabled", true))
+        }
+        val isSoundEnabledState = remember {
+            mutableStateOf(prefs.getBoolean("sound_enabled", true))
+        }
+        val edgeSideState = remember {
+            mutableStateOf(
+                if (prefs.getString("edge_side", "right") == "right") EdgeSide.Right else EdgeSide.Left
+            )
+        }
+
+// ✅ 初期化完了後にAudioManagerと同期（遅延なし）
+        LaunchedEffect(Unit) {
+            isPrefsLoaded = true
+        }
+
+        LaunchedEffect(isPrefsLoaded) {
+            if (!isPrefsLoaded) return@LaunchedEffect
+
+            AudioManager.isBgmEnabled = isBgmEnabledState.value
+            AudioManager.isSoundEnabled = isSoundEnabledState.value
+
+            if (isBgmEnabledState.value) {
+                AudioManager.playBgm(context, R.raw.marinba_march)
+            }
+        }
         when (activeModal) {
-            ModalType.Config -> ConfigModal(onClose = ::closeModal)
+            ModalType.Config -> ConfigModal(
+                onClose = ::closeModal,
+                edgeSide = edgeSideState.value,
+                onEdgeSideChange = {
+                    edgeSideState.value = it
+                    prefs.edit().putString("edge_side", if (it == EdgeSide.Right) "right" else "left").apply()
+                },
+                isBgmEnabled = isBgmEnabledState.value,
+                onBgmToggle = {
+                    isBgmEnabledState.value = it
+                    prefs.edit().putBoolean("bgm_enabled", it).apply()
+                    AudioManager.isBgmEnabled = it
+                    if (it) AudioManager.playBgm(context, R.raw.marinba_march)
+                    else AudioManager.stopBgm()
+                },
+                isSoundEnabled = isSoundEnabledState.value,
+                onSoundToggle = {
+                    isSoundEnabledState.value = it
+                    prefs.edit().putBoolean("sound_enabled", it).apply()
+                    AudioManager.isSoundEnabled = it
+                },
+                onCreditOpen = { activeModal = ModalType.Credit }
+            )
+
+
+            ModalType.Credit -> CreditModal(onClose = ::closeModal)
 
             ModalType.Tips -> Box(
                 modifier = Modifier.fillMaxSize()
@@ -371,6 +476,7 @@ fun MainScreen(
                     CalendarModal(
                         onClose = { activeModal = ModalType.None },
                         selectedDateTime = startTimeInMillis
+                        // eventsByDate = eventsByDate // ← Google連携封印中
                     )
                 }
             }
@@ -382,7 +488,10 @@ fun MainScreen(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .zIndex(99f),
-            onIconClick = { index ->
+            onIconClick = {
+
+                index ->
+                AudioManager.playSE(context, R.raw.cursor_move_se) // ← ここに追加！
                 activeModal = when (index) {
                     1 -> ModalType.Home
                     2 -> ModalType.Tips
@@ -390,6 +499,7 @@ fun MainScreen(
                     4 -> ModalType.Menu
                     5 -> ModalType.Config
                     else -> ModalType.None
+
                 }
             }
         )
@@ -482,6 +592,21 @@ fun MainScreen(
                         .zIndex(120f)
                 )
             }
+        }
+
+       // 🔻 モードによる分岐：演出やセリフ表示の分離ポイント
+        if (isNarrativeMode) {
+            NarrativeModeContent(
+                elapsedDays = elapsedDays,
+                navController = navController
+                // 他必要なステートを引数で
+            )
+        } else {
+            NormalModeContent(
+                elapsedDays = elapsedDays,
+                navController = navController
+                // 同様に
+            )
         }
 
         // ─── ステータス表示（右側パネル）───
@@ -674,17 +799,25 @@ fun MainScreen(
                 if (showResetModal) Color.Red else Color(0xFF9E7360)
             )
 
+            val context = LocalContext.current
+
             Box(
                 modifier = Modifier
                     .size(width = 130.dp, height = 60.dp)
                     .offset(y = hoverOffset)
+
                     .graphicsLayer {
                         scaleX = 1f + (hoverAnim * 0.02f)
                         scaleY = 1f + (hoverAnim * 0.02f)
                     }
                     .background(hoverColor, shape = RoundedCornerShape(12.dp))
                     .pointerInput(Unit) {
-                        detectTapGestures(onLongPress = { showResetModal = true })
+                        detectTapGestures(
+                            onLongPress = {
+                                AudioManager.playSE(context, R.raw.long_press_fx) // 長めSEをここで鳴らす
+                                showResetModal = true
+                            }
+                        )
                     },
                 contentAlignment = Alignment.Center
             ) {
@@ -694,11 +827,22 @@ fun MainScreen(
                     color = Color.White
                 )
             }
+
+
+        }
+        val isEdgeTouchable = !(showResetModal || activeModal != ModalType.None)
+
+
+// 画面右端にエッジパネルを表示（最背面配置）
+        EdgePanelWithHandle(
+            side = edgeSideState.value,
+            isInteractionEnabled = isEdgeTouchable,
+        ) {
+            SampleEdgeContent()
         }
 
 
-///リセットボタン！！！！！
-
+///リセットモーダル！！！！！
         if (showResetModal) {
             ModalWrapper(onClose = { showResetModal = false }) {
                 Box(
@@ -724,6 +868,7 @@ fun MainScreen(
                             Text("本当にやめるの…？", fontFamily = yuseiFont)
                             Spacer(modifier = Modifier.height(8.dp))
                             Button(onClick = {
+                                AudioManager.playSE(context, R.raw.cursor_move_se)
                                 val prefs = context.getSharedPreferences(
                                     "tachibana_prefs",
                                     Context.MODE_PRIVATE
@@ -737,7 +882,9 @@ fun MainScreen(
                             }
 
                             Spacer(modifier = Modifier.height(4.dp))
-                            Button(onClick = { showResetModal = false }) {
+                            Button(onClick = {
+                                AudioManager.playSE(context, R.raw.cursor_move_se)
+                                showResetModal = false }) {
                                 Text("禁欲を続ける", fontFamily = yuseiFont)
                             }
                         }
@@ -747,5 +894,18 @@ fun MainScreen(
 
         }
 
+    }
+}
+
+
+@Composable
+fun SampleEdgeContent() {
+    val icons = listOf(R.drawable.home_icons1, R.drawable.home_icons2)
+    icons.forEach {
+        Image(
+            painter = painterResource(it),
+            contentDescription = null,
+            modifier = Modifier.size(48.dp).padding(4.dp)
+        )
     }
 }

@@ -82,6 +82,9 @@ dependencies {
     implementation("io.coil-kt:coil-compose") // :2.5.0 を削除
     implementation("io.coil-kt:coil-gif")     // :2.5.0 を削除
 
+// appレベルの build.gradle.kts に追加（dependencies内）
+    implementation("com.google.android.gms:play-services-auth:21.0.0")
+    implementation("com.google.android.gms:play-services-base:18.2.0")
 
 
 }
