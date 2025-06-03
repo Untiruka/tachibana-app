@@ -2,6 +2,7 @@ package com.iruka.tachibana.ui.screens
 
 // ─── Android 標準 ─────────────────────
 import android.content.Context
+import android.media.MediaPlayer
 import android.os.Build
 import android.util.Log
 import android.widget.Toast
@@ -69,7 +70,6 @@ import com.iruka.tachibana.ui.screens.SoftHorrorBackHandler
 //import com.iruka.tachibana.ui.screens.fetchCalendarEvents
 import com.iruka.tachibana.util.getActivity
 
-
 import com.iruka.tachibana.ui.screens.EdgeSide
 
 @Composable
@@ -97,6 +97,19 @@ fun MainScreen(
 
     val yuseiFont = FontFamily(Font(R.font.yuseimagicregular))
 
+
+
+    /////BGM
+
+
+
+    val selectedBgmType = remember {
+        mutableStateOf(
+            prefs.getString("selected_bgm_type", BgmType.DEFAULT.name)?.let {
+                runCatching { BgmType.valueOf(it) }.getOrDefault(BgmType.DEFAULT)
+            }
+        )
+    }
 
 
     // 🔻 Box内の最後の方（Resetモーダルのちょい上とか）に追加
@@ -341,6 +354,7 @@ fun MainScreen(
         activeModal = ModalType.None
     }
 
+
     val activity = context.getActivity()
 
     val isSoftHorrorEnabledState = remember { mutableStateOf(prefs.getBoolean("soft_horror_enabled", false)) }
@@ -353,30 +367,35 @@ fun MainScreen(
         closeModal()
     }
 
-// 🔹2. SoftHorrorBackHandler（完全に任せる）
-    if (isSoftHorrorCondition) {
-        SoftHorrorBackHandler(navController = navController, enabled = true)
-    } else {
-        // 🔹3. 通常戻る処理（ソフトホラーOFF、モーダルなし）
-        var backPressCount by remember { mutableStateOf(0) }
-        BackHandler(enabled = activeModal == ModalType.None) {
-            backPressCount++
-            if (backPressCount == 1) {
-                Toast.makeText(activity, "もう一回タップすると戻れます", Toast.LENGTH_SHORT).show()
-            } else if (backPressCount >= 2) {
-                activity?.finish()
-            }
-        }
-
-        // 🔁 3秒以内にカウントリセット
-        LaunchedEffect(backPressCount) {
-            if (backPressCount > 0) {
-                delay(3000)
-                backPressCount = 0
-            }
+// 🔹2. ソフトホラー演出中（9回目で処理する想定なら追加で↓）
+    var softHorrorBackPressCount by remember { mutableStateOf(0) }
+    BackHandler(enabled = isSoftHorrorCondition) {
+        softHorrorBackPressCount++
+        if (softHorrorBackPressCount == 9) {
+            hasShownSoftHorror.value = true
+            prefs.edit().putBoolean("soft_horror_shown", true).apply()
+            // 🎃 ホラー演出発火処理を書く
         }
     }
 
+// 🔹3. 通常戻る処理（ソフトホラーOFF、モーダルなし）
+    var backPressCount by remember { mutableStateOf(0) }
+    BackHandler(enabled = !isSoftHorrorCondition && activeModal == ModalType.None) {
+        backPressCount++
+        if (backPressCount == 1) {
+            Toast.makeText(activity, "もう一回タップすると戻れます", Toast.LENGTH_SHORT).show()
+        } else if (backPressCount >= 2) {
+            activity?.finish()
+        }
+    }
+
+// 🔁 3秒以内にリセット（トースト用）
+    LaunchedEffect(backPressCount) {
+        if (backPressCount > 0) {
+            delay(3000)
+            backPressCount = 0
+        }
+    }
 
 
     // デバッグログ
@@ -459,7 +478,13 @@ fun MainScreen(
             )
         }
 
-
+        if (isSoftHorrorCondition) {
+            SoftHorrorBackHandler(
+                navController = navController,
+                enabled = true,
+                onTriggerPanicModal = { activeModal = ModalType.SoftHorrorPanic } // ←★これ
+            )
+        }
 
 /////config内でスイッチ機能追加
 
@@ -473,6 +498,14 @@ fun MainScreen(
                 .background(Color.LightGray),
             contentAlignment = Alignment.Center
         ) {
+
+            LaunchedEffect(activeModal) {
+                if (activeModal == ModalType.SoftHorrorPanic) {
+                    AudioManager.stopBgm()
+                }
+            }
+
+
             Text("広告", fontSize = 12.sp)
         }
         Box(
@@ -583,15 +616,26 @@ fun MainScreen(
             isPrefsLoaded = true
         }
 
-        LaunchedEffect(isPrefsLoaded) {
-            if (!isPrefsLoaded) return@LaunchedEffect
+       // val currentMediaPlayer = remember { mutableStateOf<MediaPlayer?>(null) }
+        val selectedBgmType = remember {
+            mutableStateOf(
+                prefs.getString("selected_bgm_type", BgmType.DEFAULT.name)?.let {
+                    runCatching { BgmType.valueOf(it) }.getOrDefault(BgmType.DEFAULT)
+                }
+            )
+        }
+        LaunchedEffect(elapsedDays, isBgmEnabledState.value, selectedBgmType.value) {
+            if (!isBgmEnabledState.value) return@LaunchedEffect
 
-            AudioManager.isBgmEnabled = isBgmEnabledState.value
-            AudioManager.isSoundEnabled = isSoundEnabledState.value
+            val selected = selectedBgmType.value ?: BgmType.DEFAULT
 
-            if (isBgmEnabledState.value) {
-                AudioManager.playBgm(context, R.raw.marinba_march)
+            val actualBgm = if (selected == BgmType.DEFAULT && elapsedDays >= 21) {
+                BgmType.DAY20
+            } else {
+                selected
             }
+
+            AudioManager.playBgm(context, actualBgm.fileResId)
         }
         when (activeModal) {
             ModalType.Config -> ConfigModal(
@@ -648,6 +692,39 @@ fun MainScreen(
                     )
                 }
             }
+
+
+            ModalType.SoftHorrorPanic -> {
+                AlertDialog(
+                    onDismissRequest = { activeModal = ModalType.None },
+                    confirmButton = {
+                        TextButton(onClick = { activeModal = ModalType.None }) {
+                            Text("戻れない")
+                        }
+                    },
+                    title = {
+                        Text(
+                            "戻れません",
+                            fontFamily = yuseiFont,
+                            fontSize = 18.sp,
+                            color = Color.Red
+                        )
+                    },
+                    text = {
+                        Text(
+                            "戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません",
+                            fontFamily = yuseiFont,
+                            fontSize = 14.sp,
+                            color = Color.White,
+                            lineHeight = 20.sp
+                        )
+                    },
+                    containerColor = Color.Black,
+                    titleContentColor = Color.White,
+                    textContentColor = Color.White
+                )
+            }
+
 
             else -> {} // ModalType.None など
         }

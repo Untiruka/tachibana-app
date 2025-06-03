@@ -8,5 +8,6 @@ enum class ModalType {
     Calendar,
     Tips,
     Home,
-    None
+    None,
+   SoftHorrorPanic
 }
