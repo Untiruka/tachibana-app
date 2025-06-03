@@ -156,7 +156,7 @@ fun InitialScreen(
                         verticalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            "ようこそ！",
+                            "ようこそ！\nわたしが断ち花！",
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center,
                             fontFamily = yuseiFont,
@@ -166,7 +166,7 @@ fun InitialScreen(
                         )
                         Spacer(modifier = Modifier.height(12.dp))
                         Text(
-                            "一緒にがんばろうね",
+                            "一緒にがんばろうね！",
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center,
                             fontFamily = yuseiFont,

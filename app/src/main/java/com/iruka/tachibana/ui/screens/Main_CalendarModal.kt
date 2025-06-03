@@ -303,10 +303,11 @@ fun CalendarModal(
                                         if (hasEvent) {
                                             Box(
                                                 modifier = Modifier
+                                                    .padding(end = 4.dp)
                                                     .size(6.dp)
                                                     .background(Color.Yellow, shape = CircleShape)
                                                     .align(Alignment.CenterEnd)
-                                                    .padding(end = 4.dp)
+
                                             )
                                         }
                                     }

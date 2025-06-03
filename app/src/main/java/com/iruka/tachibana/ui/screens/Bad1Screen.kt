@@ -256,18 +256,24 @@ fun Bad1Screen(navController: NavController) {
                     )
                 }
             }
+        } else if (imageResId != null) {
+            val modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .height(300.dp)
 
-
-
-
-    } else if (imageResId != null) {
             if (fadeInTriggers.any { currentLine?.startsWith(it) == true }) {
-                ChibiHanaFadeIn(
-                    imageResId = imageResId,
-                    appearAtLine = currentLine ?: "",
-                    currentLine = currentLine ?: "",
-                    onAnimationStateChange = { isAnimating.value = it }
-                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentAlignment = Alignment.BottomCenter // ✅ 位置合わせ！
+                ) {
+                    ChibiHanaFadeIn(
+                        imageResId = imageResId,
+                        appearAtLine = currentLine ?: "",
+                        currentLine = currentLine ?: "",
+                        onAnimationStateChange = { isAnimating.value = it }
+                    )
+                }
             } else {
                 Box(
                     modifier = Modifier.fillMaxSize(),
@@ -284,6 +290,7 @@ fun Bad1Screen(navController: NavController) {
                 }
             }
         }
+
 
         // スキップボタン
         Text(
@@ -315,7 +322,7 @@ fun Bad1Screen(navController: NavController) {
                     Text(
                         text = it,
                         color = Color.White,
-                        fontSize = 16.sp,
+                        fontSize = 24.sp,
                         fontFamily = YuseiMagic
                     )
                 }
@@ -350,7 +357,8 @@ fun ChibiHanaFadeIn(
     imageResId: Int,
     appearAtLine: String,
     currentLine: String,
-    onAnimationStateChange: (Boolean) -> Unit
+    onAnimationStateChange: (Boolean) -> Unit,
+    bottomContent: @Composable () -> Unit = {}
 ) {
     val alpha = remember { Animatable(0f) }
     var animationStarted by remember { mutableStateOf(false) }
@@ -369,21 +377,24 @@ fun ChibiHanaFadeIn(
         }
     }
 
-    if (alpha.value > 0f) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
+    Box(
+        modifier = Modifier
+            .fillMaxSize(),
+        contentAlignment = Alignment.Center // ✅ これで中央表示に
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
                 painter = painterResource(id = imageResId),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
-                    .padding(bottom = 140.dp)
                     .height(300.dp)
                     .graphicsLayer(alpha = alpha.value)
             )
+
+            bottomContent()
         }
     }
 }
-

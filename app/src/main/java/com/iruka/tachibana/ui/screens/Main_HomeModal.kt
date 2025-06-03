@@ -1,5 +1,7 @@
 package com.iruka.tachibana.ui.screens
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -28,10 +30,12 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 
+import androidx.compose.ui.platform.LocalContext
 
 
 @Composable
 fun HomeModal(onClose: () -> Unit) {
+    val context = LocalContext.current
     ModalWrapper(onClose = onClose) {
         Box(
             modifier = Modifier
@@ -163,7 +167,10 @@ fun HomeModal(onClose: () -> Unit) {
                                         endY = Float.POSITIVE_INFINITY
                                     ),
                                     shape = RoundedCornerShape(4.dp)
-                                ),
+                                )  .clickable {
+                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://lucaverse-site.vercel.app/"))
+                                    context.startActivity(intent)
+                                },
                             contentAlignment = Alignment.Center
                         ) {
                             Text(

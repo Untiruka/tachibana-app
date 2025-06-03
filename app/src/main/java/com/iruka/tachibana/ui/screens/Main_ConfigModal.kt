@@ -1,6 +1,10 @@
 package com.iruka.tachibana.ui.screens
 
 
+import androidx.compose.ui.text.*
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.foundation.text.ClickableText
+import androidx.compose.ui.platform.LocalUriHandler
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.iruka.tachibana.R
 import com.iruka.tachibana.ui.screens.YuseiMagic
@@ -26,7 +31,9 @@ fun ConfigModal(
     onBgmToggle: (Boolean) -> Unit,
     isSoundEnabled: Boolean,
     onSoundToggle: (Boolean) -> Unit,
-    onCreditOpen: () -> Unit
+    isSoftHorrorEnabled: Boolean, // ← ここは型だけ！
+    onSoftHorrorToggle: (Boolean) -> Unit, // ← こっちも
+    onCreditOpen: () -> Unit // ← 忘れずに
 ) {
     Box(
         modifier = Modifier
@@ -57,6 +64,27 @@ fun ConfigModal(
                 Text("効果音", modifier = Modifier.weight(1f), fontFamily = YuseiMagic, color = Color.White)
                 Switch(checked = isSoundEnabled, onCheckedChange = onSoundToggle)
             }
+
+
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text("ソフトホラー演出", fontFamily = YuseiMagic, color = Color.White)
+                    Text(
+                        "※一部演出が過激になります",
+                        fontSize = 12.sp,
+                        fontFamily = YuseiMagic,
+                        color = Color.LightGray
+                    )
+                }
+                Switch(
+                    checked = isSoftHorrorEnabled,
+                    onCheckedChange = {
+                        onSoftHorrorToggle(it)
+                    }
+                )
+            }
+
+
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -103,8 +131,54 @@ fun ConfigModal(
     }
 }
 
+
 @Composable
 fun CreditModal(onClose: () -> Unit) {
+    val uriHandler = LocalUriHandler.current
+
+    // YouTubeとBOOTHリンク：しゃろう
+    val sharouCredit = buildAnnotatedString {
+        append("BGM：lost / しゃろう（BOOTH）\n")
+        pushStringAnnotation("URL", "https://www.youtube.com/@Sharou")
+        withStyle(SpanStyle(color = Color.Cyan, textDecoration = TextDecoration.Underline)) {
+            append("https://www.youtube.com/@Sharou")
+        }
+        pop()
+        append("\n")
+        pushStringAnnotation("URL", "https://shll.booth.pm/")
+        withStyle(SpanStyle(color = Color.Cyan, textDecoration = TextDecoration.Underline)) {
+            append("https://shll.booth.pm/")
+        }
+        pop()
+    }
+
+    // On-Jin 効果音
+    val onjinCredit = buildAnnotatedString {
+        append("効果音：On-Jin ～音人～（")
+        pushStringAnnotation("URL", "https://on-jin.com/")
+        withStyle(SpanStyle(color = Color.Cyan, textDecoration = TextDecoration.Underline)) {
+            append("https://on-jin.com/")
+        }
+        pop()
+        append("）")
+    }
+
+    // DOVA全般リンク（任意で分けられる）
+    val dovaCredit = "BGM：『マリンバマーチ』 by shimtone（DOVA-SYNDROME）\n" +
+            "BGM：『かえるのピアノ』 by こおろぎ（DOVA-SYNDROME）\n" +
+            "BGM：『はじまりのマリンバ』 by OK-Sounds（DOVA-SYNDROME）\n" +
+            "効BGM：春の箱舟 / まんぼう二等兵（DOVA-SYNDROME）"
+
+    val fukiDesignCredit = buildAnnotatedString {
+        append("素材提供：ふきだしデザイン（")
+        pushStringAnnotation("URL", "https://fukidesign.com/")
+        withStyle(SpanStyle(color = Color.Cyan, textDecoration = TextDecoration.Underline)) {
+            append("https://fukidesign.com/")
+        }
+        pop()
+        append("）")
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -117,17 +191,45 @@ fun CreditModal(onClose: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(12.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("クレジット", style = MaterialTheme.typography.headlineMedium, fontFamily = YuseiMagic, color = Color.White)
-            Text("BGM：『マリンバマーチ』 by shimtone（DOVA-SYNDROME）\n" +
-                    "BGM：『かえるのピアノ』 by こおろぎ（DOVA-SYNDROME）\n" +
-                    "BGM：『はじまりのマリンバ』 by OK-Sounds（DOVA-SYNDROME）", fontFamily = YuseiMagic, color = Color.White)
-            Text("効果音: 効果音：On-Jin ～音人～（https://on-jin.com/）\n", fontFamily = YuseiMagic, color = Color.White)
-            Text("効BGM：春の箱舟 / まんぼう二等兵（DOVA-SYNDROME））\n", fontFamily = YuseiMagic, color = Color.White)
+            Text(
+                "クレジット",
+                style = MaterialTheme.typography.headlineMedium,
+                fontFamily = YuseiMagic,
+                color = Color.White
+            )
 
+            Text(dovaCredit, fontFamily = YuseiMagic, color = Color.White)
+
+            ClickableText(
+                text = onjinCredit,
+                style = TextStyle(fontFamily = YuseiMagic, color = Color.White),
+                onClick = { offset ->
+                    onjinCredit.getStringAnnotations("URL", offset, offset)
+                        .firstOrNull()?.let { uriHandler.openUri(it.item) }
+                }
+            )
+
+            ClickableText(
+                text = sharouCredit,
+                style = TextStyle(fontFamily = YuseiMagic, color = Color.White),
+                onClick = { offset ->
+                    sharouCredit.getStringAnnotations("URL", offset, offset)
+                        .firstOrNull()?.let { uriHandler.openUri(it.item) }
+                }
+            )
+            ClickableText(
+                text = fukiDesignCredit,
+                style = TextStyle(fontFamily = YuseiMagic, color = Color.White),
+                onClick = { offset ->
+                    fukiDesignCredit.getStringAnnotations("URL", offset, offset)
+                        .firstOrNull()?.let { uriHandler.openUri(it.item) }
+                }
+            )
             Spacer(Modifier.height(32.dp))
             Button(onClick = onClose) {
                 Text("閉じる", fontFamily = YuseiMagic)
             }
+
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -139,4 +241,3 @@ fun CreditModal(onClose: () -> Unit) {
         }
     }
 }
-

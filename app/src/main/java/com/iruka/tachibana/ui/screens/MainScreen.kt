@@ -4,6 +4,7 @@ package com.iruka.tachibana.ui.screens
 import android.content.Context
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 
 // ─── Kotlin 標準ライブラリ ──────────────
 import java.util.concurrent.TimeUnit
@@ -48,6 +49,7 @@ import androidx.navigation.NavController
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavBackStackEntry
 
 // ─── Coil (画像読み込み) ───────────────
 import coil.compose.AsyncImage
@@ -62,9 +64,10 @@ import com.iruka.tachibana.data.*
 import com.iruka.tachibana.ui.screens.AudioManager.isBgmEnabled
 import com.iruka.tachibana.ui.screens.AudioManager.isSoundEnabled
 import java.time.LocalDate
-
+import com.iruka.tachibana.ui.screens.SoftHorrorBackHandler
 // ─── フェッチ受け取り ─────────────────
 //import com.iruka.tachibana.ui.screens.fetchCalendarEvents
+import com.iruka.tachibana.util.getActivity
 
 
 import com.iruka.tachibana.ui.screens.EdgeSide
@@ -72,12 +75,79 @@ import com.iruka.tachibana.ui.screens.EdgeSide
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-    navController: NavController
+    navController: NavController,
+    fromEnding: Boolean = false
 ) {
     DoubleBackToExitHandler()
     // ─── Context & フォント ─────
     val context = LocalContext.current
+
+    val prefs = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
+
+    var startTimeInMillis = remember {
+        if (!prefs.contains("startTimeInMillis")) {
+            val now = System.currentTimeMillis()
+            prefs.edit().putLong("startTimeInMillis", now).apply()
+            now
+        } else {
+            prefs.getLong("startTimeInMillis", System.currentTimeMillis())
+        }
+    }
+
+
     val yuseiFont = FontFamily(Font(R.font.yuseimagicregular))
+
+
+
+    // 🔻 Box内の最後の方（Resetモーダルのちょい上とか）に追加
+    val showAfterTrueModal = remember { mutableStateOf(false) }
+
+    LaunchedEffect(fromEnding) {
+        if (fromEnding) {
+            showAfterTrueModal.value = true
+        }
+    }
+    if (showAfterTrueModal.value) {
+        AlertDialog(
+            onDismissRequest = { showAfterTrueModal.value = false },
+            confirmButton = {
+                TextButton(onClick = { showAfterTrueModal.value = false }) {
+                    Text("またね")
+                }
+            },
+            title = {
+                Text(
+                    "また戻ってきてくれたんだね",
+                    fontFamily = YuseiMagic,
+                    fontSize = 20.sp
+                )
+            },
+            text = {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Image(
+                        painter = painterResource(R.drawable.after_true6),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(400.dp)
+                    )
+                    Spacer(modifier = Modifier.height(12.dp))
+                    Text(
+                        text = "ここまでプレイしてくれて、本当にありがとう。\nでも、断ち花はまだ終わらないよ。\n──また会えるのを、楽しみにしてるね。",
+                        fontFamily = YuseiMagic,
+                        color = Color(0xFFFFD8D8),
+                        fontSize = 16.sp,
+                        lineHeight = 22.sp
+                    )
+                }
+            },
+            containerColor = Color(0xFF2C1E1E),
+            titleContentColor = Color.White,
+            textContentColor = Color.White
+        )
+    }
+
+
 
     // ─── googleカレンダーの予約取得─────
 
@@ -99,7 +169,7 @@ fun MainScreen(
  //   }
 
     // ─── 基本ステート（SharedPreferences & 時刻関連）─────
-    var startTimeInMillis by remember { mutableStateOf(0L) }
+   // var startTimeInMillis by remember { mutableStateOf(0L) }
     var unitText by remember { mutableStateOf("？") }
     var amountPerDay by remember { mutableStateOf(1000) }
     var caloriesPerDay by remember { mutableStateOf(200) }
@@ -108,7 +178,7 @@ fun MainScreen(
     // ─── SharedPreferences 読み込み ─────
     var prefsLoaded by remember { mutableStateOf(false) }
     LaunchedEffect(Unit) {
-        val prefs = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
+
         startTimeInMillis = prefs.getLong("startTimeInMillis", 0L)
         unitText = prefs.getString("unitText", "？") ?: "？"
         amountPerDay = prefs.getString("amount", "1000")?.toIntOrNull() ?: 1000
@@ -151,6 +221,10 @@ fun MainScreen(
     val remainingMinutesToGoal =
         (TimeUnit.MILLISECONDS.toMinutes(remainingMillisToGoal) % 60).toInt()
 
+
+
+
+
     // ─── コメント表示ステート ─────
     var animatedComment by remember { mutableStateOf("") }
 
@@ -164,11 +238,18 @@ fun MainScreen(
         if (prefsLoaded) {
             var lastLine: TachibanaLine? = null
             while (true) {
-                val allCandidates = getMindComments() +
-                        getBrainComments() +
-                        getHeartComments() +
-                        getLifeComments() +
+                val specialDayComments = buildList {
+                    if (elapsedDays >= 7) addAll(getDay7Comments())
+                    if (elapsedDays >= 14) addAll(getDay14Comments())
+                    if (elapsedDays >= 15) addAll(getDay15Comments())
+                    if (elapsedDays >= 21) addAll(getDay21Comments())
+                    if (elapsedDays >= 28) addAll(getDay28Comments())
+                }
+
+                val allCandidates = getMindComments() + getBrainComments() + getHeartComments() + getLifeComments() +
+                        specialDayComments +
                         tachibanaComments.map { TachibanaLine(it, CommentType.ExtraMind) }
+
 
                 val filtered = allCandidates.filter {
                     it != lastLine && it.type != lastLine?.type
@@ -183,20 +264,36 @@ fun MainScreen(
         }
     }
 
-    // ─── アニメーション表示エフェクト ─────
-    LaunchedEffect(currentLine) {
-        val target = currentLine?.text ?: ""
-        animatedComment = ""
-        for (i in target.indices) {
-            animatedComment = target.substring(0, i + 1)
-            delay(
-                when (target[i]) {
-                    '、', '，' -> 180L
-                    '。', '！', '？' -> 250L
-                    else -> 60L
-                }
-            )
+
+    LaunchedEffect(lineBuffer.value) {
+        val line = lineBuffer.value
+        if (line != null) {
+            // 1文字ずつアニメーション表示にしたい場合：
+            animatedComment = "" // 一旦空にする
+            for (char in line.text) {
+                animatedComment += char
+                delay(50) // 文字ごとのウェイト
+            }
+            // 全文一気に表示するだけなら↓これだけでOK
+            // animatedComment = line.text
         }
+    }
+
+
+
+ /////   一週間周期のイベント発生
+
+    val isInitialized = false
+    val startDestination = if (isInitialized) "main_check" else "preinitial"
+
+
+
+
+    fun getElapsedDays(context: Context): Int {
+        val prefs = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
+        val startTime = prefs.getLong("startTimeInMillis", System.currentTimeMillis())
+        val currentTime = System.currentTimeMillis()
+        return TimeUnit.MILLISECONDS.toDays(currentTime - startTime).toInt()
     }
 
     // ─── アニメーション: 無限遷移 ─────
@@ -244,12 +341,61 @@ fun MainScreen(
         activeModal = ModalType.None
     }
 
+    val activity = context.getActivity()
+
+    val isSoftHorrorEnabledState = remember { mutableStateOf(prefs.getBoolean("soft_horror_enabled", false)) }
+    val hasShownSoftHorror = remember { mutableStateOf(prefs.getBoolean("soft_horror_shown", false)) }
+
+    val isSoftHorrorCondition = isSoftHorrorEnabledState.value && elapsedDays in 21..29 && !hasShownSoftHorror.value
+
+// 🔹1. モーダル用BackHandler（最優先）
     BackHandler(enabled = activeModal != ModalType.None) {
         closeModal()
     }
 
+// 🔹2. SoftHorrorBackHandler（完全に任せる）
+    if (isSoftHorrorCondition) {
+        SoftHorrorBackHandler(navController = navController, enabled = true)
+    } else {
+        // 🔹3. 通常戻る処理（ソフトホラーOFF、モーダルなし）
+        var backPressCount by remember { mutableStateOf(0) }
+        BackHandler(enabled = activeModal == ModalType.None) {
+            backPressCount++
+            if (backPressCount == 1) {
+                Toast.makeText(activity, "もう一回タップすると戻れます", Toast.LENGTH_SHORT).show()
+            } else if (backPressCount >= 2) {
+                activity?.finish()
+            }
+        }
+
+        // 🔁 3秒以内にカウントリセット
+        LaunchedEffect(backPressCount) {
+            if (backPressCount > 0) {
+                delay(3000)
+                backPressCount = 0
+            }
+        }
+    }
+
+
+
+    // デバッグログ
+    LaunchedEffect(Unit) {
+        Log.d(
+            "SoftHorrorDebug",
+            "elapsedDays=$elapsedDays, enabled=${isSoftHorrorEnabledState.value}, shown=${hasShownSoftHorror.value}"
+        )
+    }
+
+
+
+
+
 
     Box(modifier = modifier.fillMaxSize()) {
+
+
+
         Image(
             painter = painterResource(id = R.drawable.background_all),
             contentDescription = null,
@@ -280,7 +426,7 @@ fun MainScreen(
         LaunchedEffect(Unit) {
             // ガロウマックス級確率（例：3〜5%くらい）
             val rareChance = (1..100).random()
-            if (rareChance <= 5) { // ← 5%の確率で桜演出発生
+            if (rareChance <= 30) { // ← 5%の確率で桜演出発生
                 showSakura.value = true
             }
         }
@@ -312,6 +458,12 @@ fun MainScreen(
                     .alpha(opacity.value)
             )
         }
+
+
+
+/////config内でスイッチ機能追加
+
+
 
 
         Box(
@@ -362,18 +514,27 @@ fun MainScreen(
         }
 
         // ─── 表情差分画像の切り替え（currentLine.typeに応じて）───
-        val tachibanaImageRes: Any = when (elapsedDays) {
-            21 -> R.drawable.tachibana_day21
-            28 -> R.drawable.tachibana_day28
-            else -> when (currentLine?.type) {
-                CommentType.Mind -> R.drawable.home_tachibana_neutral1
-                CommentType.Brain -> R.drawable.home_tachibana_blush
-                CommentType.Heart -> R.drawable.home_tachibana_sweat
-                CommentType.Life -> R.drawable.home_tachibana_wink
-                CommentType.ExtraMind -> R.drawable.home_tachibana_neutral1
-                else -> R.drawable.home_tachibana_neutral1
-            }
+
+        val lastLine = currentLine
+        val tachibanaImageRes: Any = when (currentLine?.type) {
+            // 特別イベント日
+            CommentType.Day7 -> R.drawable.day7
+            CommentType.Day14 -> R.drawable.initlal_tachibana_situp
+            CommentType.Day14Rare -> R.drawable.day14_rare
+            CommentType.Day21 -> R.drawable.day21
+            CommentType.Day28 -> R.drawable.day28
+
+            // 通常の表情分岐
+            CommentType.Mind -> R.drawable.home_tachibana_neutral1
+            CommentType.Brain -> R.drawable.home_tachibana_blush
+            CommentType.Heart -> R.drawable.home_tachibana_sweat
+            CommentType.Life -> R.drawable.home_tachibana_wink
+            CommentType.ExtraMind -> R.drawable.home_tachibana_neutral1
+
+            // 万が一nullや未設定の場合
+            else -> R.drawable.home_tachibana_neutral1
         }
+
 
         // ─── 呼吸＋上下に揺れる動き（Y方向オフセット + スケール）───
         val cosTime by infiniteTransition.animateFloat(
@@ -409,6 +570,8 @@ fun MainScreen(
         val isSoundEnabledState = remember {
             mutableStateOf(prefs.getBoolean("sound_enabled", true))
         }
+
+
         val edgeSideState = remember {
             mutableStateOf(
                 if (prefs.getString("edge_side", "right") == "right") EdgeSide.Right else EdgeSide.Left
@@ -451,6 +614,11 @@ fun MainScreen(
                     isSoundEnabledState.value = it
                     prefs.edit().putBoolean("sound_enabled", it).apply()
                     AudioManager.isSoundEnabled = it
+                },
+                isSoftHorrorEnabled = isSoftHorrorEnabledState.value, // ← 追加①
+                onSoftHorrorToggle = {                                 // ← 追加②
+                    isSoftHorrorEnabledState.value = it
+                    prefs.edit().putBoolean("soft_horror_enabled", it).apply()
                 },
                 onCreditOpen = { activeModal = ModalType.Credit }
             )
@@ -842,6 +1010,9 @@ fun MainScreen(
         }
 
 
+
+
+
 ///リセットモーダル！！！！！
         if (showResetModal) {
             ModalWrapper(onClose = { showResetModal = false }) {
@@ -889,6 +1060,7 @@ fun MainScreen(
                             }
                         }
                     }
+
                 }
             }
 
@@ -896,6 +1068,7 @@ fun MainScreen(
 
     }
 }
+
 
 
 @Composable
