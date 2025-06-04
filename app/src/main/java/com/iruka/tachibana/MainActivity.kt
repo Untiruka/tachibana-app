@@ -22,6 +22,7 @@ import com.iruka.tachibana.ui.screens.AudioManager
 import com.iruka.tachibana.ui.screens.Bad1Screen
 import com.iruka.tachibana.ui.screens.Bad2Screen
 import com.iruka.tachibana.ui.screens.Debug
+import com.iruka.tachibana.ui.screens.EventDay3Screen
 import com.iruka.tachibana.ui.screens.EventDay14Screen
 import com.iruka.tachibana.ui.screens.EventDay21Screen
 import com.iruka.tachibana.ui.screens.EventDay28Screen
@@ -36,6 +37,7 @@ import com.iruka.tachibana.ui.screens.TrueEndScreen
 import com.iruka.tachibana.ui.theme.TachibanaTheme
 import com.iruka.tachibana.ui.components.SecureScreenWrapper
 import com.iruka.tachibana.ui.screens.EndingRollScreen
+import com.iruka.tachibana.ui.screens.MainIntroScreen
 
 // 今は使わないが、Google連携のために保持（再有効化しやすく）
 /*
@@ -110,9 +112,10 @@ class MainActivity : ComponentActivity() {
                                 val consumed = prefs.getStringSet("consumedEvents", emptySet()) ?: emptySet()
                                 val start = prefs.getLong("startTimeInMillis", System.currentTimeMillis())
                                 val elapsed = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - start).toInt()
-                                val pending = listOf(7, 14, 21, 28, 30).filter { it <= elapsed && !consumed.contains(it.toString()) }
+                                val pending = listOf(3, 7, 14, 21, 28, 30).filter { it <= elapsed && !consumed.contains(it.toString()) }
 
                                 val route = when (pending.minOrNull()) {
+                                    3 -> "event_day3"
                                     7 -> "event_day7"
                                     14 -> "event_day14"
                                     21 -> "event_day21"
@@ -154,6 +157,14 @@ class MainActivity : ComponentActivity() {
                         composable("bad1") {
                             Bad1Screen(navController = navController)
                         }
+                        composable("main_intro") {
+                            MainScreen(navController = navController, forceZeroDisplay = true)
+                        }
+
+                        composable("event_day3") {
+                            EventDay3Screen(navController = navController)
+                        }
+
                         composable("event_day7") { EventDay7Screen(navController = navController) }
                         composable("event_day14") { EventDay14Screen(navController = navController) }
                         composable("event_day21") { EventDay21Screen(navController = navController) }

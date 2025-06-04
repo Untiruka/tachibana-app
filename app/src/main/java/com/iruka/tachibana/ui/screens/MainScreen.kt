@@ -76,7 +76,9 @@ import com.iruka.tachibana.ui.screens.EdgeSide
 fun MainScreen(
     modifier: Modifier = Modifier,
     navController: NavController,
-    fromEnding: Boolean = false
+    fromEnding: Boolean = false,
+    forceZeroDisplay: Boolean = false
+
 ) {
     DoubleBackToExitHandler()
     // ─── Context & フォント ─────
@@ -208,31 +210,37 @@ fun MainScreen(
     }
 
     // ─── 計算系（経過・目標・節約）─────
+
+
     val elapsedMillis = currentMillis - startTimeInMillis
-    val elapsedDays = TimeUnit.MILLISECONDS.toDays(elapsedMillis).toInt()
-    val elapsedHours = (TimeUnit.MILLISECONDS.toHours(elapsedMillis) % 24).toInt()
-    val elapsedMinutes = (TimeUnit.MILLISECONDS.toMinutes(elapsedMillis) % 60).toInt()
+
+    val elapsedDays = if (forceZeroDisplay) 0 else TimeUnit.MILLISECONDS.toDays(elapsedMillis).toInt()
+    val elapsedHours = if (forceZeroDisplay) 0 else (TimeUnit.MILLISECONDS.toHours(elapsedMillis) % 24).toInt()
+    val elapsedMinutes = if (forceZeroDisplay) 0 else (TimeUnit.MILLISECONDS.toMinutes(elapsedMillis) % 60).toInt()
 
     val millisPerWeek = 7 * 24 * 60 * 60 * 1000L
     val remainingMillis = millisPerWeek - (elapsedMillis % millisPerWeek)
-    val remainingDays = TimeUnit.MILLISECONDS.toDays(remainingMillis).toInt()
-    val remainingHours = (TimeUnit.MILLISECONDS.toHours(remainingMillis) % 24).toInt()
-    val remainingMinutes = (TimeUnit.MILLISECONDS.toMinutes(remainingMillis) % 60).toInt()
 
-    val savedAmount = elapsedDays * amountPerDay
-    val savedCalories = elapsedDays * caloriesPerDay
+    val remainingDays = if (forceZeroDisplay) 0 else TimeUnit.MILLISECONDS.toDays(remainingMillis).toInt()
+    val remainingHours = if (forceZeroDisplay) 0 else (TimeUnit.MILLISECONDS.toHours(remainingMillis) % 24).toInt()
+    val remainingMinutes = if (forceZeroDisplay) 0 else (TimeUnit.MILLISECONDS.toMinutes(remainingMillis) % 60).toInt()
 
+
+
+    val savedAmount = if (forceZeroDisplay) 0 else elapsedDays * amountPerDay
+    val savedCalories = if (forceZeroDisplay) 0 else elapsedDays * caloriesPerDay
 
     val goalDaysList = listOf(7, 14, 21, 30)
-    val nextGoalDays =
+    val nextGoalDays = if (forceZeroDisplay) 0 else {
         goalDaysList.firstOrNull { it > elapsedDays } ?: ((elapsedDays / 30 + 1) * 30)
-    val daysToNextGoal = nextGoalDays - elapsedDays
+    }
+    val daysToNextGoal = if (forceZeroDisplay) 0 else nextGoalDays - elapsedDays
 
     val nextGoalMillis = startTimeInMillis + TimeUnit.DAYS.toMillis(nextGoalDays.toLong())
     val remainingMillisToGoal = nextGoalMillis - currentMillis
-    val remainingHoursToGoal = (TimeUnit.MILLISECONDS.toHours(remainingMillisToGoal) % 24).toInt()
-    val remainingMinutesToGoal =
-        (TimeUnit.MILLISECONDS.toMinutes(remainingMillisToGoal) % 60).toInt()
+    val remainingHoursToGoal = if (forceZeroDisplay) 0 else (TimeUnit.MILLISECONDS.toHours(remainingMillisToGoal) % 24).toInt()
+    val remainingMinutesToGoal = if (forceZeroDisplay) 0 else (TimeUnit.MILLISECONDS.toMinutes(remainingMillisToGoal) % 60).toInt()
+
 
 
 
@@ -379,15 +387,25 @@ fun MainScreen(
     }
 
 // 🔹3. 通常戻る処理（ソフトホラーOFF、モーダルなし）
+    val backMessages = listOf(
+        "もう一回タップすると戻れます",
+        "本当に戻っちゃうの？",
+        "二度目で終了します",
+        "タップ連打はやめてね",
+        "たちばなに会いたくないの？"
+    )
+
     var backPressCount by remember { mutableStateOf(0) }
     BackHandler(enabled = !isSoftHorrorCondition && activeModal == ModalType.None) {
         backPressCount++
         if (backPressCount == 1) {
-            Toast.makeText(activity, "もう一回タップすると戻れます", Toast.LENGTH_SHORT).show()
+            val randomMessage = backMessages.random()
+            Toast.makeText(activity, randomMessage, Toast.LENGTH_SHORT).show()
         } else if (backPressCount >= 2) {
             activity?.finish()
         }
     }
+
 
 // 🔁 3秒以内にリセット（トースト用）
     LaunchedEffect(backPressCount) {
@@ -406,7 +424,26 @@ fun MainScreen(
         )
     }
 
+    //////////day3
 
+
+
+    LaunchedEffect(forceZeroDisplay) {
+        if (forceZeroDisplay) {
+            delay(10000)
+
+            val prefs = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
+            val consumed = prefs.getStringSet("consumedEvents", emptySet()) ?: emptySet()
+
+            prefs.edit()
+                .putStringSet("consumedEvents", consumed + "3")
+                .apply()
+
+            navController.navigate("event_day3") {
+                popUpTo("main_intro") { inclusive = true }
+            }
+        }
+    }
 
 
 

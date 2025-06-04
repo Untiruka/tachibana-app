@@ -9,7 +9,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import kotlinx.coroutines.delay
 import java.util.concurrent.TimeUnit
-
 @Composable
 fun MainCheckScreen(navController: NavController) {
     val context = LocalContext.current
@@ -20,16 +19,18 @@ fun MainCheckScreen(navController: NavController) {
         val isNarrativeMode = PlayModeManager.getCurrentMode(context) == PlayMode.NARRATIVE
         val start = prefs.getLong("startTimeInMillis", System.currentTimeMillis())
         val elapsed = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - start).toInt()
+        val skipImmediateTransition = prefs.getBoolean("skip_day3_transition", false)
 
         val allEvents = if (isNarrativeMode) {
-            listOf(7, 14, 21, 28, 30)
+            listOf(3, 7, 14, 21, 28, 30)
         } else {
-            listOf(7, 14) // ← ノーマルはこれだけ
+            listOf(3, 7, 14)
         }
 
         val pending = allEvents.filter { it <= elapsed && !consumed.contains(it.toString()) }
 
         val route = when (pending.minOrNull()) {
+            3 -> "main_intro" // ← day3だけ先にMainへ
             7 -> "event_day7"
             14 -> "event_day14"
             21 -> "event_day21"

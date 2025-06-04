@@ -74,7 +74,11 @@ fun EventDay30Screen(navController: NavController) {
             ) {
                 Button(
                     onClick = {
-                        prefs.edit().putBoolean("bad2_selected", true).apply()
+                        val consumed = prefs.getStringSet("consumedEvents", emptySet()) ?: emptySet()
+                        prefs.edit()
+                            .putBoolean("bad2_selected", true)
+                            .putStringSet("consumedEvents", consumed + "30")
+                            .apply()
                         navController.navigate("loading/bad2") { popUpTo("main") { inclusive = true } }
                     },
                     modifier = Modifier.fillMaxWidth(),
@@ -85,8 +89,13 @@ fun EventDay30Screen(navController: NavController) {
                 Spacer(modifier = Modifier.height(8.dp))
                 Button(
                     onClick = {
+                        val consumed = prefs.getStringSet("consumedEvents", emptySet()) ?: emptySet()
+                        prefs.edit()
+                            .putStringSet("consumedEvents", consumed + "30")
+                            .apply()
                         navController.navigate("loading/true_end") { popUpTo("main") { inclusive = true } }
                     },
+
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp)
                 ) {
