@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import com.iruka.tachibana.R
 import com.iruka.tachibana.ui.screens.YuseiMagic
+import androidx.compose.animation.Crossfade
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,14 +28,15 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.iruka.tachibana.ui.screens.YuseiMagic
+import androidx.compose.ui.res.stringResource
 
-
-
+import com.iruka.tachibana.ui.screens.AudioManager
 
 
 @Composable
@@ -43,167 +45,159 @@ fun EventDay21Screen(navController: NavController) {
     val prefs = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
     val editor = prefs.edit()
 
-    val sceneList = listOf(
-        R.drawable.day21_ to listOf(
-            "",
-            "たちばな「おかえり！今日もお疲れ様！あ、今日の夜ごはん、ちょっとがんばって作ってみた。 お風呂も自動で沸かしておいたから」",
-            "あなた「ありがとう」",
-            "彼女のエプロン姿は新鮮だ。",
-            "たちばな「今日は私が料理作ってあげるね！楽しみにしてて！」",
+    LaunchedEffect(Unit) {
+        AudioManager.playBgm(context, R.raw.day21_music)
+    }
 
-        ),
-        R.drawable.day21_1 to listOf(
-            "",
-            "あなた「…なにしてんの？」",
-            "たちばな「何って何？」",
-            "あなた「なんでまな板、床に直置きなの？しかも正座で」",
-            "たちばな「なんでって…日本人だからだよ…」",
-            "見たことないぞまな板を床に直置きするやつなんて！",
-            "あと日本関係ねーよ！"
-        ),
-        R.drawable.day21_2 to listOf(
-            "",
-            "あなた「…なにしてんの？」",
-            "たちばな「何って何？」",
-            "同じ時を繰り返してるのか？",
-            "あなた「なんで正座のまま卵を割ってるの？」",
-            "たちばな「なんでって…チャーハンを作るからよ…」",
-            "卵を割る理由は問うてないんだよ…",
-        ),
-        R.drawable.day21_3 to listOf(
-            "",
-            "あなた「…なにしてんの？」",
-            "たちばな「何って何？」",
-            "やっぱり同じ時を繰り返してる！！",
-            "あなた「…いやてゆーか危ないよ！正座のまま続けるきなん？！」",
-            "たちばな「まあまあ…そっちで黙ってみてなさい…」",
-        ),
-        R.drawable.day21_4 to listOf(
-            "",
-            "…すごい…正座のままノールックでフライ返しをしている…あと両手でフライパン持ってるやつも初めて見た…",
-            "たちばな「完成だよ！」"
-        ),
-        R.drawable.day21_5 to listOf(
-            "あなた「なんで3つもチャーハンがあるの？」",
-            "たちばな「なんでって？一つでもあれば幸せなのに、トリプルチャーハンなんて幸せ3倍じゃん」",
-            "あなた「あとなんで床に直おきなの？」",
-            "たちばな「それは日本人だからだよ、正座で食べなきゃ、日本人は」",
-            "あなた「君はれんげで食べるの？？」",
-            "たちばな「当り前じゃない。お箸だと食べづらいし。あなたは日本人じゃん。私もだけど。」",
-            "あなた「野菜は？」",
-            "たちばな「いらない。私には野菜の悲鳴が聞こえるの。主菜チャーハン、副菜チャーハン、スープもチャーハン」",
-            "あなた「北京ダックの悲鳴は？」",
-            "たちばな「美味しいんだから仕方ないじゃない…悲鳴ごと噛みしめるの」",
-        ),
-        R.drawable.day21_5_5 to listOf(
-            "",
-            "あなた「あとこれ何？」",
-            "たちばな「飲むチャーハンだよ。「ゼンブ入れ歯ん」ってコンビニで売ってた」",
-            "あなた「絶句なんだけど」",
-            "たちばな「ローマ字で「NOMU　CHAHAN」って書いてるの最高にバカだよね。誰に伝える用なん？っていう。綴り違うし」」",
-             "ほんとだ…これだとチャハンだ…",
-            "あなた「…トリプルチャーハン…食べきれるかな…飲み物もチャーハンだし…」",
-            "たちばな「安心して。味はそれぞれ違うの。しかも全部ちゃんと美味しいから」",
-            "あなた（本当だ…！どれこれも画期的にうまい！あとこの飲むチャーハンも最高にうまい！なんで！？）"
-        ),
-        R.drawable.day21_6 to listOf(
-            "",
-            "たちばな「おいしかった？」",
-            "あなた「うん信じられないくらい。なんで？すごくない？」",
-            "たちばな「まあチャーハンつくりって凝りだすと止まらないんだよね…次はアイスチャーハンにチャレンジしたいな。」",
-            "…実績って大事なんだな。彼女ならやり遂げられそうだ。狂気のアイスチャーハン…",
-            "あなた「ご馳走様。こんなにおいしいチャーハンは初めてだ。皿は僕が洗っておくよ」",
-            "たちばな「大丈夫だよ！わたしがやっておくから！」"
-        ),
-        R.drawable.day21_7 to listOf(
-            "たちばな「あ。そうそう！」",
-            "全部用意してあるからね！明日の準備も！靴も、明日ちゃんと歩きやすいように揃えてあるし、部屋の湿度も調整済み。",
-            "照明の色温度は今の副交感神経に合うようにしてるから。",
-            "で、たぶん今日の発汗量だと、後頭部からつま先の末節骨まで洗い終わるのに、平均でだいたい20分くらいだよね？",
-        ),
-        R.drawable.day21_8 to listOf(
-
-        "だから……あなたのお風呂は8時55分には終わってると思う。",
-
-    ),
-        R.drawable.day21_8_1 to listOf(
-
-            "それから、YouTubeでお気に入りのドラマ観るんだよね？",
-
-        ),
-        R.drawable.day21_8_2 to listOf(
-
-
-            "……でもあれ、あんまり観すぎるの、脳波的に良くないよ？",
-
-        ),
-        R.drawable.day21_8_3 to listOf(
-
-
-            "メラトニンが抑制されるし、特に他の女の人が映るよね？",
-
-        ),
-        R.drawable.day21_8_4 to listOf(
-
-
-            "他の女の人もメラトニンを抑制するんだよ？",
-        ),
-        R.drawable.day21_8 to listOf(
-
-
-            "エクスペンタブルズとか男臭い映画だけだからね見ていいのは！",
-            "あ！でもミーガンフォックスが出るところは飛ばして！きれいなおんなのひとだから！",
-            "明日も明後日も棺桶に入るその日まで私がずーーーーーーーーとおせわしていくから！それが一番いいから！",
-            "……ねえ、わたし、これからもずっと、そうやってお世話してていいよね？"
-        ),
+    val lines = listOf(
+        stringResource(R.string.day21_line_0),
+        stringResource(R.string.day21_line_1),
+        stringResource(R.string.day21_line_2),
+        stringResource(R.string.day21_line_3),
+        stringResource(R.string.day21_line_4),
+        stringResource(R.string.day21_line_5),
+        stringResource(R.string.day21_line_6),
+        stringResource(R.string.day21_line_7),
+        stringResource(R.string.day21_line_8),
+        stringResource(R.string.day21_line_9),
+        stringResource(R.string.day21_line_10),
+        stringResource(R.string.day21_line_11),
+        stringResource(R.string.day21_line_12),
+        stringResource(R.string.day21_line_13),
+        stringResource(R.string.day21_line_14),
+        stringResource(R.string.day21_line_15),
+        stringResource(R.string.day21_line_16),
+        stringResource(R.string.day21_line_17),
+        stringResource(R.string.day21_line_18),
+        stringResource(R.string.day21_line_19),
+        stringResource(R.string.day21_line_20),
+        stringResource(R.string.day21_line_21),
+        stringResource(R.string.day21_line_22),
+        stringResource(R.string.day21_line_23),
+        stringResource(R.string.day21_line_24),
+        stringResource(R.string.day21_line_25),
+        stringResource(R.string.day21_line_26),
+        stringResource(R.string.day21_line_27),
+        stringResource(R.string.day21_line_28),
+        stringResource(R.string.day21_line_29),
+        stringResource(R.string.day21_line_30),
+        stringResource(R.string.day21_line_31),
+        stringResource(R.string.day21_line_32),
+        stringResource(R.string.day21_line_33),
+        stringResource(R.string.day21_line_34),
+        stringResource(R.string.day21_line_35),
+        stringResource(R.string.day21_line_36),
+        stringResource(R.string.day21_line_37),
+        stringResource(R.string.day21_line_38),
+        stringResource(R.string.day21_line_39),
+        stringResource(R.string.day21_line_40),
+        stringResource(R.string.day21_line_41),
+        stringResource(R.string.day21_line_42),
+        stringResource(R.string.day21_line_43),
+        stringResource(R.string.day21_line_44),
+        stringResource(R.string.day21_line_45),
+        stringResource(R.string.day21_line_46),
+        stringResource(R.string.day21_line_47),
+        stringResource(R.string.day21_line_48),
+        stringResource(R.string.day21_line_49),
+        stringResource(R.string.day21_line_50),
+        stringResource(R.string.day21_line_51),
+        stringResource(R.string.day21_line_52),
+        stringResource(R.string.day21_line_53),
+        stringResource(R.string.day21_line_54),
+        stringResource(R.string.day21_line_55),
+        stringResource(R.string.day21_line_56),
+        stringResource(R.string.day21_line_57),
+        stringResource(R.string.day21_line_58),
+        stringResource(R.string.day21_line_59),
+        stringResource(R.string.day21_line_60),
+        stringResource(R.string.day21_line_61),
+        stringResource(R.string.day21_line_62),
+        stringResource(R.string.day21_line_63),
+        stringResource(R.string.day21_line_64)
     )
-    // BGM再生
-    val mediaPlayer = remember { mutableStateOf<MediaPlayer?>(null) }
 
-    var currentImageIndex by remember { mutableStateOf(0) }
-    var currentLineIndex by remember { mutableStateOf(0) }
-    var showFinalChoice by remember { mutableStateOf(false) }
+    val fadeTriggers = mapOf(
+        1 to R.drawable.day21_,
+        5 to R.drawable.day21_1,
+        13 to R.drawable.day21_2,
+        19 to R.drawable.day21_3,
+        25 to R.drawable.day21_4,
+        28 to R.drawable.day21_5,
+        38 to R.drawable.day21_5_5,
+        47 to R.drawable.day21_6,
+        54 to R.drawable.day21_7,
+        55 to R.drawable.day21_8,
+        56 to R.drawable.day21_8_1,
+        57 to R.drawable.day21_8_2,
+        58 to R.drawable.day21_8_3,
+        59 to R.drawable.day21_8_4,
+        60 to R.drawable.day21_8
+    )
 
-    val (currentImage, currentLines) = sceneList[currentImageIndex]
 
+    val index = remember { mutableStateOf(0) }
+    var currentImageResId by remember { mutableStateOf(R.drawable.day21_) }
+
+    val currentLine = lines.getOrNull(index.value)
+
+    LaunchedEffect(index.value) {
+        fadeTriggers[index.value]?.let {
+            currentImageResId = it
+        }
+    }
+
+
+    val stopLine = stringResource(R.string.day21_line_55)
+
+    LaunchedEffect(index.value) {
+        if (currentLine == stopLine) {
+            AudioManager.stopBgm()
+        }
+    }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            AudioManager.stopBgm()
+        }
+    }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFEEE8DD))
-            .clickable(enabled = !showFinalChoice) {
+            .clickable {
                 AudioManager.playSE(context, R.raw.cursor_move_se)
-                if (currentLineIndex < currentLines.lastIndex) {
-                    currentLineIndex++
-                } else if (currentImageIndex < sceneList.lastIndex) {
-                    currentImageIndex++
-                    currentLineIndex = 0
-                } else {
-                    showFinalChoice = true
+                if (index.value < lines.lastIndex) {
+                    index.value++
                 }
-            },
+},
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Image(
-                painter = painterResource(id = currentImage),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(300.dp)
-            )
+            key(currentImageResId) {
+                Image(
+                    painter = painterResource(id = currentImageResId),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(300.dp),
+                    contentScale = ContentScale.Fit
+                )
+            }
             Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = currentLines[currentLineIndex],
-                fontFamily = YuseiMagic,
-                style = MaterialTheme.typography.bodyLarge,
-                color = Color.Black,
-                fontSize = 20.sp,
-                modifier = Modifier.padding(horizontal = 16.dp)
-            )
+            currentLine?.let {
+                Text(
+                    text = it,
+                    fontFamily = YuseiMagic,
+                    fontSize = 20.sp,
+                    color = Color.Black,
+                    modifier = Modifier.padding(horizontal = 16.dp)
+                )
+            }
         }
 
-        if (showFinalChoice) {
+        if (index.value == lines.lastIndex) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -222,7 +216,7 @@ fun EventDay21Screen(navController: NavController) {
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text("そうだね、僕は嬉しいよ", fontFamily = YuseiMagic)
+                    Text(text = stringResource(R.string.day21_choice_0), fontFamily = YuseiMagic)
                 }
                 Spacer(modifier = Modifier.height(8.dp))
                 Button(
@@ -235,45 +229,16 @@ fun EventDay21Screen(navController: NavController) {
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text("無理しなくていいんだよ", fontFamily = YuseiMagic)
+                    Text(text = stringResource(R.string.day21_choice_1), fontFamily = YuseiMagic)
                 }
             }
         }
     }
 
-    // 任意で右上にスキップボタン
     Debug.SkipButton(day = "21", navController = navController, context = context)
-
-
-
-
-
-// ❶ 音楽を流す処理（画像が day21_7 に来たとき）
-    LaunchedEffect(Unit) {
-        AudioManager.playBgm(context, R.raw.day21_music)
-    }
-
-
-// ❷ 音楽を止める処理（セリフがあの一文のとき）
-    LaunchedEffect(currentImageIndex, currentLineIndex) {
-        val currentImage = sceneList[currentImageIndex].first
-        val currentText = sceneList[currentImageIndex].second.getOrNull(currentLineIndex)
-
-        if (currentImage == R.drawable.day21_8 && currentText == "だから……あなたのお風呂は8時55分には終わってると思う。") {
-            AudioManager.stopBgm()
-        }
-    }
-
-
-    DisposableEffect(Unit) {
-        onDispose {
-            AudioManager.stopBgm()
-        }
-    }
-
-
-
 }
+
+
 
 
 

@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.ui.res.stringResource
 import com.iruka.tachibana.R
 
 
@@ -43,14 +44,13 @@ fun PreInitialScreen(
 
     val showConfirmDialog = remember { mutableStateOf(false) }
     var selectedMode by remember { mutableStateOf<PlayMode?>(null) }
-
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "気をつけて選んでね",
+            text = stringResource(R.string.preInitial_title),
             fontFamily = yuseiFont,
             fontWeight = FontWeight.Bold,
             fontSize = 24.sp,
@@ -67,7 +67,7 @@ fun PreInitialScreen(
                 .width(200.dp)
                 .padding(vertical = 8.dp)
         ) {
-            Text("通常モード", fontFamily = yuseiFont)
+            Text(stringResource(R.string.preInitial_mode_normal), fontFamily = yuseiFont)
         }
 
         // ナラティブモードボタン
@@ -80,7 +80,7 @@ fun PreInitialScreen(
                 .width(200.dp)
                 .padding(vertical = 8.dp)
         ) {
-            Text("ナラティブモード", fontFamily = yuseiFont)
+            Text(stringResource(R.string.preInitial_mode_narrative), fontFamily = yuseiFont)
         }
 
         // 確認ダイアログ
@@ -89,7 +89,7 @@ fun PreInitialScreen(
                 onDismissRequest = { showConfirmDialog.value = false },
                 title = {
                     Text(
-                        text = "本当に進みますか？",
+                        text = stringResource(R.string.preInitial_dialog_title),
                         fontFamily = yuseiFont,
                         fontWeight = FontWeight.Bold
                     )
@@ -97,8 +97,8 @@ fun PreInitialScreen(
                 text = {
                     Text(
                         text = when (selectedMode) {
-                            PlayMode.NORMAL -> "うん。それが正しい選択だよ。"
-                            PlayMode.NARRATIVE -> "私はおすすめしない…けどあなたに覚悟があるのなら…"
+                            PlayMode.NORMAL -> stringResource(R.string.preInitial_dialog_text_normal)
+                            PlayMode.NARRATIVE -> stringResource(R.string.preInitial_dialog_text_narrative)
                             else -> ""
                         },
                         fontFamily = yuseiFont
@@ -111,14 +111,20 @@ fun PreInitialScreen(
                         PlayModeManager.setCurrentMode(context, selectedMode!!)
                         navController.navigate("loading/initial")
                     }) {
-                        Text("進む", fontFamily = yuseiFont)
+                        Text(
+                            stringResource(R.string.preInitial_button_proceed),
+                            fontFamily = yuseiFont
+                        )
                     }
                 },
                 dismissButton = {
                     TextButton(onClick = {
                         showConfirmDialog.value = false
                     }) {
-                        Text("戻る", fontFamily = yuseiFont)
+                        Text(
+                            stringResource(R.string.preInitial_button_cancel),
+                            fontFamily = yuseiFont
+                        )
                     }
                 }
             )

@@ -49,6 +49,7 @@ import androidx.compose.animation.core.*
 import androidx.navigation.NavController
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavBackStackEntry
 
@@ -127,12 +128,12 @@ fun MainScreen(
             onDismissRequest = { showAfterTrueModal.value = false },
             confirmButton = {
                 TextButton(onClick = { showAfterTrueModal.value = false }) {
-                    Text("またね")
+                    Text(stringResource(R.string.main_screen_goodbye))
                 }
             },
             title = {
                 Text(
-                    "また戻ってきてくれたんだね",
+                    stringResource(R.string.main_screen_after_true_title),
                     fontFamily = YuseiMagic,
                     fontSize = 20.sp
                 )
@@ -148,7 +149,7 @@ fun MainScreen(
                     )
                     Spacer(modifier = Modifier.height(12.dp))
                     Text(
-                        text = "ここまでプレイしてくれて、本当にありがとう。\nでも、断ち花はまだ終わらないよ。\n──また会えるのを、楽しみにしてるね。",
+                        text = stringResource(R.string.main_screen_after_true_text),
                         fontFamily = YuseiMagic,
                         color = Color(0xFFFFD8D8),
                         fontSize = 16.sp,
@@ -260,17 +261,19 @@ fun MainScreen(
             var lastLine: TachibanaLine? = null
             while (true) {
                 val specialDayComments = buildList {
-                    if (elapsedDays >= 7) addAll(getDay7Comments())
-                    if (elapsedDays >= 14) addAll(getDay14Comments())
-                    if (elapsedDays >= 15) addAll(getDay15Comments())
-                    if (elapsedDays >= 21) addAll(getDay21Comments())
-                    if (elapsedDays >= 28) addAll(getDay28Comments())
+                    if (elapsedDays >= 7) addAll(getDay7Comments(context))
+                    if (elapsedDays >= 14) addAll(getDay14Comments(context))
+                    if (elapsedDays >= 15) addAll(getDay15Comments(context))
+                    if (elapsedDays >= 21) addAll(getDay21Comments(context))
+                    if (elapsedDays >= 28) addAll(getDay28Comments(context))
                 }
 
-                val allCandidates = getMindComments() + getBrainComments() + getHeartComments() + getLifeComments() +
+                val allCandidates = getMindComments(context) +
+                        getBrainComments(context) +
+                        getHeartComments(context) +
+                        getLifeComments(context) +
                         specialDayComments +
-                        tachibanaComments.map { TachibanaLine(it, CommentType.ExtraMind) }
-
+                        getExtraMindComments(context)
 
                 val filtered = allCandidates.filter {
                     it != lastLine && it.type != lastLine?.type
@@ -388,12 +391,13 @@ fun MainScreen(
 
 // 🔹3. 通常戻る処理（ソフトホラーOFF、モーダルなし）
     val backMessages = listOf(
-        "もう一回タップすると戻れます",
-        "本当に戻っちゃうの？",
-        "二度目で終了します",
-        "タップ連打はやめてね",
-        "たちばなに会いたくないの？"
+        stringResource(R.string.main_screen_back_message_1),
+        stringResource(R.string.main_screen_back_message_2),
+        stringResource(R.string.main_screen_back_message_3),
+        stringResource(R.string.main_screen_back_message_4),
+        stringResource(R.string.main_screen_back_message_5)
     )
+
 
     var backPressCount by remember { mutableStateOf(0) }
     BackHandler(enabled = !isSoftHorrorCondition && activeModal == ModalType.None) {
@@ -736,12 +740,12 @@ fun MainScreen(
                     onDismissRequest = { activeModal = ModalType.None },
                     confirmButton = {
                         TextButton(onClick = { activeModal = ModalType.None }) {
-                            Text("戻れない")
+                            Text(stringResource(R.string.main_screen_soft_horror_confirm))
                         }
                     },
                     title = {
                         Text(
-                            "戻れません",
+                            stringResource(R.string.main_screen_soft_horror_title),
                             fontFamily = yuseiFont,
                             fontSize = 18.sp,
                             color = Color.Red
@@ -749,7 +753,7 @@ fun MainScreen(
                     },
                     text = {
                         Text(
-                            "戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません",
+                            stringResource(R.string.main_screen_soft_horror_text),
                             fontFamily = yuseiFont,
                             fontSize = 14.sp,
                             color = Color.White,
@@ -864,7 +868,7 @@ fun MainScreen(
                         .zIndex(105f)
                 )
                 Text(
-                    text = "リセットは長押しで反応するけど…そこはあまり押してほしくない…かな？",
+                    text = stringResource(R.string.main_screen_reset_warning),
                     fontSize = 11.sp,
                     color = Color(0xFF333333),
                     fontFamily = yuseiFont,
@@ -899,14 +903,25 @@ fun MainScreen(
             // 🏁 ユーザー目標タイトル
             Row {
                 Text(
-                    "あなたの",
+                    text = stringResource(R.string.main_screen_your),
                     fontSize = 12.sp,
                     color = Color(0xFF555555),
                     fontFamily = yuseiFont
                 )
-                Text("目標", fontSize = 14.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
-                Text("は…", fontSize = 12.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
+                Text(
+                    text = stringResource(R.string.main_screen_goal_label),
+                    fontSize = 14.sp,
+                    color = Color(0xFF555555),
+                    fontFamily = yuseiFont
+                )
+                Text(
+                    text = stringResource(R.string.main_screen_goal_suffix),
+                    fontSize = 12.sp,
+                    color = Color(0xFF555555),
+                    fontFamily = yuseiFont
+                )
             }
+
 
             Spacer(modifier = Modifier.height(6.dp))
 
@@ -938,42 +953,47 @@ fun MainScreen(
             Spacer(modifier = Modifier.height(10.dp))
 
             // 🔥 禁欲時間
-            Text("禁欲時間", fontSize = 16.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
+            Text(
+                text = stringResource(R.string.main_screen_abstinence_label),
+                fontSize = 16.sp,
+                color = Color(0xFF555555),
+                fontFamily = yuseiFont
+            )
             Row(verticalAlignment = Alignment.Bottom) {
                 Text(
-                    "$elapsedDays",
+                    text = "$elapsedDays",
                     fontSize = 24.sp,
                     color = Color(0xFFF29C9C),
                     fontFamily = yuseiFont
                 )
                 Text(
-                    "日",
+                    text = stringResource(R.string.main_screen_days),
                     fontSize = 14.sp,
                     color = Color(0xFFD99494),
                     fontFamily = yuseiFont,
                     modifier = Modifier.alpha(alpha)
                 )
                 Text(
-                    "$elapsedHours",
+                    text = "$elapsedHours",
                     fontSize = 24.sp,
                     color = Color(0xFFF29C9C),
                     fontFamily = yuseiFont
                 )
                 Text(
-                    "時間",
+                    text = stringResource(R.string.main_screen_hours),
                     fontSize = 14.sp,
                     color = Color(0xFFD99494),
                     fontFamily = yuseiFont,
                     modifier = Modifier.alpha(alpha)
                 )
                 Text(
-                    "$elapsedMinutes",
+                    text = "$elapsedMinutes",
                     fontSize = 24.sp,
                     color = Color(0xFFF29C9C),
                     fontFamily = yuseiFont
                 )
                 Text(
-                    "分",
+                    text = stringResource(R.string.main_screen_minutes),
                     fontSize = 14.sp,
                     color = Color(0xFFD99494),
                     fontFamily = yuseiFont,
@@ -981,10 +1001,17 @@ fun MainScreen(
                 )
             }
 
+
             Spacer(modifier = Modifier.height(30.dp))
 
             // 🎯 次の目標
-            Text("次の目標", fontSize = 16.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
+            Text(
+                text = stringResource(R.string.main_screen_next_goal_label),
+                fontSize = 16.sp,
+                color = Color(0xFF555555),
+                fontFamily = yuseiFont
+            )
+
             Row(verticalAlignment = Alignment.Bottom) {
                 Text(
                     "$daysToNextGoal",
@@ -993,7 +1020,7 @@ fun MainScreen(
                     fontFamily = yuseiFont
                 )
                 Text(
-                    "日",
+                    text = stringResource(R.string.main_screen_days),
                     fontSize = 14.sp,
                     color = Color(0xFFD99494),
                     fontFamily = yuseiFont,
@@ -1006,7 +1033,7 @@ fun MainScreen(
                     fontFamily = yuseiFont
                 )
                 Text(
-                    "時間",
+                    text = stringResource(R.string.main_screen_hours),
                     fontSize = 14.sp,
                     color = Color(0xFFD99494),
                     fontFamily = yuseiFont,
@@ -1019,7 +1046,7 @@ fun MainScreen(
                     fontFamily = yuseiFont
                 )
                 Text(
-                    "分",
+                    text = stringResource(R.string.main_screen_minutes),
                     fontSize = 14.sp,
                     color = Color(0xFFD99494),
                     fontFamily = yuseiFont,
@@ -1027,14 +1054,33 @@ fun MainScreen(
                 )
             }
 
-
             Spacer(modifier = Modifier.height(21.dp))
+
+
             Row {
-                Text("節約", fontSize = 16.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
-                Text("した", fontSize = 14.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
-                Text("お金", fontSize = 16.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
+                Text(
+                    text = stringResource(R.string.main_screen_saved_money_prefix),
+                    fontSize = 16.sp,
+                    color = Color(0xFF555555),
+                    fontFamily = yuseiFont
+                )
+                Text(
+                    text = stringResource(R.string.main_screen_saved_money_middle),
+                    fontSize = 14.sp,
+                    color = Color(0xFF555555),
+                    fontFamily = yuseiFont
+                )
+                Text(
+                    text = stringResource(R.string.main_screen_saved_money_suffix),
+                    fontSize = 16.sp,
+                    color = Color(0xFF555555),
+                    fontFamily = yuseiFont
+                )
             }
+
             Spacer(modifier = Modifier.height(8.dp))
+            // 節約したお金の表示
+
             Text(
                 "${savedAmount}円",
                 fontSize = 24.sp,
@@ -1043,16 +1089,13 @@ fun MainScreen(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Row {
-                Text("我慢", fontSize = 16.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
-                Text("できた", fontSize = 14.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
-                Text(
-                    "カロリー",
-                    fontSize = 16.sp,
-                    color = Color(0xFF555555),
-                    fontFamily = yuseiFont
-                )
+                Text(stringResource(R.string.main_screen_saved_cal_prefix), fontSize = 16.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
+                Text(stringResource(R.string.main_screen_saved_cal_middle), fontSize = 14.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
+                Text(stringResource(R.string.main_screen_saved_cal_suffix), fontSize = 16.sp, color = Color(0xFF555555), fontFamily = yuseiFont)
             }
             Spacer(modifier = Modifier.height(8.dp))
+
+// 節約カロリー表示
             Text(
                 "${savedCalories}Kcal",
                 fontSize = 24.sp,
@@ -1104,7 +1147,7 @@ fun MainScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    "リセット？",
+                    text = stringResource(R.string.reset_question),
                     fontFamily = yuseiFont,
                     color = Color.White
                 )
@@ -1150,7 +1193,7 @@ fun MainScreen(
                                 contentDescription = null,
                                 modifier = Modifier.size(150.dp)
                             )
-                            Text("本当にやめるの…？", fontFamily = yuseiFont)
+                            Text(stringResource(R.string.reset_modal_title), fontFamily = yuseiFont)
                             Spacer(modifier = Modifier.height(8.dp))
                             Button(onClick = {
                                 AudioManager.playSE(context, R.raw.cursor_move_se)
@@ -1163,14 +1206,15 @@ fun MainScreen(
                                     popUpTo("main") { inclusive = true }
                                 }
                             }) {
-                                Text("リセット", fontFamily = yuseiFont)
+                                Text(stringResource(R.string.reset_button), fontFamily = yuseiFont)
                             }
 
                             Spacer(modifier = Modifier.height(4.dp))
                             Button(onClick = {
                                 AudioManager.playSE(context, R.raw.cursor_move_se)
-                                showResetModal = false }) {
-                                Text("禁欲を続ける", fontFamily = yuseiFont)
+                                showResetModal = false
+                            }) {
+                                Text(stringResource(R.string.continue_button), fontFamily = yuseiFont)
                             }
                         }
                     }

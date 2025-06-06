@@ -13,7 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -27,102 +29,111 @@ fun EventDay3Screen(navController: NavController) {
     val prefs = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
     val editor = prefs.edit()
 
-    val sceneList = listOf(
-        R.drawable.white_background to listOf(
-            "あなた「え？！なんで？！リセットしたっけ？！」",
-            "たちばな「にっしっしっし…」"
-        ),
-        R.drawable.day3_2 to listOf(
-            "あなた「？！」",
-            "たちばな「私がやりました！」",
-            "あなた「えー！たちばなじゃん！なんでそんなことすんの？！ひどくない？！」"
-        ),
-        R.drawable.day3_1 to listOf(
-            "たちばな「酷くないよ！」",
-            "あなた「酷いかどうかは俺が決めるんだよ！」",
-            "たちばな「いいや私が決める！酷いのはあなただ！」",
-            "あなた「やめろジャイアニズム！寄り添え！俺達に！」"
-        ),
-        R.drawable.day3_0 to listOf(
-            "たちばな「そんなことより！なんでこんなことしたかわかる？」",
-            "あなた「え…なんだろう…人が積み上げてきた努力の積み重ねを崩した時の、その人の悲しそうな顔を思い出しながら食う飯がこの世で一番うまいからとか？」",
-            "たちばな「どうすんのよそれでわたしが、そうだと言ったら…」",
-            "あなた「皆目検討つかん！なんでこんなひどいことするんだ！」",
-            "たちばな「少しおしゃべりしてほしかったからなの！だからあんなことしたの！ごめんね…？」",
-            "あなた「ああ…なるほど…」",
-
-        ),
-        R.drawable.day3_3 to listOf(
-
-            "たちばな「だってあなたここに来てから私達と一言も会話してないじゃない。」",
-            "あなた「…確かに」",
-            "たちばな「人見知りなの？でもどっちかって言うとそんなふうには見えないよね」",
-            "あなた「まあそうだな…産まれてこのかた人見知りなんてしたこともない。そのせいかうちの弟は人見知りだ極度の」",
-            "たちばな「そうなんだ…極端な遺伝子設計だね…」",
-        ),
-
-        R.drawable.day3_4 to listOf(
-            "たちばな「まあでも元気そうで良かった！またね！今度は4日後とかかな？」",
-            "あなた「そうなのか？」",
-            "たちばな「そうだよ。あとリセットは一回押した？」",
-            "あなた「知らない。なんで？」"
-        )
+    val lines = listOf(
+        stringResource(R.string.day3_line_0),
+        stringResource(R.string.day3_line_1),
+        stringResource(R.string.day3_line_2),
+        stringResource(R.string.day3_line_3),
+        stringResource(R.string.day3_line_4),
+        stringResource(R.string.day3_line_5),
+        stringResource(R.string.day3_line_6),
+        stringResource(R.string.day3_line_7),
+        stringResource(R.string.day3_line_8),
+        stringResource(R.string.day3_line_9),
+        stringResource(R.string.day3_line_10),
+        stringResource(R.string.day3_line_11),
+        stringResource(R.string.day3_line_12),
+        stringResource(R.string.day3_line_13),
+        stringResource(R.string.day3_line_14),
+        stringResource(R.string.day3_line_15),
+        stringResource(R.string.day3_line_16),
+        stringResource(R.string.day3_line_17),
+        stringResource(R.string.day3_line_18),
+        stringResource(R.string.day3_line_19),
+        stringResource(R.string.day3_line_20),
+        stringResource(R.string.day3_line_21),
+        stringResource(R.string.day3_line_22),
+        stringResource(R.string.day3_line_23),
+        stringResource(R.string.day3_line_24),
+        stringResource(R.string.day3_line_25),
+        stringResource(R.string.day3_line_26),
+        stringResource(R.string.day3_line_27),
+        stringResource(R.string.day3_line_28),
+        stringResource(R.string.day3_line_29),
+        stringResource(R.string.day3_line_30),
+        stringResource(R.string.day3_line_31),
+        stringResource(R.string.day3_line_32),
+        stringResource(R.string.day3_line_33),
+        stringResource(R.string.day3_line_34),
+        stringResource(R.string.day3_line_35),
+        stringResource(R.string.day3_line_36)
     )
 
-    val finalScene = listOf(
-        R.drawable.day3_4 to listOf(
-            "たちばな「…まあ、一回くらい押して見たほうが良いよ！じゃ、またね！」"
-        )
+
+    val fadeTriggers = mapOf(
+        stringResource(R.string.day3_line_0) to R.drawable.white_background,
+        stringResource(R.string.day3_line_2) to R.drawable.day3_2,
+        stringResource(R.string.day3_line_5) to R.drawable.day3_1,
+        stringResource(R.string.day3_line_9) to R.drawable.day3_0,
+        stringResource(R.string.day3_line_15) to R.drawable.day3_3,
+        stringResource(R.string.day3_line_20) to R.drawable.day3_1,
+        stringResource(R.string.day3_line_24) to R.drawable.day3_0,
+                stringResource(R.string.day3_line_32) to R.drawable.day3_4
     )
 
-    var currentImageIndex by remember { mutableStateOf(0) }
-    var currentLineIndex by remember { mutableStateOf(0) }
-    var showFinalScene by remember { mutableStateOf(false) }
-    val currentScenes = if (showFinalScene) finalScene else sceneList
-    val (currentImage, currentLines) = currentScenes[currentImageIndex]
+    val index = remember { mutableIntStateOf(0) }
+    val currentLine = lines.getOrNull(index.value)
 
-    val isFinalSceneEnd = showFinalScene &&
-            currentImageIndex == finalScene.lastIndex &&
-            currentLineIndex == finalScene.last().second.lastIndex
+    var currentImageResId by remember { mutableStateOf<Int?>(null) }
 
-    val isAtLastScene = isFinalSceneEnd
-
-    Box(
-        modifier = Modifier
-            .background(Color(0xFFF3F3F3))
-
-            .fillMaxSize()
-            .clickable {
-                if (currentLineIndex < currentLines.size - 1) {
-                    currentLineIndex++
-                } else if (currentImageIndex < currentScenes.size - 1) {
-                    currentImageIndex++
-                    currentLineIndex = 0
-                } else if (!showFinalScene) {
-                    showFinalScene = true
-                    currentImageIndex = 0
-                    currentLineIndex = 0
-                }
-            },
-    contentAlignment = Alignment.Center
-    ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Image(
-                painter = painterResource(id = currentImage),
-                contentDescription = null,
-                modifier = Modifier.fillMaxWidth().height(300.dp)
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = currentLines[currentLineIndex],
-                style = MaterialTheme.typography.bodyLarge,
-                color = Color.Black,
-                modifier = Modifier.padding(horizontal = 16.dp)
-            )
+    // 画像切替ロジック
+    LaunchedEffect(currentLine) {
+        if (currentLine in fadeTriggers) {
+            currentImageResId = fadeTriggers[currentLine]
         }
     }
 
-    if (isAtLastScene) {
+    val isAtLast = index.value == lines.lastIndex
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFF3F3F3))
+            .clickable {
+                if (index.value < lines.lastIndex) {
+                    index.value++
+                }
+            },
+        contentAlignment = Alignment.Center
+    ) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            currentImageResId?.let {
+                Image(
+                    painter = painterResource(id = it),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(300.dp)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            currentLine?.let {
+                Text(
+                    text = it,
+                    color = Color.Black,
+                    fontSize = 20.sp,
+                    fontFamily = YuseiMagic,
+                    modifier = Modifier.padding(horizontal = 16.dp)
+                )
+            }
+        }
+
+        Debug.SkipButton(day = "3", navController = navController, context = context)
+    }
+
+    if (isAtLast) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -139,6 +150,7 @@ fun EventDay3Screen(navController: NavController) {
                 text = "（タップして戻る）",
                 style = MaterialTheme.typography.bodyMedium,
                 color = Color.Gray,
+                fontFamily = YuseiMagic,
                 modifier = Modifier.padding(32.dp)
             )
         }

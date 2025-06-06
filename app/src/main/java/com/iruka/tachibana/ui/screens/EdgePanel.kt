@@ -21,10 +21,14 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.iruka.tachibana.R
+
+import androidx.compose.material3.Text
+import androidx.compose.ui.res.stringResource
 
 enum class EdgeSide { Left, Right }
 
@@ -40,7 +44,6 @@ fun EdgePanelWithHandle(
     var isOpen by remember { mutableStateOf(false) }
     val animatedWidth by animateDpAsState(if (isOpen) panelWidth else handleWidth)
     val alignment = if (side == EdgeSide.Right) Alignment.CenterEnd else Alignment.CenterStart
-
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -59,7 +62,9 @@ fun EdgePanelWithHandle(
                 modifier = Modifier
                     .fillMaxSize()
                     .then(
-                        if (side == EdgeSide.Left) Modifier.graphicsLayer { scaleX = -1f } else Modifier
+                        if (side == EdgeSide.Left) Modifier.graphicsLayer {
+                            scaleX = -1f
+                        } else Modifier
                     )
             )
 
@@ -77,9 +82,18 @@ fun EdgePanelWithHandle(
                             } else Modifier
                         ),
                     verticalArrangement = Arrangement.Top,
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    content = content
-                )
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    // ✅ 未実装プレースホルダー表示（あとで削除してOK）
+                    Text(
+                        text = stringResource(R.string.edge_panel_unimplemented),
+                        color = Color.White,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+
+                    // ✅ 呼び出し元の content() を表示
+                    content()
+                }
             } else {
                 Box(
                     modifier = Modifier

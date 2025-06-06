@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,19 +38,20 @@ fun SoftHorrorBackHandler(
     var backPressCount by remember { mutableStateOf(0) }
 
     val toastMessages = listOf(
-        "もう一回タップすると戻れます",
-        "嘘です",
-        "ねえ",
-        "なんで戻ろうとするの？",
-        "ここにずっといればいいじゃない。",
-        "戻っても良いことなんて何もないじゃない",
-        "もう一回タップすると戻れます",
-        "戻れます",
-        "戻れません",
-        "（この回はモーダルで表示）",
-        "戻れませんっていってるでしょ",
-        "……やっぱり、帰っちゃうんだね。"
+        stringResource(R.string.BackToast_line_0),
+        stringResource(R.string.BackToast_line_1),
+        stringResource(R.string.BackToast_line_2),
+        stringResource(R.string.BackToast_line_3),
+        stringResource(R.string.BackToast_line_4),
+        stringResource(R.string.BackToast_line_5),
+        stringResource(R.string.BackToast_line_6),
+        stringResource(R.string.BackToast_line_7),
+        stringResource(R.string.BackToast_line_8),
+        stringResource(R.string.BackToast_line_9),
+        stringResource(R.string.BackToast_line_10),
+        stringResource(R.string.BackToast_line_11)
     )
+
 
     BackHandler(enabled = true) {
         if (backPressCount == 9) {

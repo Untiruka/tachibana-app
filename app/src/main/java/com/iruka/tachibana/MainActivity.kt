@@ -62,10 +62,10 @@ class MainActivity : ComponentActivity() {
         val sharedPref = getSharedPreferences("tachibana_prefs", MODE_PRIVATE)
         AudioManager.isBgmEnabled = sharedPref.getBoolean("bgm_enabled", true)
         AudioManager.isSoundEnabled = sharedPref.getBoolean("sound_enabled", true)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_SECURE,
-            WindowManager.LayoutParams.FLAG_SECURE
-        )
+      //  window.setFlags(
+      //      WindowManager.LayoutParams.FLAG_SECURE,
+    //        WindowManager.LayoutParams.FLAG_SECURE
+   //     )
         // --- Google連携（現在は封印中） ---
         /*
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.iruka.tachibana.R
@@ -32,27 +33,27 @@ fun EventDay28Screen(navController: NavController) {
 
     val sceneList = listOf(
         R.drawable.day28_0 to listOf(
-            "……机の上が散乱している…。"
+            stringResource(R.string.day28_line_0)
         ),
         R.drawable.day28_0 to listOf(
-            "…机には、タバコ。アルコール。そして……これは、ギャンブルの雑誌か？"
+            stringResource(R.string.day28_line_1)
         ),
         R.drawable.day28_1 to listOf(
-            "…彼女が意図するところがわからない。これらは彼女の趣味ではないはず。"
+            stringResource(R.string.day28_line_2)
         ),
         R.drawable.day28_2 to listOf(
-            "「これは私が準備したの」",
-
+            stringResource(R.string.day28_line_3)
         ),
         R.drawable.day28_3 to listOf(
-            "私ね、貴方に依存症を克服してほしくない。そうなってしまったら貴方は私から離れるんでしょ？ 別にやめなくたっていいじゃない。",
-            "生ぬるい地獄で二人でぬくぬくと生きていけばいいじゃない。",
-            "天国は退屈で、地獄はきっと笑いに満ち溢れている。でも地獄で楽しく生きるには必要なのよ。蜘蛛の糸が。一縷の望みが。",
-            "だから必要なのよ依存先が。なんなら私に依存すればいい。それでいいでしょ？",
-             "酒でもたばこでもギャンブルでもなんでもやってしまえばいいじゃない。",
-            "それができないなら私に依存すればいい。そうよそれが一番よ。それでいいでしょ？"
+            stringResource(R.string.day28_line_4),
+            stringResource(R.string.day28_line_5),
+            stringResource(R.string.day28_line_6),
+            stringResource(R.string.day28_line_7),
+            stringResource(R.string.day28_line_8),
+            stringResource(R.string.day28_line_9)
         )
     )
+
 
     val (currentImage, currentLines) = sceneList[currentImageIndex]
     val mediaPlayer = remember { mutableStateOf<MediaPlayer?>(null) }
@@ -115,9 +116,8 @@ fun EventDay28Screen(navController: NavController) {
                 Button(
                     onClick = {
                         prefs.edit().putBoolean("bad2_selected", true).apply()
-                        val consumed =
-                            prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet()
-                                ?: mutableSetOf()
+                        val consumed = prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet()
+                            ?: mutableSetOf()
                         consumed.add("28")
                         prefs.edit().putStringSet("consumedEvents", consumed).apply()
                         navController.navigate("main") { popUpTo("main") { inclusive = true } }
@@ -125,14 +125,15 @@ fun EventDay28Screen(navController: NavController) {
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text("はい", fontFamily = YuseiMagic)
+                    Text(stringResource(R.string.common_yes), fontFamily = YuseiMagic)
                 }
+
                 Spacer(modifier = Modifier.height(8.dp))
+
                 Button(
                     onClick = {
-                        val consumed =
-                            prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet()
-                                ?: mutableSetOf()
+                        val consumed = prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet()
+                            ?: mutableSetOf()
                         consumed.add("28")
                         prefs.edit().putStringSet("consumedEvents", consumed).apply()
                         navController.navigate("main") { popUpTo("main") { inclusive = true } }
@@ -140,8 +141,9 @@ fun EventDay28Screen(navController: NavController) {
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text("いいえ", fontFamily = YuseiMagic)
+                    Text(stringResource(R.string.common_no), fontFamily = YuseiMagic)
                 }
+
             }
         }
     }

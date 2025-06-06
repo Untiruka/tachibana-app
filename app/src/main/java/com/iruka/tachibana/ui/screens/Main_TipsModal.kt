@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -47,16 +48,16 @@ fun TipsModal(
         ) {
             TipBox(
                 imageRes = R.drawable.fukidasshihomeandcalendar,
-                text = "招待するね！\n我が家に！",
+                text = stringResource(R.string.tips_invite),
                 flip = true
             )
             TipBox(
                 imageRes = R.drawable.fukidasshihomeandcalendar,
-                text = "進捗を見て\n見よう"
+                text = stringResource(R.string.tips_progress)
             )
             TipBox(
                 imageRes = R.drawable.fukidashimenu,
-                text = "これが\nメニュー",
+                text = stringResource(R.string.tips_menu),
                 offsetX = (-20).dp,
                 offsetY = (-70).dp,
                 size = Pair(82.dp, 119.dp)
@@ -83,14 +84,14 @@ fun TipsModal(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    "設定",
+                    text = stringResource(R.string.tips_settings_title),
                     fontSize = 16.sp,
                     color = Color.Black,
                     fontFamily = YuseiMagic,
                     textAlign = TextAlign.Center
                 )
                 Text(
-                    "ふがふが",
+                    text = stringResource(R.string.tips_settings_sub),
                     fontSize = 8.sp,
                     color = Color.Black,
                     fontFamily = YuseiMagic,
@@ -100,7 +101,6 @@ fun TipsModal(
         }
     }
 }
-
 
 
 @Composable

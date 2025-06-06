@@ -45,6 +45,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -156,7 +157,7 @@ fun InitialScreen(
                         verticalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            "ようこそ！\nわたしが断ち花！",
+                            text = stringResource(R.string.initial_line_0),
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center,
                             fontFamily = yuseiFont,
@@ -164,23 +165,30 @@ fun InitialScreen(
                             fontWeight = FontWeight.Bold,
                             color = Color.Black
                         )
+
                         Spacer(modifier = Modifier.height(12.dp))
+
                         Text(
-                            "一緒にがんばろうね！",
+                            text = stringResource(R.string.initial_line_1),
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center,
                             fontFamily = yuseiFont,
                             fontSize = 14.sp,
                             color = Color.Gray
                         )
+
                         Spacer(modifier = Modifier.height(16.dp))
 
                         Button(onClick = {
                             AudioManager.playSE(context, R.raw.cursor_move_se)
                             showWelcome.value = false
                         }) {
-                            Text("はじめる", fontFamily = yuseiFont)
+                            Text(
+                                text = stringResource(R.string.initial_button_start),
+                                fontFamily = yuseiFont
+                            )
                         }
+
                     }
                 }
             }
@@ -215,26 +223,29 @@ fun InitialScreen(
 
             ) {
                 Text(
-                    "あなたの目標は…",
+                    text = stringResource(R.string.goal_title_0),
                     fontSize = 24.sp,
                     fontFamily = yuseiFont,
                     color = Color.Black
                 )
                 Spacer(modifier = Modifier.height(45.dp))
+
                 Text(
-                    "一日で抑えられるカロリー/節約できる金額は？",
+                    text = stringResource(R.string.goal_title_1),
                     fontSize = 24.sp,
                     fontFamily = yuseiFont,
                     color = Color.Black
                 )
                 Spacer(modifier = Modifier.height(45.dp))
+
                 Text(
-                    "あなたがやめると決心したのは",
+                    text = stringResource(R.string.goal_title_2),
                     fontSize = 24.sp,
                     fontFamily = yuseiFont,
                     color = Color.Black
                 )
                 Spacer(modifier = Modifier.height(45.dp))
+
             }
 
             // Bエリア（入力欄）
@@ -250,6 +261,7 @@ fun InitialScreen(
             ) {
                 // 1行目：何？（自由入力）
 
+                // 1行目：何？（自由入力）
                 TextField(
                     value = selectedUnit,
                     onValueChange = {
@@ -261,10 +273,10 @@ fun InitialScreen(
                             }
                         }
                     },
-                    placeholder = { Text("何？") },
+                    placeholder = { Text(stringResource(R.string.input_placeholder_what)) }, // ← ここ変更
                     modifier = Modifier
                         .width(160.dp)
-                        .then(animatedBorderModifier(isUnitDone, Color(0xFFDFF4F1)))// ← ここ
+                        .then(animatedBorderModifier(isUnitDone, Color(0xFFDFF4F1)))
                         .focusRequester(focusRequester)
                         .bringIntoViewRequester(bringIntoViewRequester)
                         .clickable { focusRequester.requestFocus() },
@@ -288,11 +300,9 @@ fun InitialScreen(
                     )
                 )
 
-
-
                 Spacer(modifier = Modifier.height(15.dp))
 
-                // 2行目：カロリー入力
+// 2行目：カロリー入力
                 val isCalorieDone = remember { mutableStateOf(false) }
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -312,10 +322,10 @@ fun InitialScreen(
                                 isCalorieDone.value = true
                             }
                         ),
-                        placeholder = { Text("カロリー数") },
+                        placeholder = { Text(stringResource(R.string.input_placeholder_calorie)) }, // ← ここ変更
                         modifier = Modifier
                             .width(120.dp)
-                            .then(animatedBorderModifier(isCalorieDone, Color(0xFF66BB6A))), // ← ここ
+                            .then(animatedBorderModifier(isCalorieDone, Color(0xFF66BB6A))),
                         textStyle = TextStyle(
                             fontSize = 14.sp,
                             color = Color.Black,
@@ -327,15 +337,16 @@ fun InitialScreen(
                         ),
                         singleLine = true
                     )
+
                     Spacer(modifier = Modifier.width(4.dp))
+
                     Text(
-                        "kcal",
+                        text = stringResource(R.string.input_unit_kcal), // ← 単位もリソース化
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.Black
                     )
                 }
-
 
                 Spacer(modifier = Modifier.height(15.dp))
 
@@ -359,7 +370,7 @@ fun InitialScreen(
                                 isAmountDone.value = true
                             }
                         ),
-                        placeholder = { Text("金額") },
+                        placeholder = { Text(stringResource(R.string.input_placeholder_amount)) }, // ← 差し替え
                         modifier = Modifier
                             .width(120.dp)
                             .then(animatedBorderModifier(isAmountDone, Color(0xFFBBBB61))), // ← ここ
@@ -375,7 +386,12 @@ fun InitialScreen(
                         singleLine = true
                     )
                     Spacer(modifier = Modifier.width(4.dp))
-                    Text("円", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Color.Black)
+                    Text(
+                        stringResource(R.string.input_unit_yen), // ← 差し替え
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.Black
+                    )
                 }
 
                 // 4行目：やめようと決心した日（DatePickerに戻す）
@@ -401,7 +417,7 @@ fun InitialScreen(
                                             if (pickedDateTime.timeInMillis > System.currentTimeMillis()) {
                                                 Toast.makeText(
                                                     context,
-                                                    "未来の時間は選べません",
+                                                    context.getString(R.string.toast_invalid_future), // ← 差し替え
                                                     Toast.LENGTH_SHORT
                                                 ).show()
                                                 return
@@ -446,7 +462,9 @@ fun InitialScreen(
                         contentScale = ContentScale.FillBounds
                     )
                     Text(
-                        text = if (selectedDateTime.isEmpty()) "いつ？" else selectedDateTime,
+                        text = if (selectedDateTime.isEmpty())
+                            stringResource(R.string.input_placeholder_when) // ← 差し替え
+                        else selectedDateTime,
                         modifier = Modifier.padding(start = 12.dp),
                         color = if (selectedDateTime.isEmpty()) Color.Gray else Color.Black
                     )
@@ -463,13 +481,13 @@ fun InitialScreen(
         }
 
 
-        val comments = listOf(
-            "私は腹筋を一回できるようになるのが目標！！",
-            "カロリーと金額は空欄でもいいよ！",
-            "時間は今より過去を指定してね！",
-            "目標には文字数制限があるよ！",
-            "必須項目を打ち終わると物語が始まるよ。あなたと私の！"
-        )
+    val comments = listOf(
+        stringResource(R.string.comment_0),
+        stringResource(R.string.comment_1),
+        stringResource(R.string.comment_2),
+        stringResource(R.string.comment_3),
+        stringResource(R.string.comment_4)
+    )
         val currentComment = remember { mutableStateOf(comments.random()) }
         LaunchedEffect(Unit) {
             while (true) {
@@ -585,7 +603,10 @@ fun InitialScreen(
                         .align(Alignment.BottomStart)
                         .absoluteOffset(x = 250.dp, y = (-300).dp)
                 ) {
-                    Text("はじめる", fontFamily = yuseiFont)
+                    Text(
+                        text = stringResource(R.string.initial_button_start),
+                        fontFamily = yuseiFont
+                    )
                 }
 
 

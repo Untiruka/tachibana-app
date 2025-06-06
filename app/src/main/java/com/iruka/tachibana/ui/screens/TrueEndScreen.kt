@@ -33,6 +33,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.stringResource
 
 
 @Composable
@@ -54,73 +55,74 @@ fun TrueEndScreen(navController: NavController) {
     }
 
     val sceneList = listOf(
-        Triple(R.drawable.bad2_1, listOf("たちばな『話があるの。』"), true),
+        Triple(R.drawable.bad2_1, listOf(stringResource(R.string.TrueEnd_line_0)), true),
 
         Triple(R.drawable.bad2_2, listOf(
-            "たちばな『30日間お疲れ様。貴方はいろんな誘惑に打ち勝ってきたんだね。",
-            "最初の方なんてわたし、仙人様がいらっしゃるのかと思った…すっごい顔が疲れてたもんね！』"
+            stringResource(R.string.TrueEnd_line_1),
+            stringResource(R.string.TrueEnd_line_2)
         ), true),
 
         Triple(R.drawable.bad2_3, listOf(
-            "たちばな『14日目に山椒魚の話もしたね。意外に山椒魚は可愛いんだよ。って。",
-            "あと私の和装、似合ってたでしょ？』",
-            "たちばな『21日目くらいから私は不安になってきた。貴方が依存症を克服したら…私から離れるんじゃないかって。",
-            "だから秘技トリプルチャーハンで貴方の胃袋を掴もうとした。結果貴方は大絶賛。握りつぶしたようなもんだよね。貴方の胃袋』"
+            stringResource(R.string.TrueEnd_line_3),
+            stringResource(R.string.TrueEnd_line_4),
+            stringResource(R.string.TrueEnd_line_5),
+            stringResource(R.string.TrueEnd_line_6)
         ), true),
 
         Triple(R.drawable.bad2_4, listOf(
-            "28日目私はどうにか自分の気持を抑えようとした…でもだめだった。",
-            "貴方がいなくなるくらいなら…一生依存症に苦しんで、私と一緒に窟の中で暮らしてほしかった。",
-            "蛙を閉じ込めた山椒魚みたいに…だからあんな真似を…",
-            "でもあなたは依存症を克服した…すべてを乗り越えた…",
-            "あ…"
+            stringResource(R.string.TrueEnd_line_7),
+            stringResource(R.string.TrueEnd_line_8),
+            stringResource(R.string.TrueEnd_line_9),
+            stringResource(R.string.TrueEnd_line_10),
+            stringResource(R.string.TrueEnd_line_11)
         ), true),
 
-        Triple(R.drawable.true1, listOf("流れ星…"), true),
+        Triple(R.drawable.true1, listOf(stringResource(R.string.TrueEnd_line_12)), true),
 
-        Triple(R.drawable.true2, listOf(""), true),
+        Triple(R.drawable.true2, listOf(stringResource(R.string.TrueEnd_line_13)), true),
 
         Triple(R.drawable.true3, listOf(
-            "流れるなら先に言っといてほしいよね…",
-            "いっつも願う間もなく行っちゃうんだから。",
-           "…最初の方はとっても辛かったんじゃないの？",
-            "だってたまにちょっとだけ手が震えたよ…？顔色もとっても悪かった…",
-            "今ではどう？生まれ変わったみたいな感じ？違うよ。それが君なの。",
-            "生まれ変わってなんかない。生まれた時からずっとそうだったはずだよ。"
+            stringResource(R.string.TrueEnd_line_14),
+            stringResource(R.string.TrueEnd_line_15),
+            stringResource(R.string.TrueEnd_line_16),
+            stringResource(R.string.TrueEnd_line_17),
+            stringResource(R.string.TrueEnd_line_18),
+            stringResource(R.string.TrueEnd_line_19)
         ), true),
 
         Triple(R.drawable.true4, listOf(
-            "でもなにか…社会の荒波に揉まれて…理不尽に社会の一部から攻撃される事があって…",
-            "心に傷を負って…その傷を埋めるために君はなにかに依存した…",
-            "君は悪くない…ただ、生きる事は本来大変だっていうだけ"
+            stringResource(R.string.TrueEnd_line_20),
+            stringResource(R.string.TrueEnd_line_21),
+            stringResource(R.string.TrueEnd_line_22)
         ), true),
 
         Triple(R.drawable.true5, listOf(
-            "まあこんな偉そうな事を私に言う資格は無いんだけどね。",
-            "私もあなたがいなくなる事に耐えられなくなって、あんなことをしちゃった…"
+            stringResource(R.string.TrueEnd_line_23),
+            stringResource(R.string.TrueEnd_line_24)
         ), true),
 
         Triple(R.drawable.true7, listOf(
-            "ちなみに、30日っていうのは実は新しい習慣を完全に身につけるって意味ではまだまだなんだよ。",
-            "66日くらい続けて、人は新しい習慣を、完全に定着することができるの。",
-            "でも君はスタートラインに立てた。もう30日くらい楽勝でしょ？私達と一緒なら。"
+            stringResource(R.string.TrueEnd_line_25),
+            stringResource(R.string.TrueEnd_line_26),
+            stringResource(R.string.TrueEnd_line_27)
         ), true),
 
-        Triple(R.drawable.true8, listOf("…！"), true),
+        Triple(R.drawable.true8, listOf(stringResource(R.string.TrueEnd_line_28)), true),
 
-        Triple(R.drawable.true5, listOf("うん…本当は一緒にいてほしいだけ…"), true),
+        Triple(R.drawable.true5, listOf(stringResource(R.string.TrueEnd_line_29)), true),
 
         Triple(R.drawable.true7, listOf(
-            "ふふ…大丈夫だよ…もう意地悪はしないから…",
-            "もう閉じ込めたりしないから。",
-            "今度は二人で、いや3人で抜け出る方法を探そう？",
-            "それか、窟の中でも一緒に楽しく暮らせる方法を。"
+            stringResource(R.string.TrueEnd_line_30),
+            stringResource(R.string.TrueEnd_line_31),
+            stringResource(R.string.TrueEnd_line_32),
+            stringResource(R.string.TrueEnd_line_33)
         ), true),
 
-        Triple(R.drawable.true9, listOf("さあ行こう。これからもよろしくね！"), true),
+        Triple(R.drawable.true9, listOf(stringResource(R.string.TrueEnd_line_34)), true),
 
-        Triple(R.drawable.true10, listOf(""), true), // ← タイトルテキストとして表示
+        Triple(R.drawable.true10, listOf(stringResource(R.string.TrueEnd_line_35)), true) // タイトル表示
     )
+
 
 
     var currentImageIndex by remember { mutableStateOf(0) }

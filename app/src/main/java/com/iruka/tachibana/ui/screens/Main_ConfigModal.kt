@@ -1,6 +1,7 @@
 package com.iruka.tachibana.ui.screens
 
 
+import android.app.Activity
 import android.content.Context
 import android.media.MediaPlayer
 import androidx.compose.ui.text.*
@@ -25,14 +26,24 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.iruka.tachibana.R
+import android.os.Build
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.iruka.tachibana.ui.screens.YuseiMagic
+import java.util.concurrent.TimeUnit
 
 
-enum class BgmType(val label: String, val fileResId: Int) {
-    DEFAULT("通常", R.raw.marinba_march),
-    DAY20("21日目", R.raw.day20);
+enum class BgmType(@StringRes val labelResId: Int, val fileResId: Int) {
+    DEFAULT(R.string.bgm_default, R.raw.marinba_march),
+    DAY20(R.string.bgm_day20, R.raw.day20);
 }
-
 @Composable
 fun ConfigModal(
     onClose: () -> Unit,
@@ -48,8 +59,14 @@ fun ConfigModal(
 ) {
     val context = LocalContext.current
     val prefs = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
-    val elapsedDays = prefs.getInt("elapsed_days", 0)
-
+    val elapsedDays = remember {
+        val prefs = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
+        val startTime = prefs.getLong("startTimeInMillis", System.currentTimeMillis())
+        TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - startTime).toInt()
+    }
+    val isSoftHorrorEnabledState = remember {
+        mutableStateOf(prefs.getBoolean("soft_horror_enabled", false))
+    }
     val selectedBgmType = remember {
         val saved = prefs.getString("selected_bgm_type", BgmType.DEFAULT.name)
         val allowed = BgmType.values().filter {
@@ -57,6 +74,8 @@ fun ConfigModal(
         }
         mutableStateOf(allowed.find { it.name == saved } ?: BgmType.DEFAULT)
     }
+
+
 
     val currentMediaPlayer = remember { mutableStateOf<MediaPlayer?>(null) }
 
@@ -78,16 +97,16 @@ fun ConfigModal(
                 .padding(horizontal = 24.dp, vertical = 32.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Text("設定", style = MaterialTheme.typography.headlineMedium, fontFamily = YuseiMagic, color = Color.White)
+            Text(stringResource(R.string.settings), style = MaterialTheme.typography.headlineMedium, fontFamily = YuseiMagic, color = Color.White)
 
             // ✅ ON/OFFトグル
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("BGM有効化", modifier = Modifier.weight(1f), fontFamily = YuseiMagic, color = Color.White)
+                Text(stringResource(R.string.bgm_toggle), modifier = Modifier.weight(1f), fontFamily = YuseiMagic, color = Color.White)
                 Switch(checked = isBgmEnabled, onCheckedChange = onBgmToggle)
             }
 
             // ✅ BGM選択
-            Text("BGM選択", fontFamily = YuseiMagic, color = Color.White)
+            Text(stringResource(R.string.bgm_select), fontFamily = YuseiMagic, color = Color.White)
             Row(horizontalArrangement = Arrangement.SpaceEvenly) {
                 BgmType.values().forEach { type ->
                     val isUnlocked = when (type) {
@@ -111,53 +130,42 @@ fun ConfigModal(
                                 disabledContainerColor = Color.DarkGray.copy(alpha = 0.3f)
                             )
                         ) {
-                            Text(type.label, fontFamily = YuseiMagic)
+                            Text(stringResource(type.labelResId), fontFamily = YuseiMagic)
+
                         }
 
                         if (!isUnlocked) {
                             Text(
-                                "21日目で解放",
+                                stringResource(R.string.unlock_day21),
                                 fontSize = 10.sp,
                                 color = Color.LightGray,
                                 fontFamily = YuseiMagic
                             )
-                        }}}}
-
+                        }
+                    }
+                }
+            }
 
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("効果音", modifier = Modifier.weight(1f), fontFamily = YuseiMagic, color = Color.White)
+                Text(stringResource(R.string.sound_effect), modifier = Modifier.weight(1f), fontFamily = YuseiMagic, color = Color.White)
                 Switch(checked = isSoundEnabled, onCheckedChange = onSoundToggle)
             }
 
-
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text("ソフトホラー演出", fontFamily = YuseiMagic, color = Color.White)
+                    Text(stringResource(R.string.soft_horror), fontFamily = YuseiMagic, color = Color.White)
                     Text(
-                        "※一部演出が過激になります",
+                        stringResource(R.string.soft_horror_desc),
                         fontSize = 12.sp,
                         fontFamily = YuseiMagic,
                         color = Color.LightGray
                     )
                 }
-                Switch(
-                    checked = isSoftHorrorEnabled,
-                    onCheckedChange = {
-                        onSoftHorrorToggle(it)
-                    }
-                )
+                Switch(checked = isSoftHorrorEnabled, onCheckedChange = onSoftHorrorToggle)
             }
 
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    "エッジパネルの位置",
-                    modifier = Modifier.weight(1f),
-                    fontFamily = YuseiMagic,
-                    color = Color.White
-                )
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(stringResource(R.string.edge_position), modifier = Modifier.weight(1f), fontFamily = YuseiMagic, color = Color.White)
 
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
@@ -169,7 +177,7 @@ fun ConfigModal(
                             containerColor = if (edgeSide == EdgeSide.Left) Color.Gray else Color.DarkGray
                         )
                     ) {
-                        Text("左", fontFamily = YuseiMagic)
+                        Text(stringResource(R.string.edge_left), fontFamily = YuseiMagic)
                     }
 
                     Button(
@@ -178,18 +186,20 @@ fun ConfigModal(
                             containerColor = if (edgeSide == EdgeSide.Right) Color.Gray else Color.DarkGray
                         )
                     ) {
-                        Text("右", fontFamily = YuseiMagic)
+                        Text(stringResource(R.string.edge_right), fontFamily = YuseiMagic)
                     }
                 }
             }
 
+            LanguageSelector()
+
             Button(onClick = onCreditOpen) {
-                Text("クレジットを見る", fontFamily = YuseiMagic)
+                Text(stringResource(R.string.staff), fontFamily = YuseiMagic)
             }
 
             Spacer(modifier = Modifier.height(24.dp))
             Button(onClick = onClose, modifier = Modifier.align(Alignment.End)) {
-                Text("閉じる", fontFamily = YuseiMagic)
+                Text(stringResource(R.string.quit), fontFamily = YuseiMagic)
             }
         }
     }
@@ -301,6 +311,66 @@ fun CreditModal(onClose: () -> Unit) {
                 contentAlignment = Alignment.Center
             ) {
                 EyeOfProvidenceAnimation()
+            }
+        }
+    }
+}
+
+
+@Composable
+fun LanguageSelector() {
+    val context = LocalContext.current
+    val activity = context as? Activity
+
+    // ドロップダウンの状態
+    var expanded by remember { mutableStateOf(false) }
+    val options = listOf("日本語", "English")
+    val currentLanguage = when (context.resources.configuration.locales[0].language) {
+        "en" -> "English"
+        else -> "日本語"
+    }
+    var selectedText by remember { mutableStateOf(currentLanguage) }
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 8.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.language),
+            style = MaterialTheme.typography.bodyLarge
+        )
+        Box(modifier = Modifier.fillMaxWidth()) {
+            OutlinedButton(
+                onClick = { expanded = true },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(selectedText)
+            }
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                options.forEach { label ->
+                    DropdownMenuItem(
+                        text = { Text(label) },
+                        onClick = {
+                            selectedText = label
+                            expanded = false
+
+                            val localeCode = when (label) {
+                                "English" -> "en"
+                                else -> "ja"
+                            }
+
+                            val appLocale = LocaleListCompat.forLanguageTags(localeCode)
+                            AppCompatDelegate.setApplicationLocales(appLocale)
+
+                            // ✅ 即時反映：Activityを再起動！
+                            activity?.recreate()
+                        }
+                    )
+                }
             }
         }
     }

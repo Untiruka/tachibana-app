@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.iruka.tachibana.R
@@ -27,9 +28,9 @@ fun EventDay30Screen(navController: NavController) {
     var showFinalChoice by remember { mutableStateOf(false) }
 
     val lines = listOf(
-        "ねえ…",
-        "離れ離れになるくらいなら",
-        "依存症なんて治らなくてもいいよね？"
+        stringResource(R.string.day30_line_0),
+        stringResource(R.string.day30_line_1),
+        stringResource(R.string.day30_line_2)
     )
 
     Box(
@@ -72,6 +73,7 @@ fun EventDay30Screen(navController: NavController) {
                 verticalArrangement = Arrangement.Bottom,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                // ボタンUI：30日目の選択肢（Bad2分岐）
                 Button(
                     onClick = {
                         val consumed = prefs.getStringSet("consumedEvents", emptySet()) ?: emptySet()
@@ -84,9 +86,11 @@ fun EventDay30Screen(navController: NavController) {
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text("はい", fontFamily = YuseiMagic)
+                    Text(stringResource(R.string.common_yes), fontFamily = YuseiMagic) // 「はい」
                 }
+
                 Spacer(modifier = Modifier.height(8.dp))
+
                 Button(
                     onClick = {
                         val consumed = prefs.getStringSet("consumedEvents", emptySet()) ?: emptySet()
@@ -95,13 +99,14 @@ fun EventDay30Screen(navController: NavController) {
                             .apply()
                         navController.navigate("loading/true_end") { popUpTo("main") { inclusive = true } }
                     },
-
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text("いいえ", fontFamily = YuseiMagic)
+                    Text(stringResource(R.string.common_no), fontFamily = YuseiMagic) // 「いいえ」
                 }
+
+            }
             }
         }
     }
-}
+

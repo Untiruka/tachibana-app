@@ -81,6 +81,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 
 // 仮のイベントクラス（今は使ってなくてもOK）
@@ -192,9 +193,19 @@ fun CalendarModal(
     )
     val selectedDay = remember { mutableStateOf<LocalDate?>(null) }
 
+
+
     @Composable
     fun DaysOfWeekHeader() {
-        val days = listOf("日", "月", "火", "水", "木", "金", "土")
+        val days = listOf(
+            stringResource(R.string.main_calendar_sunday),
+            stringResource(R.string.main_calendar_monday),
+            stringResource(R.string.main_calendar_tuesday),
+            stringResource(R.string.main_calendar_wednesday),
+            stringResource(R.string.main_calendar_thursday),
+            stringResource(R.string.main_calendar_friday),
+            stringResource(R.string.main_calendar_saturday)
+        )
         Row(modifier = Modifier.fillMaxWidth()) {
             days.forEach {
                 Text(
@@ -414,7 +425,12 @@ fun CalendarModal(
                                                     .background(Color(0xFF444444), RoundedCornerShape(8.dp))
                                                     .padding(6.dp)
                                             ) {
-                                                Text("📌 保存済みメモ,日記：", color = Color(0xFFDDDDDD), fontSize = 10.sp)
+                                                Text(
+                                                    text = stringResource(R.string.main_calendar_saved_memo),
+                                                    color = Color(0xFFDDDDDD),
+                                                    fontSize = 10.sp
+                                                )
+
                                                 Text(
                                                     text = memo,
                                                     color = Color.White,
@@ -436,7 +452,11 @@ fun CalendarModal(
                                                     containerColor = Color(0xFF444444)
                                                 )
                                             ) {
-                                                Text("削除", color = Color.White)
+                                                Text(
+                                                    text = stringResource(R.string.main_calendar_delete),
+                                                    color = Color.White
+                                                )
+
                                             }
 
                                             Spacer(modifier = Modifier.height(8.dp))
@@ -445,7 +465,10 @@ fun CalendarModal(
                                         OutlinedTextField(
                                             value = tempMemo,
                                             onValueChange = { tempMemo = it },
-                                            label = { Text("この日のメモ", color = Color.White) },
+                                            label = {
+                                                Text(stringResource(R.string.main_calendar_memo_label), color = Color.White)
+                                            },
+
                                             colors = OutlinedTextFieldDefaults.colors(
                                                 focusedBorderColor = Color.White,
                                                 unfocusedBorderColor = Color.Gray,
@@ -470,7 +493,10 @@ fun CalendarModal(
                                                 containerColor = Color(0xFF666666)
                                             )
                                         ) {
-                                            Text("保存", color = Color.White)
+                                            Text(
+                                                text = stringResource(R.string.main_calendar_save),
+                                                color = Color.White
+                                            )
                                         }
                                     }
                                 }

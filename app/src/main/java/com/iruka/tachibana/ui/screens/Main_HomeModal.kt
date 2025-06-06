@@ -31,6 +31,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 
 
 @Composable
@@ -66,7 +67,7 @@ fun HomeModal(onClose: () -> Unit) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "\uD83C\uDF38ダウンロードありがとうございます\uD83C\uDF38",
+                        text = stringResource(R.string.main_home_download_thanks),
                         color = Color.Black,
                         fontSize = 16.sp,
                         fontFamily = YuseiMagic
@@ -79,7 +80,6 @@ fun HomeModal(onClose: () -> Unit) {
                     ) {
                         Text(
                             text = buildAnnotatedString {
-                                // 1行目：「断ち花は、あなたの"やめたい気持ち"と」
                                 withStyle(
                                     style = SpanStyle(
                                         color = Color(0xFFF4E5CC),
@@ -87,7 +87,7 @@ fun HomeModal(onClose: () -> Unit) {
                                         fontFamily = YuseiMagic
                                     )
                                 ) {
-                                    append("断ち花")
+                                    append(stringResource(R.string.main_home_message_1)) // 断ち花
                                 }
                                 withStyle(
                                     style = SpanStyle(
@@ -96,7 +96,7 @@ fun HomeModal(onClose: () -> Unit) {
                                         fontFamily = YuseiMagic
                                     )
                                 ) {
-                                    append("は、あなたの")
+                                    append(stringResource(R.string.main_home_message_2)) // は、あなたの
                                 }
                                 withStyle(
                                     style = SpanStyle(
@@ -105,10 +105,8 @@ fun HomeModal(onClose: () -> Unit) {
                                         fontFamily = YuseiMagic
                                     )
                                 ) {
-                                    append("\"やめたい気持ち\"と\n")
+                                    append(stringResource(R.string.main_home_message_3)) // "やめたい気持ち"と\n
                                 }
-
-                                // 2〜4行目
                                 withStyle(
                                     style = SpanStyle(
                                         fontSize = 10.sp,
@@ -116,12 +114,10 @@ fun HomeModal(onClose: () -> Unit) {
                                         fontFamily = YuseiMagic
                                     )
                                 ) {
-                                    append("いっしょに歩むために生まれました。\n")
-                                    append("応援してくれる気持ちが、私の力になります。\n")
-                                    append("もしよければ、")
+                                    append(stringResource(R.string.main_home_message_4)) // いっしょに歩む〜
+                                    append(stringResource(R.string.main_home_message_5)) // 応援してくれる〜
+                                    append(stringResource(R.string.main_home_message_6)) // もしよければ、
                                 }
-
-                                // 強調部分：「ちょっと」
                                 withStyle(
                                     style = SpanStyle(
                                         fontSize = 14.sp,
@@ -129,10 +125,8 @@ fun HomeModal(onClose: () -> Unit) {
                                         fontFamily = YuseiMagic
                                     )
                                 ) {
-                                    append("ちょっと")
+                                    append(stringResource(R.string.main_home_message_7)) // ちょっと
                                 }
-
-                                // 残り
                                 withStyle(
                                     style = SpanStyle(
                                         fontSize = 10.sp,
@@ -140,7 +134,7 @@ fun HomeModal(onClose: () -> Unit) {
                                         fontFamily = YuseiMagic
                                     )
                                 ) {
-                                    append("だけ力を貸してくれませんか？")
+                                    append(stringResource(R.string.main_home_message_8)) // だけ力を貸してくれませんか？
                                 }
                             },
                             textAlign = TextAlign.Center,
@@ -149,66 +143,69 @@ fun HomeModal(onClose: () -> Unit) {
                     }
 
 
-                    Spacer(modifier = Modifier.height(50.dp))
-                    Row(horizontalArrangement = Arrangement.spacedBy(27.dp)) {
-                        Box(
-                            modifier = Modifier
-                                .size(width = 137.dp, height = 36.dp)
-                                .background(Color(0xFFF4E5CC), shape = RoundedCornerShape(4.dp))
-                                .border(
-                                    width = Dp.Hairline,
-                                    brush = Brush.verticalGradient(
-                                        colors = listOf(
-                                            Color(0xFF7C5050),
-                                            Color(0xFFCF8686),
-                                            Color(0xFFF4E5CC)
+                        Spacer(modifier = Modifier.height(50.dp))
+                        Row(horizontalArrangement = Arrangement.spacedBy(27.dp)) {
+                            Box(
+                                modifier = Modifier
+                                    .size(width = 137.dp, height = 36.dp)
+                                    .background(Color(0xFFF4E5CC), shape = RoundedCornerShape(4.dp))
+                                    .border(
+                                        width = Dp.Hairline,
+                                        brush = Brush.verticalGradient(
+                                            colors = listOf(
+                                                Color(0xFF7C5050),
+                                                Color(0xFFCF8686),
+                                                Color(0xFFF4E5CC)
+                                            ),
+                                            startY = 0f,
+                                            endY = Float.POSITIVE_INFINITY
                                         ),
-                                        startY = 0f,
-                                        endY = Float.POSITIVE_INFINITY
-                                    ),
-                                    shape = RoundedCornerShape(4.dp)
-                                )  .clickable {
-                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://lucaverse-site.vercel.app/"))
-                                    context.startActivity(intent)
-                                },
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text(
-                                text = "応援する",
-                                fontSize = 16.sp,
-                                color = Color.Black,
-                                fontFamily = ZenKurenaido
-                            )
-                        }
-                        Box(
-                            modifier = Modifier
-                                .size(width = 137.dp, height = 36.dp)
-                                .background(Color(0xFFDDD1C0), shape = RoundedCornerShape(4.dp))
-                                .clickable { onClose() },
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text(
-                                text = "今はしない",
-                                fontSize = 16.sp,
-                                color = Color.Black,
-                                fontFamily = YujiSyuku
-                            )
+                                        shape = RoundedCornerShape(4.dp)
+                                    ).clickable {
+                                        val intent = Intent(
+                                            Intent.ACTION_VIEW,
+                                            Uri.parse("https://lucaverse-site.vercel.app/")
+                                        )
+                                        context.startActivity(intent)
+                                    },
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.main_home_support),
+                                    fontSize = 16.sp,
+                                    color = Color.Black,
+                                    fontFamily = ZenKurenaido
+                                )
+                            }
+                            Box(
+                                modifier = Modifier
+                                    .size(width = 137.dp, height = 36.dp)
+                                    .background(Color(0xFFDDD1C0), shape = RoundedCornerShape(4.dp))
+                                    .clickable { onClose() },
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.main_home_not_now),
+                                    fontSize = 16.sp,
+                                    color = Color.Black,
+                                    fontFamily = YujiSyuku
+                                )
+                            }
                         }
                     }
                 }
-            }
 
-            // 上に飛び出す立ち絵
-            Image(
-                painter = painterResource(id = R.drawable.home_thanks),
-                contentDescription = "thanks image",
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .size(229.dp)
-                    .align(Alignment.TopCenter)
-                    .offset(y = 100.dp)
-                    .zIndex(2f)
-            )
+                // 上に飛び出す立ち絵
+                Image(
+                    painter = painterResource(id = R.drawable.home_thanks),
+                    contentDescription = "thanks image",
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier
+                        .size(229.dp)
+                        .align(Alignment.TopCenter)
+                        .offset(y = 100.dp)
+                        .zIndex(2f)
+                )
+            }
         }
     }
-}

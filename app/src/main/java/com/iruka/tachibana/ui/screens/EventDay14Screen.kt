@@ -28,9 +28,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
-
 @Composable
 fun EventDay14Screen(navController: NavController) {
     val context = LocalContext.current
@@ -39,148 +40,143 @@ fun EventDay14Screen(navController: NavController) {
 
     val sceneList = listOf(
         R.drawable.day_14_image to listOf(
-            "たちばなが本を読んでいる…しかも和装で…珍しい…",
-            "あなた「何にしてんの？」",
-            "たちばな「小説を読んでる、『井伏鱒二』さんの著作」",
-            "あなた「なんで和装なの？」",
-            "たちばな「なんていうか…私なりの敬意とでもいうべきか…。",
-            "魂がこもった作品の前では正装をすべきなのではと…パーティー会場にサンダルでいかないのと一緒かな」"
+            stringResource(R.string.day14_line_0),
+            stringResource(R.string.day14_line_1),
+            stringResource(R.string.day14_line_2),
+            stringResource(R.string.day14_line_3),
+            stringResource(R.string.day14_line_4),
+            stringResource(R.string.day14_line_5),
         ),
         R.drawable.day_14_image_1 to listOf(
-            "あなた「どういう話なの？」",
-            "たちばな「絵本みたいに楽しめるのに…なんか今の社会情勢と被ってて、童話風預言書って感じの本なんだよね…まあ当時ともかぶっていたのかもしれないけど。山椒魚ていうんだ」",
-            "たちばな「ちなみに名前の由来は確か実際に山椒の匂いがするからラシイネ」",
-            "「あと西洋では火を吐くというデマもあった。まあ見た目もリザードマンだしねほぼ。」",
-            "たちばな「本来のサンショウウオは多分岩屋に頭つっかえるほどでかくなるとは考えにくいけど、",
-            "「オオサンショウウオだったらあり得るかもね。最大150cmなるんだって。すっごいかわいいんだよ。なんでも食べる肉食爬虫類なんだけど。」"
+            stringResource(R.string.day14_line_6),
+            stringResource(R.string.day14_line_7),
+            stringResource(R.string.day14_line_8),
+            stringResource(R.string.day14_line_9),
+            stringResource(R.string.day14_line_10),
+            stringResource(R.string.day14_line_11),
+            stringResource(R.string.day14_line_12),
         ),
         R.drawable.day_14_image2 to listOf(
-            "たちばな「ねー？",
-            "その小説では山椒魚がカエルを岩屋に閉じ込めるんだ…八つ当たりみたいな感じで。最後にカエルは死んじゃうんだけど…」",
-            "「今でも別に、おまえのことを怒ってはいないんだ。ってカエルは言う",
-            "私があなたを閉じ込めても怒らない？？"
+            stringResource(R.string.day14_line_13),
+            stringResource(R.string.day14_line_14),
+            stringResource(R.string.day14_line_15),
         )
     )
 
     val finalScene = listOf(
         R.drawable.day_14_image3 to listOf(
-            "たちばな「そう…」",
-            "たちばな「この山椒魚ってさ、閉じ込めた方も、閉じ込められた方も、どっちも出られなくなるんだよ」",
-            "たちばな「……それって、なんか、依存と似てない？」"
+            stringResource(R.string.day14_line_16),
+            stringResource(R.string.day14_line_17),
+            stringResource(R.string.day14_line_18)
         )
     )
 
-    var currentImageIndex by remember { mutableStateOf(0) }
-    var currentLineIndex by remember { mutableStateOf(0) }
-    var showFinalScene by remember { mutableStateOf(false) }
-    val currentScenes = if (showFinalScene) finalScene else sceneList
+    val tapToReturn = stringResource(R.string.tap_to_return)
+
+    var currentImageIndex by remember { mutableIntStateOf(0) }
+    var currentLineIndex by remember { mutableIntStateOf(0) }
+    var showChoice by remember { mutableStateOf(false) }
+    var inFinal by remember { mutableStateOf(false) }
+    var currentImageResId by remember { mutableStateOf<Int?>(null) }
+
+    val currentScenes = if (inFinal) finalScene else sceneList
     val (currentImage, currentLines) = currentScenes[currentImageIndex]
+    val currentLine = currentLines.getOrNull(currentLineIndex)
 
-    val isChoiceScene = !showFinalScene &&
-            currentImageIndex == sceneList.lastIndex &&
-            currentLineIndex == sceneList.last().second.lastIndex
-
-    val isFinalSceneEnd = showFinalScene &&
-            currentImageIndex == finalScene.lastIndex &&
-            currentLineIndex == finalScene.last().second.lastIndex
-
-    val isAtLastScene = isChoiceScene || isFinalSceneEnd
-
+    // ✅ 画像切替
+    LaunchedEffect(currentLine) {
+        currentImageResId = currentImage
+    }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFEEE8DD))
-            .clickable {
+            .clickable(enabled = !showChoice) {
                 AudioManager.playSE(context, R.raw.cursor_move_se)
-                if (currentLineIndex < currentLines.size - 1) {
+                if (currentLineIndex < currentLines.lastIndex) {
                     currentLineIndex++
-                } else if (currentImageIndex < currentScenes.size - 1) {
+                } else if (currentImageIndex < currentScenes.lastIndex) {
                     currentImageIndex++
                     currentLineIndex = 0
+                } else if (!inFinal) {
+                    showChoice = true
+                } else {
+                    // Finalの最後：タップで戻る
+                    val consumed = prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet() ?: mutableSetOf()
+                    consumed.add("14")
+                    editor.putStringSet("consumedEvents", consumed).apply()
+                    navController.navigate("main")
                 }
             },
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Image(
-                painter = painterResource(id = currentImage),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(300.dp)
-            )
+            currentImageResId?.let {
+                Image(
+                    painter = painterResource(id = it),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxWidth().height(300.dp)
+                )
+            }
             Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = currentLines[currentLineIndex],
-                fontFamily = yuseiFont,
-                style = MaterialTheme.typography.bodyLarge,
-                color = Color.Black,
-                modifier = Modifier.padding(horizontal = 16.dp)
-            )
-        }
-    }
-
-    if (!showFinalScene && currentImageIndex == sceneList.lastIndex && currentLineIndex == currentLines.lastIndex) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(32.dp),
-            verticalArrangement = Arrangement.Bottom,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Button(
-                onClick = {
-                    showFinalScene = true
-                    currentImageIndex = 0
-                    currentLineIndex = 0
-                },
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-                Text("うん、君になら僕は喜んで…", fontFamily = yuseiFont)
+            currentLine?.let {
+                Text(
+                    text = it,
+                    fontFamily = yuseiFont,
+                    fontSize = 20.sp,
+                    color = Color.Black,
+                    modifier = Modifier.padding(horizontal = 16.dp)
+                )
             }
-            Spacer(modifier = Modifier.height(8.dp))
-            Button(
-                onClick = {
-                    showFinalScene = true
-                    currentImageIndex = 0
-                    currentLineIndex = 0
-                },
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp)
+
+            if (showChoice) {
+                Spacer(modifier = Modifier.height(32.dp))
+                Column(modifier = Modifier.padding(horizontal = 32.dp)) {
+                    Button(
+                        onClick = {
+                            inFinal = true
+                            currentImageIndex = 0
+                            currentLineIndex = 0
+                            showChoice = false
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(text = stringResource(R.string.day14_choice_0), fontFamily = yuseiFont)
+                    }
+                    Spacer(modifier = Modifier.height(12.dp))
+                    Button(
+                        onClick = {
+                            inFinal = true
+                            currentImageIndex = 0
+                            currentLineIndex = 0
+                            showChoice = false
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(text = stringResource(R.string.day14_choice_1), fontFamily = yuseiFont)
+                    }
+                }
+            }
+
+            // ✅ Final最後：タップして戻る表示
+            if (inFinal &&
+                currentImageIndex == finalScene.lastIndex &&
+                currentLineIndex == finalScene.last().second.lastIndex
             ) {
-                Text("いや、僕は自立したいな？", fontFamily = yuseiFont)
+                Spacer(modifier = Modifier.height(24.dp))
+                Text(
+                    text = tapToReturn,
+                    fontFamily = yuseiFont,
+                    fontSize = 16.sp,
+                    color = Color.Gray,
+                    modifier = Modifier.padding(32.dp)
+                )
             }
         }
+
+        Debug.SkipButton(day = "14", navController = navController, context = context)
     }
-
-
-
-    if (isAtLastScene && !isChoiceScene) {
-        // → 選択肢の時点では表示しない！確実に「最後の行まで進んだあとだけ」
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .clickable {
-                    AudioManager.playSE(context, R.raw.cursor_move_se)
-                    val consumed = prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet() ?: mutableSetOf()
-                    consumed.add("14")
-                    editor.putStringSet("consumedEvents", consumed).apply()
-                    navController.navigate("main")
-                },
-            contentAlignment = Alignment.BottomCenter
-        ) {
-            Text(
-                text = "（タップして戻る）",
-                fontFamily = yuseiFont,
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.Gray,
-                modifier = Modifier.padding(32.dp)
-            )
-        }
-    }
-
-
 }
-

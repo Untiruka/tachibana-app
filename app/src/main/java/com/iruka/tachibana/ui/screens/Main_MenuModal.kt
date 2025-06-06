@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.iruka.tachibana.R
-
+import androidx.compose.ui.res.stringResource
 
 // MenuModal.kt 構成：背景 + モーダル + 選択肢5つ（全てYusei Font使用）
 
@@ -67,44 +67,53 @@ fun MenuModal(onClose: () -> Unit) {
                     context.startActivity(intent)
                 }
 
-                MenuItem("問い合わせ") {
+                MenuItem(stringResource(R.string.menu_inquiry)) {
                     val intent = Intent(Intent.ACTION_SENDTO).apply {
-                        data = Uri.parse("mailto:you@example.com") // ←ここあとで実メールに
+                        data = Uri.parse("mailto:tachibana@proton.me") // 任意で別アドレスに変えてOK
+                        putExtra(Intent.EXTRA_SUBJECT, "お問い合わせについて")
+                        putExtra(Intent.EXTRA_TEXT, "以下にご用件をご記入ください。\n\n")
                     }
-                    context.startActivity(intent)
+
+                    // メールアプリがあるか確認してから起動（安全策）
+                    if (intent.resolveActivity(context.packageManager) != null) {
+                        context.startActivity(intent)
+                    } else {
+                        Toast.makeText(context, "メールアプリが見つかりません", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
-                MenuItem("レビュー") {
+
+                MenuItem(stringResource(R.string.menu_review)) {
                     launchUrl("https://play.google.com/store/apps/details?id=com.iruka.tachibana")
                 }
 
-                MenuItem("我が家") {
+                MenuItem(stringResource(R.string.menu_home)) {
                     launchUrl("https://lucaverse-site.vercel.app/")
                 }
 
-                MenuItem("プレミアムプラン") {
+                MenuItem(stringResource(R.string.menu_premium)) {
                     launchUrl("https://your-premium.example.com") // ←後で差し替え
                 }
 
-                MenuItem("引継ぎ") {
+                MenuItem(stringResource(R.string.menu_transfer)) {
                     showDialog.value = true
                 }
+
             }
 
             if (showDialog.value) {
                 AlertDialog(
-                    onDismissRequest = {showDialog.value = true},
-                    title = { Text("引継ぎについて", fontFamily = yuseiFont) },
+                    onDismissRequest = { showDialog.value = true },
+                    title = { Text(stringResource(R.string.menu_transfer_title), fontFamily = yuseiFont) },
                     text = {
                         Text(
-                            "このアプリのデータはGoogleアカウントに自動でバックアップされます。\n\n" +
-                                    "機種変更の前に 設定 > システム > バックアップ から有効になっていることをご確認ください。",
+                            stringResource(R.string.menu_transfer_description),
                             fontFamily = yuseiFont
                         )
                     },
                     confirmButton = {
                         TextButton(onClick = { showDialog.value = false }) {
-                            Text("閉じる", fontFamily = yuseiFont)
+                            Text(stringResource(R.string.menu_transfer_close), fontFamily = yuseiFont)
                         }
                     }
                 )

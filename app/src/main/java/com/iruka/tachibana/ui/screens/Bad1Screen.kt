@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -60,78 +61,64 @@ fun getImageForExpression(expression: ChibiExpression): Int {
 
 // --- セリフリストだけ（画像なし） ---
 
-val lines = listOf(
-    "ユーザー：（…）",
-    "ユーザー：はあ…また俺は諦めちゃったのか…",
-    "？？？：ちょっと！",
-    /////chibibana_angry
-    "ユーザー：？！",
-    "？？？：あんた何やってんのよ？！",
-    "ユーザー：だれ？！",
-    ///chibibana_arms_crossed
-    "ちび花：あたしよあたし！ちび花よ！\n",
-    "ユーザー：だから誰だよ！\n",
-    ////chibibana_pointing.png
-    "ちび花：たちばなの！妹！あんたたちとずっと一緒にいたじゃない！\n",
-    "ユーザー：？？？",
-    ///chibibana_angry.png
-    "ちび花：そんなことより！わたしずっと見てたけどあんたけっこう頑張ってたのになんで諦めちゃったの！ぶっ飛ばすわよ！\n",
-    "（気の強い子だなぁ…）\n",
-    "ユーザー：わからない…特に自分の意志で押したというわけでもないんだ…なんだか吸い寄せられたっていうか…言い訳になっちゃうけど…　",
-    ///chibibana_yareyare
-    "ちび花：ふーん…なんかわけわかんないこと言ってんのね…依存ってそんなもんなのかしら…って！言い訳してんじゃないわよ！\n",
-    "（気が強いなぁ…）\n",
-    ///chibibana_arms_crossed
-    "ちび花：（…）\n",
-    /////chibibana_angry
-    "ちび花：依存と協力ってにてると思わない？\n",
-    "ユーザー：え？\n",
-    "ちび花：多分あんたが今やめたいものって、元々は何でもないし、",
-    "ちび花：どっちかって言うとあなたの生きる気力の、謂わば添え木みたいなものだったと思うのよ。",
-    "ちび花：働くのが大変だとか、失恋したときとか、",
-    "ちび花：なにか心の隙間を埋める必要があると感じた時に始めたものが、",
-    "ちび花：やがて欠かせないものじゃなかったはずなのに、いつの間にか依存していた。",
-    "ちび花：鍵穴に偽物ぶっ刺してるようなもんよね。\n",
-    "ユーザー：…\n",
-    ////chibibana_relax
-    "ちび花：依存っていうのは、枯れた井戸の底に、一人で座って“誰かが水をくれる”のを待ち続けること。\n",
-    "ちび花：自分ではもう水を汲みに行けない。\n",
-    "ちび花：登るのも怖いし、空も見たくない。\n",
-    "ちび花：けど、「きっと誰かが降りてきて、水をくれる」って信じてる。\n",
-    "ちび花：それしか望みがない。\n",
-    "ちび花：たまに水をくれる人が来ると、\n",
-    "ちび花：その人を“救い”やと思って、全力でしがみつく。\n",
-    "ちび花：「あなたがいないと私は渇いて死ぬ」って。\n",
-    "ちび花：でも本当は――\n",
-    /////chibibana_angry
-    "ちび花：「自分が汲みに行かない限り、この井戸に水は戻らない」\n",
-    /////chibibana_angry　このあと　chibibana_cry1　三秒くらい待機　///chibibana_arms_crossed
 
-    "ちび花：ってこと、どこかで知ってるのに。\n",
-    "ちび花：それでも動けない。\n",
-    "ちび花：その麻痺こそが、依存の正体。\n",
-    "（ぐうの音も出ない）\n",
-    "ちび花：一人で這い出る勇気が出ないならわたしとお姉ちゃんが協力してあげる。3人でなら、やめられるでしょ？\n",
-    "ユーザー：君はなにかに依存してるのか？\n",
-    //////chibibana_happy.png
-    "ちび花：そりゃ…決まってるでしょ…お姉ちゃんよ！博識で！ギターも弾けて！かわいい！しかもたまにアホ！私の憧れよ！でも良い依存でしょ！\n",
-    "ユーザー：そうなんだ…彼女もなにかに依存してるの？\n",
-    ////chibibana_question
-    "ちび花：さあ？お姉ちゃんがなにかに依存してるなんて想像もつかないな。",
-    ////chibibana_smile.png
-    "ちび花：でも昔一回あったかも！でも今は…強いて言うなら私にじゃない？共依存よ！",
-    ////chibibana_happy.png
-    "ちび花：でもどこぞの山椒魚とはちがうの！違うもっと良い結末を私達は迎えるの！\n",
-    "（それは共依存とは違うだろ…）\n",
-    "（でも彼女たちとなら乗り越えられそうだな。どれだけ辛くても。）\n",
-    //////chibibana_smile2.png
-    "ちび花：さあ！明日があるぞ若人よ！明るい明日が！\n",
-        ////chibibana_smile3.png
-    "[BAD_END]"
-)
 
 @Composable
 fun Bad1Screen(navController: NavController) {
+
+    val lines = listOf(
+        stringResource(R.string.line_0),
+        stringResource(R.string.line_1),
+        stringResource(R.string.line_2),
+        stringResource(R.string.line_3),
+        stringResource(R.string.line_4),
+        stringResource(R.string.line_5),
+        stringResource(R.string.line_6),
+        stringResource(R.string.line_7),
+        stringResource(R.string.line_8),
+        stringResource(R.string.line_9),
+        stringResource(R.string.line_10),
+        stringResource(R.string.line_11),
+        stringResource(R.string.line_12),
+        stringResource(R.string.line_13),
+        stringResource(R.string.line_14),
+        stringResource(R.string.line_15),
+        stringResource(R.string.line_16),
+        stringResource(R.string.line_17),
+        stringResource(R.string.line_18),
+        stringResource(R.string.line_19),
+        stringResource(R.string.line_20),
+        stringResource(R.string.line_21),
+        stringResource(R.string.line_22),
+        stringResource(R.string.line_23),
+        stringResource(R.string.line_24),
+        stringResource(R.string.line_25),
+        stringResource(R.string.line_26),
+        stringResource(R.string.line_27),
+        stringResource(R.string.line_28),
+        stringResource(R.string.line_29),
+        stringResource(R.string.line_30),
+        stringResource(R.string.line_31),
+        stringResource(R.string.line_32),
+        stringResource(R.string.line_33),
+        stringResource(R.string.line_34),
+        stringResource(R.string.line_35),
+        stringResource(R.string.line_36),
+        stringResource(R.string.line_37),
+        stringResource(R.string.line_38),
+        stringResource(R.string.line_39),
+        stringResource(R.string.line_40),
+        stringResource(R.string.line_41),
+        stringResource(R.string.line_42),
+        stringResource(R.string.line_43),
+        stringResource(R.string.line_44),
+        stringResource(R.string.line_45),
+        stringResource(R.string.line_46),
+        stringResource(R.string.line_47),
+        stringResource(R.string.line_48),
+        stringResource(R.string.line_49)
+    )
+
 
     DoubleBackToExitHandler()
     val index = remember { mutableIntStateOf(0) }
@@ -141,29 +128,30 @@ fun Bad1Screen(navController: NavController) {
 
     // 🔥 表情切替リスト（全体）
     val fadeTriggers = listOf(
-        "？？？：ちょっと！" to ChibiExpression.Angry,
-        "？？？：あんた何やってんのよ？！" to ChibiExpression.Pointing1,
-        "ちび花：あたしよあたし！ちび花よ！" to ChibiExpression.ArmsCrossed,
-        "ちび花：たちばなの！妹！あんたたちとずっと一緒にいたじゃない！" to ChibiExpression.Pointing,
-        "ちび花：そんなことより！わたしずっと見てたけどあんたけっこう頑張ってたのになんで諦めちゃったの！ぶっ飛ばすわよ！" to ChibiExpression.Pointing,
-        "ちび花：ふーん…なんかわけわかんないこと言ってんのね…" to ChibiExpression.YareYare,
-        "ちび花：（…）" to ChibiExpression.ArmsCrossed,
-        "ちび花：依存と協力ってにてると思わない？" to ChibiExpression.Angry,
-        "ちび花：依存っていうのは、枯れた井戸の底に、一人で座って“誰かが水をくれる”のを待ち続けること。" to ChibiExpression.Relax,
-        "ちび花：「自分が汲みに行かない限り、この井戸に水は戻らない」" to ChibiExpression.Cry2,
-        "ちび花：ってこと、どこかで知ってるのに。" to ChibiExpression.Cry,
-        "ちび花：一人で這い出る勇気が出ないならわたしとお姉ちゃんが協力してあげる。3人でなら、やめられるでしょ？" to ChibiExpression.ArmsCrossed,
-        "ちび花：そりゃ…決まってるでしょ…" to ChibiExpression.Happy,
-        "ちび花：さあ？お姉ちゃんがなにかに依存してるなんて想像もつかないな。" to ChibiExpression.Question,
-        "ちび花：でも昔一回あったかも！" to ChibiExpression.Smile,
-        "ちび花：でもどこぞの山椒魚とはちがうの！" to ChibiExpression.Happy,
-        "ちび花：さあ！明日があるぞ若人よ！明るい明日が！" to ChibiExpression.Smile2
+        stringResource(R.string.line_2) to ChibiExpression.Angry,
+        stringResource(R.string.line_4) to ChibiExpression.Pointing1,
+        stringResource(R.string.line_6) to ChibiExpression.ArmsCrossed,
+        stringResource(R.string.line_8) to ChibiExpression.Pointing,
+        stringResource(R.string.line_10) to ChibiExpression.Pointing,
+        stringResource(R.string.line_13) to ChibiExpression.YareYare,
+        stringResource(R.string.line_15) to ChibiExpression.ArmsCrossed,
+        stringResource(R.string.line_16) to ChibiExpression.Angry,
+        stringResource(R.string.line_25) to ChibiExpression.Relax,
+        stringResource(R.string.line_34) to ChibiExpression.Cry2,
+        stringResource(R.string.line_35) to ChibiExpression.Cry,
+        stringResource(R.string.line_39) to ChibiExpression.ArmsCrossed,
+        stringResource(R.string.line_41) to ChibiExpression.Happy,
+        stringResource(R.string.line_43) to ChibiExpression.Question,
+        stringResource(R.string.line_44) to ChibiExpression.Smile,
+        stringResource(R.string.line_45) to ChibiExpression.Happy,
+        stringResource(R.string.line_48) to ChibiExpression.Smile2
     )
 
+
     val fadeInTriggers = listOf(
-        "？？？：ちょっと！",
-        "ちび花：「自分が汲みに行かない限り、この井戸に水は戻らない」",
-        "ちび花：さあ！明日があるぞ若人よ！明るい明日が！"
+        stringResource(R.string.line_2),
+        stringResource(R.string.line_34),
+        stringResource(R.string.line_48)
     )
 
     var lastExpression by remember { mutableStateOf<ChibiExpression?>(null) }

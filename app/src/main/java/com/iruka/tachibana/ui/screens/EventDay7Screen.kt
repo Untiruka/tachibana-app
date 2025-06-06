@@ -28,42 +28,50 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
 @Composable
 fun EventDay7Screen(navController: NavController) {
     val context = LocalContext.current
     val prefs = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
 
+    val index = remember { mutableIntStateOf(0) }
+
     val lines = listOf(
-        "おーいこっちだよー見えるか？",
-        "おーい、生きてる～？",
-        "ちゃんと水飲んでる？",
-        "空気吸ってる？",
-        "なんかもう、仙人みたいな顔してない？",
-        "そんなにやめるの大変？私の妹もやめるの大変そうだったなー…アイスクリーム…異常によく食べるの…",
-        "この前とか知らないおじさんに買ってもらってたんだから…しかもオーストラリアで…",
-        "あっちだと物価が高くて…それで妹がアイスボックスの前でなやんでたら…",
-        "おじさん「お嬢ちゃん…アイスクリームも高いよな…」",
-        "おじさん「おじさんが買ってやるよ！」って買ってもらったらしい。もちろん英語で。",
-        "かわいいから仕方ないよね…買ってあげたくなる気持ちもわかるけど",
-        "ちなみに今は虫歯の時に歯医者さんに歯を削り取られる恐怖が勝って完全にアイスをやめれた。痛みを知るってだいじなのかも…",
-        "君も痛みを知るべきなんじゃない？何なら私が痛みを与えてあげようか…？人間には明確な弱点があるよね…",
-        "……あはは、冗談だってば。7日目、おつかれさま！"
+        stringResource(R.string.day7_line_0),
+        stringResource(R.string.day7_line_1),
+        stringResource(R.string.day7_line_2),
+        stringResource(R.string.day7_line_3),
+        stringResource(R.string.day7_line_4),
+        stringResource(R.string.day7_line_5),
+        stringResource(R.string.day7_line_6),
+        stringResource(R.string.day7_line_7),
+        stringResource(R.string.day7_line_8),
+        stringResource(R.string.day7_line_9),
+        stringResource(R.string.day7_line_10),
+        stringResource(R.string.day7_line_11),
+        stringResource(R.string.day7_line_12),
+        stringResource(R.string.day7_line_13)
     )
 
-    val images = listOf(
-        R.drawable.day7_image_1,
-        R.drawable.day7_image_2,
-        R.drawable.day7_image_3
-    )
+    val currentLine = lines.getOrNull(index.value)
 
-    var currentIndex by remember { mutableStateOf(0) }
-    val imageRes = when (currentIndex) {
-        in 0..2 -> images[0]
-        in 3..9 -> images[1]
-        else -> images[2]
+    // Composable内で評価されるようにする
+    val line0 = stringResource(R.string.day7_line_0)
+    val line3 = stringResource(R.string.day7_line_3)
+    val line13 = stringResource(R.string.day7_line_13)
+
+// その後、画像切り替えロジック
+    val currentImage by remember(currentLine) {
+        derivedStateOf {
+            when (currentLine) {
+                line0 -> R.drawable.day7_image_1
+                line3 -> R.drawable.day7_image_2
+                line13 -> R.drawable.day7_image_3
+                else -> R.drawable.day7_image_2
+            }
+        }
     }
 
     Box(
@@ -72,8 +80,8 @@ fun EventDay7Screen(navController: NavController) {
             .background(Color(0xFFF3F3F3))
             .clickable {
                 AudioManager.playSE(context, R.raw.cursor_move_se)
-                if (currentIndex < lines.lastIndex) {
-                    currentIndex++
+                if (index.value < lines.lastIndex) {
+                    index.value++
                 } else {
                     val consumed = prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet() ?: mutableSetOf()
                     consumed.add("7")
@@ -87,7 +95,7 @@ fun EventDay7Screen(navController: NavController) {
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
-                painter = painterResource(id = imageRes),
+                painter = painterResource(id = currentImage),
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxWidth(0.9f)
@@ -95,12 +103,14 @@ fun EventDay7Screen(navController: NavController) {
             )
             Spacer(modifier = Modifier.height(24.dp))
             Text(
-                text = "たちばな「${lines[currentIndex]}」",
+                text = "たちばな「${currentLine ?: ""}」",
                 color = Color(0xFF333333),
                 fontSize = 20.sp,
                 fontFamily = YuseiMagic,
                 modifier = Modifier.padding(16.dp)
             )
         }
+
+        Debug.SkipButton(day = "7", navController = navController, context = context)
     }
 }
