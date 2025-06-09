@@ -1,0 +1,23 @@
+/build
+
+# === Android Studio ===
+.gradle/
+.idea/
+local.properties
+*.iml
+
+# === Build Output ===
+build/
+*/build/
+
+# === OS junk ===
+.DS_Store
+Thumbs.db
+
+# === Keystoreなど ===
+*.jks
+*.keystore
+
+# === Logやキャッシュなど ===
+*.log
+.cache/

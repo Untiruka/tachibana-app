@@ -1,0 +1,698 @@
+
+
+<resources>
+<string name="app_name">Tachibana</string>
+<!-- Main_Config -->
+    <string name="settings">設定</string>
+<string name="language">言語 / Language</string>
+<string name="notification">通知</string>
+<string name="sound_effect">効果音</string>
+<string name="soft_horror">ソフトホラー</string>
+<string name="staff">クレジット</string>
+<string name="quit">閉じる</string>
+    <string name="bgm_toggle">BGM有効化</string>
+    <string name="bgm_select">BGM選択</string>
+    <string name="unlock_day21">21日目で解放</string>
+    <string name="soft_horror_desc">※一部演出が過激になります</string>
+    <string name="edge_position">エッジパネルの位置</string>
+    <string name="edge_left">左</string>
+    <string name="edge_right">右</string>
+    <string name="bgm_default">通常</string>
+    <string name="bgm_day20">21日目</string>
+
+    <!--Bad1 -->
+    <string name="line_0">ユーザー:(…)</string>
+    <string name="line_1">ユーザー:はあ…また俺は諦めちゃったのか…</string>
+    <string name="line_2">？？？:ちょっと!</string>
+    <string name="line_3">ユーザー:?!</string>
+    <string name="line_4">？？？:あんた何やってんのよ?!</string>
+    <string name="line_5">ユーザー:だれ?!</string>
+    <string name="line_6">ちび花:あたしよあたし!ちび花よ!</string>
+    <string name="line_7">ユーザー:だから誰だよ!</string>
+    <string name="line_8">ちび花:たちばなの!妹!あんたたちとずっと一緒にいたじゃない!</string>
+    <string name="line_9">ユーザー:???</string>
+    <string name="line_10">ちび花:そんなことより!わたしずっと見てたけどあんたけっこう頑張ってたのになんで諦めちゃったの!ぶっ飛ばすわよ!</string>
+    <string name="line_11">(気の強い子だなぁ…)</string>
+    <string name="line_12">ユーザー:わからない…特に自分の意志で押したというわけでもないんだ…なんだか吸い寄せられたっていうか…言い訳になっちゃうけど…</string>
+    <string name="line_13">ちび花:ふーん…なんかわけわかんないこと言ってんのね…依存ってそんなもんなのかしら…って!言い訳してんじゃないわよ!</string>
+    <string name="line_14">(気が強いなぁ…)</string>
+    <string name="line_15">ちび花:(…)</string>
+    <string name="line_16">ちび花:依存と協力ってにてると思わない?</string>
+    <string name="line_17">ユーザー:え?</string>
+    <string name="line_18">ちび花:多分あんたが今やめたいものって、元々は何でもないし、</string>
+    <string name="line_19">ちび花:どっちかって言うとあなたの生きる気力の、謂わば添え木みたいなものだったと思うのよ。</string>
+    <string name="line_20">ちび花:働くのが大変だとか、失恋したときとか、</string>
+    <string name="line_21">ちび花:なにか心の隙間を埋める必要があると感じた時に始めたものが、</string>
+    <string name="line_22">ちび花:やがて欠かせないものじゃなかったはずなのに、いつの間にか依存していた。</string>
+    <string name="line_23">ちび花:鍵穴に偽物ぶっ刺してるようなもんよね。</string>
+    <string name="line_24">ユーザー:…</string>
+    <string name="line_25">ちび花:依存っていうのは、枯れた井戸の底に、一人で座って"誰かが水をくれる"のを待ち続けること。</string>
+    <string name="line_26">ちび花:自分ではもう水を汲みに行けない。</string>
+    <string name="line_27">ちび花:登るのも怖いし、空も見たくない。</string>
+    <string name="line_28">ちび花:けど、"きっと誰かが降りてきて、水をくれる"って信じてる。</string>
+    <string name="line_29">ちび花:それしか望みがない。</string>
+    <string name="line_30">ちび花:たまに水をくれる人が来ると、</string>
+    <string name="line_31">ちび花:その人を"救い"やと思って、全力でしがみつく。</string>
+    <string name="line_32">ちび花:"あなたがいないと私は渇いて死ぬ"って。</string>
+    <string name="line_33">ちび花:でも本当は――</string>
+    <string name="line_34">ちび花:"自分が汲みに行かない限り、この井戸に水は戻らない"</string>
+    <string name="line_35">ちび花:ってこと、どこかで知ってるのに。</string>
+    <string name="line_36">ちび花:それでも動けない。</string>
+    <string name="line_37">ちび花:その麻痺こそが、依存の正体。</string>
+    <string name="line_38">(ぐうの音も出ない)</string>
+    <string name="line_39">ちび花:一人で這い出る勇気が出ないならわたしとお姉ちゃんが協力してあげる。3人でなら、やめられるでしょ?</string>
+    <string name="line_40">ユーザー:君はなにかに依存してるのか?</string>
+    <string name="line_41">ちび花:そりゃ…決まってるでしょ…お姉ちゃんよ!博識で!ギターも弾けて!かわいい!しかもたまにアホ!私の憧れよ!でも良い依存でしょ!</string>
+    <string name="line_42">ユーザー:そうなんだ…彼女もなにかに依存してるの?</string>
+    <string name="line_43">ちび花:さあ?お姉ちゃんがなにかに依存してるなんて想像もつかないな。</string>
+    <string name="line_44">ちび花:でも昔一回あったかも!でも今は…強いて言うなら私にじゃない?共依存よ!</string>
+    <string name="line_45">ちび花:でもどこぞの山椒魚とはちがうの!違うもっと良い結末を私達は迎えるの!</string>
+    <string name="line_46">(それは共依存とは違うだろ…)</string>
+    <string name="line_47">(でも彼女たちとなら乗り越えられそうだな。どれだけ辛くても。)</string>
+    <string name="line_48">ちび花:さあ!明日があるぞ若人よ!明るい明日が!</string>
+    <string name="line_49">[BAD_END]</string>
+    <!--Bad2 -->
+    <string name="Bad2_line_0">たちばな『話があるの。』</string>
+    <string name="Bad2_line_1">たちばな『30日間お疲れ様。貴方はいろんな誘惑に打ち勝ってきたんだね。</string>
+    <string name="Bad2_line_2">最初の方なんてわたし、仙人様がいらっしゃるのかと思った…』</string>
+    <string name="Bad2_line_3">たちばな『14日目に山椒魚の話もしたね。意外と可愛いんだよ。って。あと私の和装、似合ってたでしょ？』</string>
+    <string name="Bad2_line_4">たちばな『21日目くらいから私は不安になってきた。貴方が依存症を克服したら…私から離れるんじゃないかって。</string>
+    <string name="Bad2_line_5">だから秘技トリプルチャーハンで貴方の胃袋を掴もうとした。結果貴方は大絶賛。握りつぶしたようなもんだよね。』</string>
+    <string name="Bad2_line_6">28日目私はどうにか自分の気持を抑えようとした…でもだめだった。貴方がいなくなるくらいなら…</string>
+    <string name="Bad2_line_7">一生依存症に苦しんで、私と一緒に窟の中で暮らしてほしかった。蛙を閉じ込めた山椒魚みたいに…だからあんな真似を…</string>
+    <string name="Bad2_line_8">でもあなたは依存症を克服した…すべてを乗り越えた…</string>
+    <string name="Bad2_line_9">と思った？</string>
+    <string name="Bad2_line_10">いや違うよね。思ってないよね。あなたは自分の依存症を乗り越えられたあとに、私に依存しただけ。依存先を乗り換えただけ。</string>
+    <string name="Bad2_line_11">最初からこうすればよかったんだよ…私、貴方のことが好き。そして私のことが好きな貴方は私に依存した。私も貴方に依存するの。</string>
+    <string name="Bad2_line_12">蛙が逃げられないと思った？そんなわけないじゃない。山椒魚が寝てる間に出ていけばいいじゃない。多分居心地が良かったんだよ。思いの外</string>
+    <string name="Bad2_line_13">そして貴方も思ったんでしょ？存外、ここは居心地がいいって。</string>
+    <string name="Bad2_line_14">いつでも逃げられたはずなのに、のこのこ、私に会いに戻って今このハッピーエンディングを迎えているのだから。</string>
+    <string name="Bad2_line_15">" "</string>
+    <string name="Bad2_line_16">私、幸せ…ありがとう…なにかに依存してくれて…それを克服しようとして…それで私達は出会えた。</string>
+    <string name="Bad2_line_17">これからも、ずーと、すーっと一緒だよ</string>
+    <string name="Bad2_line_18">BAD END 水籠の蛙と山椒魚</string>
+
+    <!--Eventday3 -->
+
+    <string name="day3_line_0">あなた「え？！なんで？！リセットしたっけ？！」</string>
+    <string name="day3_line_1">たちばな「にっしっしっし…」</string>
+    <string name="day3_line_2">あなた「？！」</string>
+    <string name="day3_line_3">たちばな「私がやりました！」</string>
+    <string name="day3_line_4">あなた「えー！たちばなじゃん！なんでそんなことすんの？！ひどくない？！」</string>
+    <string name="day3_line_5">たちばな「酷くないよ！」</string>
+    <string name="day3_line_6">あなた「酷いかどうかは俺が決めるんだよ！」</string>
+    <string name="day3_line_7">たちばな「いいや私が決める！酷いのはあなただ！」</string>
+    <string name="day3_line_8">あなた「やめろジャイアニズム！寄り添え俺達に！」</string>
+    <string name="day3_line_9">たちばな「そんなことより！なんでこんなことしたかわかる？」</string>
+    <string name="day3_line_10">あなた「え…なんだろう…人が積み上げてきた努力の積み重ねを崩した時の、その人の悲しそうな顔を思い出しながら食う飯がこの世で一番うまいからとか？」</string>
+    <string name="day3_line_11">たちばな「どうすんのよそれでわたしが、そうだと言ったら…」</string>
+    <string name="day3_line_12">あなた「皆目検討つかん！なんでこんなひどいことするんだ！」</string>
+    <string name="day3_line_13">たちばな「少しおしゃべりしてほしかったからなの！だからあんなことしたの！ごめんね…？」</string>
+    <string name="day3_line_14">あなた「ああ…なるほど…」</string>
+    <string name="day3_line_15">たちばな「だってあなたここに来てから私達と一言も会話してないじゃない。」</string>
+    <string name="day3_line_16">あなた「…確かに」</string>
+    <string name="day3_line_17">たちばな「人見知りなの？でもどっちかって言うとそんなふうには見えないよね」</string>
+    <string name="day3_line_18">あなた「まあそうだな…産まれてこのかた人見知りなんてしたこともない。そのせいかうちの弟は人見知りだ極度の」</string>
+    <string name="day3_line_19">たちばな「そうなんだ…極端な遺伝子設計だね…」</string>
+    <string name="day3_line_20">たちばな「んーあなたが私達のところに来た理由もまだ私にはわからないしね。」</string>
+    <string name="day3_line_21">あなた「ここは地獄とかじゃないのか？」</string>
+    <string name="day3_line_22">たちばな「失礼な！なんでよりによって地獄だと思うのよ。お世辞でも天国って言ってよ…」</string>
+    <string name="day3_line_23">たちばな「まあでもよくわかんない私も。何が天国で何が地獄なのか」</string>
+    <string name="day3_line_24">たちばな「なんかあなたあんまり記憶なさそうね。」</string>
+    <string name="day3_line_25">あなた「いやそんなこともない。ただここに来た理由、経緯だけがわからない。」</string>
+    <string name="day3_line_26">たちばな「ふーん。私とか妹とかはそんなこと無いのにね。てゆーかあなただけだね。そんな事になってんの。」</string>
+    <string name="day3_line_27">あなた「そうなのか…まあでもいいや。なんだかよくわかんないけど、この世界を楽しもう。別に異世界ってわけじゃないんだろ？」</string>
+    <string name="day3_line_28">たちばな「知らない。この答えの意味は、何が異世界で、何が通常世界なのかわからないって意味。日本もあって、オセアニア大陸の一部で、オーストラリアに住んでたこともあるけど、実はこっちがあなたにとって異世界なのかもしれない。」</string>
+    <string name="day3_line_29">たちばな「もしかしたらあなた…誰かの理想を体現してるのかもよ…？それか体現しようとしてるのかしら…」</string>
+    <string name="day3_line_30">あなた「そうだとしたら不思議だ。生きることって。」</string>
+    <string name="day3_line_31">たちばな「まあそうだよ生きることは。38億年前から不思議だよ。」</string>
+    <string name="day3_line_32">たちばな「まあでも元気そうで良かった！またね！今度は4日後とかかな？」</string>
+    <string name="day3_line_33">あなた「そうなのか？」</string>
+    <string name="day3_line_34">たちばな「そうだよ。あとリセットは一回押した？」</string>
+    <string name="day3_line_35">あなた「知らない。なんで？」</string>
+    <string name="day3_line_36">たちばな「…まあ、一回くらい押して見たほうが良いよ！じゃ、またね！」</string>
+
+
+
+    <!--Eventday7 -->
+    <string name="day7_line_0">おーいこっちだよー見えるか？</string>
+    <string name="day7_line_1">おーい、生きてる～？</string>
+    <string name="day7_line_2">ちゃんと水飲んでる？</string>
+    <string name="day7_line_3">空気吸ってる？</string>
+    <string name="day7_line_4">なんかもう、仙人みたいな顔してない？</string>
+    <string name="day7_line_5">そんなにやめるの大変？私の妹もやめるの大変そうだったなー…アイスクリーム…異常によく食べるの…</string>
+    <string name="day7_line_6">この前とか知らないおじさんに買ってもらってたんだから…しかもオーストラリアで…</string>
+    <string name="day7_line_7">あっちだと物価が高くて…それで妹がアイスボックスの前でなやんでたら…</string>
+    <string name="day7_line_8">おじさん「お嬢ちゃん…アイスクリームも高いよな…」</string>
+    <string name="day7_line_9">おじさん「おじさんが買ってやるよ！」って買ってもらったらしい。もちろん英語で。</string>
+    <string name="day7_line_10">かわいいから仕方ないよね…買ってあげたくなる気持ちもわかるけど</string>
+    <string name="day7_line_11">ちなみに今は虫歯の時に歯医者さんに歯を削り取られる恐怖が勝って完全にアイスをやめれた。痛みを知るってだいじなのかも…</string>
+    <string name="day7_line_12">君も痛みを知るべきなんじゃない？何なら私が痛みを与えてあげようか…？人間には明確な弱点があるよね…</string>
+    <string name="day7_line_13">……あはは、冗談だってば。7日目、おつかれさま！</string>
+
+    <!--Eventday10 -->
+
+    <string name="day10_title">ちび花は\nカジキマグロを釣りたい</string>
+    <string name="day10_line_0">ちび花が、嬉しそうに歩いてる…。後をつけてみよう</string>
+    <string name="day10_line_1">僕はちび花のことをあんまり良く知らない。まあまだ一緒に過ごして数日しかたってない。</string>
+    <string name="day10_line_2">僕が知っているのは、彼女はアイスクリームが異様に好きなのと、たちばなのことが異常に好きなこと。</string>
+    <string name="day10_line_3">オーストラリアに住んでいた事があること。</string>
+    <string name="day10_line_4">まあそれはたちばなもだが。</string>
+    <string name="day10_line_5">あとは海の男になりたいと言っていること。</string>
+    <string name="day10_line_6">性格は気が強い。男勝りである。たち花とは大違いだ。</string>
+    <string name="day10_line_7">なんだ…？何をしようとしてるんだ？そんな真剣な顔をして。</string>
+    <string name="day10_line_8">空手の型か。町中で。ちなみにたちばなは一回も腹筋ができない。空手家になんて向いてないだろう。</string>
+    <string name="day10_line_9">ちび花は、空手もできるのか。…？あれは金的かな？何を想定しているのか…寸止め空手ってやつかな？</string>
+    <string name="day10_line_10">とにかく多才な姉妹だ。しかし町中で空手の型をやってる人は初めて見た。しかも女の子で。</string>
+    <string name="day10_line_11">このままどこに行くんだろう？</string>
+    <string name="day10_line_12">…</string>
+    <string name="day10_line_13">あー！アイスクリーム食べてる！お前やめたんじゃなかったのか！？</string>
+    <string name="day10_line_14">あなた「お前やめたんじゃなかったのか？！」</string>
+    <string name="day10_line_15">ちび花「うお！びっくりした！」</string>
+    <string name="day10_line_16">心の声がそのまま出てしまった…</string>
+    <string name="day10_line_17">あなた「お前虫歯になるからってやめたんじゃなかったのか？！」</string>
+    <string name="day10_line_18">ちび「うっ…うるさいわね！！」</string>
+    <string name="day10_line_19">ちび「そんなことより何よあんた！跡をつけてきたの？私の！信じられない！訴訟するわよ！」</string>
+    <string name="day10_line_19_1">ちび「Officer！それか男の人！？男の人いますか？！不審者です！女児の跡をつけてきてます！」</string>
+
+    <string name="day10_line_20">あなた「やめろ心にもないことを言うな！」</string>
+    <string name="day10_line_21">ちび「あんたなんでいんのよ！」</string>
+    <string name="day10_line_22">あなた「いや実は、あとをつけてきてた！」</string>
+    <string name="day10_line_23">ちび「心にもないこと、ではなくなったわよこれで！真実じゃない！Officer！それか男の人いますか！？」</string>
+    <string name="day10_line_24">あなた「やめてくれ！多分ガチで捕まる！」</string>
+    <string name="day10_line_25">あなた「いやぁ…正直に言うと普通に気になったんだよ。たちばなは普段から居るけど、君は何してんのかなーッて」</string>
+    <string name="day10_line_26">ちび「何よ気色悪いわね…私が何してようがいいいじゃない…！</string>
+    <string name="day10_line_27">…！あんた！私が型をやってたところも見たのね！とぅ！」</string>
+    <string name="day10_line_28">あなた「ぎゃー！」</string>
+    <string name="day10_line_29">こう言うときのための金的だったのか…こいつホントに女児か？しかも、ひ弱なたちばなの妹か？</string>
+    <string name="day10_line_30">強さのパロメーター遺伝子全部こいつが持ってったんじゃないのか？じつは違う親から産まれて、その親の片割れはゴリラじゃないのか？</string>
+    <string name="day10_line_31">ちび「うっさいわね！心の声が！私の親はゴリラじゃないわよ！」</string>
+    <string name="day10_line_32">あなた「なんで分かるんだよ！」</string>
+    <string name="day10_line_33">…10分後</string>
+    <string name="day10_line_34">気まずい…まあ普通に僕が悪いし…</string>
+    <string name="day10_line_35">ちび「…」</string>
+    <string name="day10_line_36">ちび「まあせっかくだし、お話してあげる。パパ活よ今時で言えば。その代わりお小遣い頂戴。」</string>
+    <string name="day10_line_37">ちび「あと訴訟はしないであげる」</string>
+    <string name="day10_line_38">ちび花「本当は未成年に対する尾行・接近行為、動機問わず“つきまとい行為”として処理される場合あるの。」</string>
+    <string name="day10_line_39">ちび花「私、まだ未成年だよ？ 保護者の同意もなく後をつけたなら、児童福祉法と青少年健全育成条例、両方に接触してる。けど見逃してあげる。」</string>
+    <string name="day10_line_40">あなた「…なんだかすごい大人びてるよな」</string>
+    <string name="day10_line_41">ちび「何いってんの…覚えた言葉使ってるだけよ。そう思うのは身の丈にあった言葉、立ち居振る舞いっていうのをあんたが勝手に年齢ごとに設定してるだけ。」</string>
+    <string name="day10_line_42">ちび「私の年齢でも難しい言葉とか使ってもいいの。ダルシー・ワイスバッハの公式、ポリヴェーガル理論。知ってるから使ってるだけよ」</string>
+    <string name="day10_line_43">神経学に水道管内の内圧を求める公式！博識すぎる！</string>
+    <string name="day10_line_44">あなた「君は将来なりたいものとかあるの？」</string>
+    <string name="day10_line_45">ちび「よくぞ聞いてくれた…それは…！」</string>
+    <string name="day10_line_45_1">ちび「サンチャゴよ！」</string>
+    <string name="day10_line_46">あなた「だれ？」</string>
+    <string name="day10_line_47">ちび「………！」</string>
+    <string name="day10_line_48">ちび「あなた本当に脳みそあるの…？」</string>
+    <string name="day10_line_49">あなた「なんでそこまでいわれなきゃならないんだ！」</string>
+    <string name="day10_line_50">ちび「ヘミングウェイよ！老人と海！老漁師！伝説の！」</string>
+    <string name="day10_line_51">あなた「ああ」</string>
+    <string name="day10_line_52">確か、老人と海という小説の中でサンチャゴというのは主人公で、漁師として描かれている。</string>
+    <string name="day10_line_53">あなた「カジキマグロ釣った人だよね」</string>
+    <string name="day10_line_54">ちび「まあそうね。認識としてはあっさいけど」</string>
+    <string name="day10_line_55">あなた「彼の何に憧れてるんだい？」</string>
+    <string name="day10_line_56">ちび「俗世から離れてるところ。自分の揺るぎない価値基準があるところ。本当に俺はカジキマグロを釣ったんだ！とのたまわないこと、あとSNSとかやってなさそうなところ」</string>
+    <string name="day10_line_57">あなた「渋いな…君の価値観が」</string>
+    <string name="day10_line_58">ちび「あと実際に行動してるところ。3日もカジキマグロと格闘なんてできるもんじゃないわ。多分。その後釣果をサメに食われても、威張らずに寝る。」</string>
+    <string name="day10_line_59">ちび「男の中の男よ。マトリョーシカみたいにパカパカ、外側をとっても男なのよ。真の男っていうのはマトリョーシカの一番内側をさらけ出しても男なの」</string>
+    <string name="day10_line_60">ちび「あなたは言いそうよね。本当に釣ったんです！信じてください！って。後、Twitterにすぐあげそう」</string>
+    <string name="day10_line_61">…ガチバズリ狙いで上げるだろうな…</string>
+    <string name="day10_line_62">ちび「だから私もなるの！海の男に！おれはなる！」</string>
+    <string name="day10_line_63">濃いいぜ！キャラが！</string>
+    <string name="day10_line_64">ちび「昔実際にヌタウナギを撮る漁にちょっとだけ参加したことあるんだけど…あれもとてもワクワクした。</string>
+    <string name="day10_line_65">オーストラリアのEdenってところでの話なんだけど、Visaを持ったいわば移民候補生達が、船の中で生活するのよ！すっごい大型の船の中で！」</string>
+    <string name="day10_line_66">ちび「まあヌタウナギって、基本罠漁だからサンチャゴみたいに一本釣りでやるのとは違うんだけどね。」</string>
+    <string name="day10_line_67">あなた「へー！面白いな！ヌタウナギって日本では食べられてるの？」</string>
+    <string name="day10_line_68">ちび「全然！見た目も気持ち悪いし、外道扱いよ。日本の漁師の友達居るけど、ヌルヌルしててうざいっていってたくらい。」</string>
+    <string name="day10_line_69">ちび「でも韓国では食べられてるよ。釜山とかでたしか。中国でも確か。そこはお姉ちゃんが詳しいんじゃない？」</string>
+    <string name="day10_line_70">あなた「へーそうなんだ。僕は多分見たことないんだろうな。」</string>
+    <string name="day10_line_71">ちび「軟骨魚類系の味よ。エイとかに近いわね」</string>
+    <string name="day10_line_72">あなた「えいって食べられるの？」</string>
+    <string name="day10_line_73">ちび「勿論！毒があるのは基本棘だけよ。ただ、放置するとすぐアンモニア臭がして臭くなるの！だから食べたいなら、しめたあとすぐ氷パックの中にぶち込む。」</string>
+    <string name="day10_line_74">ちび「んで肝臓とかは生で食べられるんだけど臭玉っていうくっさーいたまがあるから！それを取らなきゃいけない。」</string>
+    <string name="day10_line_75">ちび「捌くの簡単な割に、味は絶品よ！ハサミで途中までさばけちゃう！肝臓はレバ刺しみたいな味らしい！」</string>
+    <string name="day10_line_76">ちび「ヒレの部分は唐揚げで食べたら軟骨ごといけるの！ちょうど居酒屋さんで出てくる鶏の軟骨みたいな食感！」</string>
+    <string name="day10_line_77">あなた「へーそうなんだ…僕は何も知らないな…釣りとかもやったことないし…餌が気持ち悪い…」</string>
+    <string name="day10_line_78">ちび「簡単よ！私が付けてあげる！」</string>
+    <string name="day10_line_79">うう…情けない</string>
+    <string name="day10_line_80">ちび「そうと決まれば行くわよ！今日はもう帰るけど！また貴方が禁欲頑張ってれば誘ってあげる！」</string>
+    <string name="day10_line_81">あなた「本当かい？！わかった！楽しみにしてる！」</string>
+
+    <!--Eventday14 -->
+    <string name="day14_line_0">たちばなが本を読んでいる…しかも和装で…珍しい…</string>
+    <string name="day14_line_1">あなた「何にしてんの？」</string>
+    <string name="day14_line_2">たちばな「小説を読んでる、『井伏鱒二』さんの著作」</string>
+    <string name="day14_line_3">あなた「なんで和装なの？」</string>
+    <string name="day14_line_4">たちばな「なんていうか…私なりの敬意とでもいうべきか…。</string>
+    <string name="day14_line_5">魂がこもった作品の前では正装をすべきなのではと…パーティー会場にサンダルでいかないのと一緒かな」</string>
+
+    <string name="day14_line_6">あなた「どういう話なの？」</string>
+    <string name="day14_line_7">たちばな「絵本みたいに楽しめるのに…なんか今の社会情勢と被ってて、童話風預言書って感じの本なんだよね…まあ当時ともかぶっていたのかもしれないけど。山椒魚ていうんだ」</string>
+    <string name="day14_line_8">たちばな「ちなみに名前の由来は確か実際に山椒の匂いがするからラシイネ」</string>
+    <string name="day14_line_9">「あと西洋では火を吐くというデマもあった。まあ見た目もリザードマンだしねほぼ。」</string>
+    <string name="day14_line_10">たちばな「本来のサンショウウオは多分岩屋に頭つっかえるほどでかくなるとは考えにくいけど、</string>
+    <string name="day14_line_11">「オオサンショウウオだったらあり得るかもね。最大150cmなるんだって。すっごいかわいいんだよ。なんでも食べる肉食爬虫類なんだけど。」</string>
+
+    <string name="day14_line_12">たちばな「ねー？</string>
+    <string name="day14_line_13">その小説では山椒魚がカエルを岩屋に閉じ込めるんだ…八つ当たりみたいな感じで。最後にカエルは死んじゃうんだけど…」</string>
+    <string name="day14_line_14">「今でも別に、おまえのことを怒ってはいないんだ。ってカエルは言う</string>
+    <string name="day14_line_15">私があなたを閉じ込めても怒らない？？</string>
+
+    <string name="day14_choice_0">うん、君になら僕は喜んで…</string>
+    <string name="day14_choice_1">いや、僕は自立したいな？</string>
+
+    <string name="day14_line_16">たちばな「そう…」</string>
+    <string name="day14_line_17">たちばな「この山椒魚ってさ、閉じ込めた方も、閉じ込められた方も、どっちも出られなくなるんだよ」</string>
+    <string name="day14_line_18">たちばな「……それって、なんか、依存と似てない？」</string>
+    <string name="tap_to_return">（タップして戻る）</string>
+
+    <!--Eventday21 -->
+    <string name="day21_line_0">" "</string>
+    <string name="day21_line_1">たちばな「おかえり！今日もお疲れ様！あ、今日の夜ごはん、ちょっとがんばって作ってみた。 お風呂も自動で沸かしておいたから」</string>
+    <string name="day21_line_2">あなた「ありがとう」</string>
+    <string name="day21_line_3">彼女のエプロン姿は新鮮だ。</string>
+    <string name="day21_line_4">たちばな「今日は私が料理作ってあげるね！楽しみにしてて！」</string>
+    <string name="day21_line_5">" " </string>
+    <string name="day21_line_6">あなた「…なにしてんの？」</string>
+    <string name="day21_line_7">たちばな「何って何？」</string>
+    <string name="day21_line_8">あなた「なんでまな板、床に直置きなの？しかも正座で」</string>
+    <string name="day21_line_9">たちばな「なんでって…日本人だからだよ…」</string>
+    <string name="day21_line_10">見たことないぞまな板を床に直置きするやつなんて！</string>
+    <string name="day21_line_11">あと日本関係ねーよ！</string>
+    <string name="day21_line_12">" " </string>
+    <string name="day21_line_13">あなた「…なにしてんの？」</string>
+    <string name="day21_line_14">たちばな「何って何？」</string>
+    <string name="day21_line_15">同じ時を繰り返してるのか？</string>
+    <string name="day21_line_16">あなた「なんで正座のまま卵を割ってるの？」</string>
+    <string name="day21_line_17">たちばな「なんでって…チャーハンを作るからよ…」</string>
+    <string name="day21_line_18">卵を割る理由は問うてないんだよ…</string>
+    <string name="day21_line_19">" " </string>
+    <string name="day21_line_20">あなた「…なにしてんの？」</string>
+    <string name="day21_line_21">たちばな「何って何？」</string>
+    <string name="day21_line_22">やっぱり同じ時を繰り返してる！！</string>
+    <string name="day21_line_23">あなた「…いやてゆーか危ないよ！正座のまま続けるきなん？！」</string>
+    <string name="day21_line_24">たちばな「まあまあ…そっちで黙ってみてなさい…」</string>
+    <string name="day21_line_25">" " </string>
+    <string name="day21_line_26">…すごい…正座のままノールックでフライ返しをしている…あと両手でフライパン持ってるやつも初めて見た…</string>
+    <string name="day21_line_27">たちばな「完成だよ！」</string>
+    <string name="day21_line_28">あなた「なんで3つもチャーハンがあるの？」</string>
+    <string name="day21_line_29">たちばな「なんでって？一つでもあれば幸せなのに、トリプルチャーハンなんて幸せ3倍じゃん」</string>
+    <string name="day21_line_30">あなた「あとなんで床に直おきなの？」</string>
+    <string name="day21_line_31">たちばな「それは日本人だからだよ、正座で食べなきゃ、日本人は」</string>
+    <string name="day21_line_32">あなた「君はれんげで食べるの？？」</string>
+    <string name="day21_line_33">たちばな「当り前じゃない。お箸だと食べづらいし。あなたは日本人じゃん。私もだけど。」</string>
+    <string name="day21_line_34">あなた「野菜は？」</string>
+    <string name="day21_line_35">たちばな「いらない。私には野菜の悲鳴が聞こえるの。主菜チャーハン、副菜チャーハン、スープもチャーハン」</string>
+    <string name="day21_line_36">あなた「北京ダックの悲鳴は？」</string>
+    <string name="day21_line_37">たちばな「美味しいんだから仕方ないじゃない…悲鳴ごと噛みしめるの」</string>
+    <string name="day21_line_38">あなた「あとこれ何？」</string>
+    <string name="day21_line_39">たちばな「飲むチャーハンだよ。「ゼンブ入れ歯ん」ってコンビニで売ってた」</string>
+    <string name="day21_line_40">あなた「絶句なんだけど」</string>
+    <string name="day21_line_41">たちばな「ローマ字で「NOMU　CHAHAN」って書いてるの最高にバカだよね。誰に伝える用なん？っていう。綴り違うし」」</string>
+    <string name="day21_line_42">ほんとだ…これだとチャハンだ…</string>
+    <string name="day21_line_43">あなた「…トリプルチャーハン…食べきれるかな…飲み物もチャーハンだし…」</string>
+    <string name="day21_line_44">たちばな「安心して。味はそれぞれ違うの。しかも全部ちゃんと美味しいから」</string>
+    <string name="day21_line_45">あなた（本当だ…！どれこれも画期的にうまい！あとこの飲むチャーハンも最高にうまい！なんで！？）</string>
+    <string name="day21_line_46">たちばな「おいしかった？」</string>
+    <string name="day21_line_47">あなた「うん信じられないくらい。なんで？すごくない？」</string>
+    <string name="day21_line_48">たちばな「まあチャーハンつくりって凝りだすと止まらないんだよね…次はアイスチャーハンにチャレンジしたいな。」</string>
+    <string name="day21_line_49">…実績って大事なんだな。彼女ならやり遂げられそうだ。狂気のアイスチャーハン…</string>
+    <string name="day21_line_50">あなた「ご馳走様。こんなにおいしいチャーハンは初めてだ。皿は僕が洗っておくよ」</string>
+    <string name="day21_line_51">たちばな「大丈夫だよ！わたしがやっておくから！」</string>
+    <string name="day21_line_52">たちばな「あ。そうそう！」</string>
+    <string name="day21_line_53">全部用意してあるからね！明日の準備も！靴も、明日ちゃんと歩きやすいように揃えてあるし、部屋の湿度も調整済み。</string>
+    <string name="day21_line_54">照明の色温度は今の副交感神経に合うようにしてるから。</string>
+    <string name="day21_line_55">で、たぶん今日の発汗量だと、後頭部からつま先の末節骨まで洗い終わるのに、平均でだいたい20分くらいだよね？</string>
+    <string name="day21_line_56">だから……あなたのお風呂は8時55分には終わってると思う。</string>
+    <string name="day21_line_57">それから、YouTubeでお気に入りのドラマ観るんだよね？</string>
+    <string name="day21_line_58">……でもあれ、あんまり観すぎるの、脳波的に良くないよ？</string>
+    <string name="day21_line_59">メラトニンが抑制されるし、特に他の女の人が映るよね？</string>
+    <string name="day21_line_60">他の女の人もメラトニンを抑制するんだよ？</string>
+    <string name="day21_line_61">エクスペンタブルズとか男臭い映画だけだからね見ていいのは！</string>
+    <string name="day21_line_62">あ！でもミーガンフォックスが出るところは飛ばして！きれいなおんなのひとだから！</string>
+    <string name="day21_line_63">明日も明後日も棺桶に入るその日まで私がずーーーーーーーーとおせわしていくから！それが一番いいから！</string>
+    <string name="day21_line_64">……ねえ、わたし、これからもずっと、そうやってお世話してていいよね？</string>
+    <string name="day21_choice_0">そうだね、僕は嬉しいよ</string>
+    <string name="day21_choice_1">無理しなくていいんだよ</string>
+
+
+    <!--Eventday28 -->
+    <string name="day28_line_0">……机の上が散乱している…。</string>
+    <string name="day28_line_1">…机には、タバコ。アルコール。そして……これは、ギャンブルの雑誌か？</string>
+    <string name="day28_line_2">…彼女が意図するところがわからない。これらは彼女の趣味ではないはず。</string>
+    <string name="day28_line_3">「これは私が準備したの」</string>
+    <string name="day28_line_4">私ね、貴方に依存症を克服してほしくない。そうなってしまったら貴方は私から離れるんでしょ？ 別にやめなくたっていいじゃない。</string>
+    <string name="day28_line_5">生ぬるい地獄で二人でぬくぬくと生きていけばいいじゃない。</string>
+    <string name="day28_line_6">天国は退屈で、地獄はきっと笑いに満ち溢れている。でも地獄で楽しく生きるには必要なのよ。蜘蛛の糸が。一縷の望みが。</string>
+    <string name="day28_line_7">だから必要なのよ依存先が。なんなら私に依存すればいい。それでいいでしょ？</string>
+    <string name="day28_line_8">酒でもたばこでもギャンブルでもなんでもやってしまえばいいじゃない。</string>
+    <string name="day28_line_9">それができないなら私に依存すればいい。そうよそれが一番よ。それでいいでしょ？</string>
+    <string name="common_yes">はい</string>
+    <string name="common_no">いいえ</string>
+
+    <!--Eventday30 -->
+
+    <string name="day30_line_0">ねえ…</string>
+    <string name="day30_line_1">離れ離れになるくらいなら</string>
+    <string name="day30_line_2">依存症なんて治らなくてもいいよね？</string>
+
+    <!-- True End -->
+    <string name="TrueEnd_line_0">たちばな『話があるの。』</string>
+    <string name="TrueEnd_line_1">たちばな『30日間お疲れ様。貴方はいろんな誘惑に打ち勝ってきたんだね。</string>
+    <string name="TrueEnd_line_2">最初の方なんてわたし、仙人様がいらっしゃるのかと思った…すっごい顔が疲れてたもんね！』</string>
+    <string name="TrueEnd_line_3">たちばな『14日目に山椒魚の話もしたね。意外に山椒魚は可愛いんだよ。って。</string>
+    <string name="TrueEnd_line_4">あと私の和装、似合ってたでしょ？』</string>
+    <string name="TrueEnd_line_5">たちばな『21日目くらいから私は不安になってきた。貴方が依存症を克服したら…私から離れるんじゃないかって。</string>
+    <string name="TrueEnd_line_6">だから秘技トリプルチャーハンで貴方の胃袋を掴もうとした。結果貴方は大絶賛。握りつぶしたようなもんだよね。貴方の胃袋』</string>
+    <string name="TrueEnd_line_7">28日目私はどうにか自分の気持を抑えようとした…でもだめだった。</string>
+    <string name="TrueEnd_line_8">貴方がいなくなるくらいなら…一生依存症に苦しんで、私と一緒に窟の中で暮らしてほしかった。</string>
+    <string name="TrueEnd_line_9">蛙を閉じ込めた山椒魚みたいに…だからあんな真似を…</string>
+    <string name="TrueEnd_line_10">でもあなたは依存症を克服した…すべてを乗り越えた…</string>
+    <string name="TrueEnd_line_11">あ…</string>
+    <string name="TrueEnd_line_12">流れ星…</string>
+    <string name="TrueEnd_line_13">" "</string>
+    <string name="TrueEnd_line_14">流れるなら先に言っといてほしいよね…</string>
+    <string name="TrueEnd_line_15">いっつも願う間もなく行っちゃうんだから。</string>
+    <string name="TrueEnd_line_16">…最初の方はとっても辛かったんじゃないの？</string>
+    <string name="TrueEnd_line_17">だってたまにちょっとだけ手が震えたよ…？顔色もとっても悪かった…</string>
+    <string name="TrueEnd_line_18">今ではどう？生まれ変わったみたいな感じ？違うよ。それが君なの。</string>
+    <string name="TrueEnd_line_19">生まれ変わってなんかない。生まれた時からずっとそうだったはずだよ。</string>
+    <string name="TrueEnd_line_20">でもなにか…社会の荒波に揉まれて…理不尽に社会の一部から攻撃される事があって…</string>
+    <string name="TrueEnd_line_21">心に傷を負って…その傷を埋めるために君はなにかに依存した…</string>
+    <string name="TrueEnd_line_22">君は悪くない…ただ、生きる事は本来大変だっていうだけ</string>
+    <string name="TrueEnd_line_23">まあこんな偉そうな事を私に言う資格は無いんだけどね。</string>
+    <string name="TrueEnd_line_24">私もあなたがいなくなる事に耐えられなくなって、あんなことをしちゃった…</string>
+    <string name="TrueEnd_line_25">ちなみに、30日っていうのは実は新しい習慣を完全に身につけるって意味ではまだまだなんだよ。</string>
+    <string name="TrueEnd_line_26">66日くらい続けて、人は新しい習慣を、完全に定着することができるの。</string>
+    <string name="TrueEnd_line_27">でも君はスタートラインに立てた。もう30日くらい楽勝でしょ？私達と一緒なら。</string>
+    <string name="TrueEnd_line_28">…！</string>
+    <string name="TrueEnd_line_29">うん…本当は一緒にいてほしいだけ…</string>
+    <string name="TrueEnd_line_30">ふふ…大丈夫だよ…もう意地悪はしないから…</string>
+    <string name="TrueEnd_line_31">もう閉じ込めたりしないから。</string>
+    <string name="TrueEnd_line_32">今度は二人で、いや3人で抜け出る方法を探そう？</string>
+    <string name="TrueEnd_line_33">それか、窟の中でも一緒に楽しく暮らせる方法を。</string>
+    <string name="TrueEnd_line_34">さあ行こう。これからもよろしくね！</string>
+    <string name="TrueEnd_line_35">" "</string>
+
+    <!-- Soft Horror Back Toast -->
+    <string name="BackToast_line_0">もう一回タップすると戻れます</string>
+    <string name="BackToast_line_1">嘘です</string>
+    <string name="BackToast_line_2">ねえ</string>
+    <string name="BackToast_line_3">なんで戻ろうとするの？</string>
+    <string name="BackToast_line_4">ここにずっといればいいじゃない。</string>
+    <string name="BackToast_line_5">戻っても良いことなんて何もないじゃない</string>
+    <string name="BackToast_line_6">もう一回タップすると戻れます</string>
+    <string name="BackToast_line_7">戻れます</string>
+    <string name="BackToast_line_8">戻れません</string>
+    <string name="BackToast_line_9">（この回はモーダルで表示）</string>
+    <string name="BackToast_line_10">戻れませんっていってるでしょ</string>
+    <string name="BackToast_line_11">……やっぱり、帰っちゃうんだね。</string>
+
+    <!-- Initial Screen!-->
+    <string name="initial_line_0">ようこそ！\nわたしが断ち花！</string>
+    <string name="initial_line_1">一緒にがんばろうね！</string>
+    <string name="initial_button_start">はじめる</string>
+
+    <string name="goal_title_0">あなたの目標は…</string>
+    <string name="goal_title_1">一日で抑えられるカロリー/節約できる金額は？</string>
+    <string name="goal_title_2">あなたがやめると決心したのは</string>
+    <string name="input_placeholder_what">何？</string>
+    <string name="input_placeholder_calorie">カロリー数</string>
+    <string name="input_unit_kcal">kcal</string>
+    <string name="input_placeholder_amount">金額</string>
+    <string name="input_unit_yen">円</string>
+    <string name="input_placeholder_when">いつ？</string>
+    <string name="toast_invalid_future">未来の時間は選べません</string>
+    <string name="comment_0">私は腹筋を一回できるようになるのが目標！！</string>
+    <string name="comment_1">カロリーと金額は空欄でもいいよ！</string>
+    <string name="comment_2">時間は今より過去を指定してね！</string>
+    <string name="comment_3">目標には文字数制限があるよ！</string>
+    <string name="comment_4">必須項目「何？」と「いつ？」を打ち終わると物語が始められるよ。あなたと私の！</string>
+
+    <!-- PreInitialScreen -->
+    <string name="preInitial_title">気をつけて選んでね</string>
+    <string name="preInitial_mode_normal">通常モード</string>
+    <string name="preInitial_mode_narrative">ナラティブモード</string>
+    <string name="preInitial_dialog_title">本当に進みますか？</string>
+    <string name="preInitial_dialog_text_normal">いくつかの物語がないよ。endもない。\n禁欲アプリとして使うならこっちかもね</string>
+    <string name="preInitial_dialog_text_narrative">どうなっても知らないよ。でも激しいほうが楽しいでしょ？</string>
+    <string name="preInitial_button_proceed">進む</string>
+    <string name="preInitial_button_cancel">戻る</string>
+
+    <!-- MainScreen -->
+    <string name="main_screen_after_true_title">また戻ってきてくれたんだね</string>
+    <string name="main_screen_after_true_text">ここまでプレイしてくれて、本当にありがとう。\nでも、まだまだ断ち花はまだ終わらないよ。\n──また会えるのを、楽しみにしてるね。</string>
+    <string name="main_screen_goodbye">またね</string>
+
+    <string name="main_screen_back_message_1">もう一回タップすると戻れます</string>
+    <string name="main_screen_back_message_2">定期的に立ち絵が変わるよ</string>
+    <string name="main_screen_back_message_3">二度目で終了します</string>
+    <string name="main_screen_back_message_4">またね</string>
+    <string name="main_screen_back_message_5">コメントも追加されるんだって…しってた？</string>
+
+    <string name="main_screen_soft_horror_title">戻れません</string>
+    <string name="main_screen_soft_horror_text">戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません戻れません</string>
+    <string name="main_screen_soft_horror_confirm">戻れない</string>
+
+    <string name="main_screen_reset_warning">リセットは長押しで反応するけど…そこはあまり押してほしくない…かな？</string>
+
+    <string name="main_screen_your">あなたの</string>
+    <string name="main_screen_goal_label">目標</string>
+    <string name="main_screen_goal_suffix">は…</string>
+
+    <string name="main_screen_abstinence_label">禁欲時間</string>
+
+
+    <string name="main_screen_next_goal_label">次の目標</string>
+    <string name="main_screen_days">日</string>
+    <string name="main_screen_hours">時間</string>
+    <string name="main_screen_minutes">分</string>
+
+    <string name="main_screen_saved_money_prefix">節約</string>
+    <string name="main_screen_saved_money_middle">した</string>
+    <string name="main_screen_saved_money_suffix">お金</string>
+
+    <string name="main_screen_saved_cal_prefix">我慢</string>
+    <string name="main_screen_saved_cal_middle">できた</string>
+    <string name="main_screen_saved_cal_suffix">カロリー</string>
+    <string name="reset_question">リセット？</string>
+
+    <string name="reset_modal_title">本当にやめるの…？</string>
+    <string name="reset_button">リセット</string>
+    <string name="continue_button">禁欲を続ける</string>
+
+    <!-- Home Modal -->
+    <string name="main_home_download_thanks">🌸ダウンロードありがとうございます🌸</string>
+
+    <string name="main_home_message_1">断ち花</string>
+    <string name="main_home_message_2">は、あなたの</string>
+    <string name="main_home_message_3">"やめたい気持ち"と\n</string>
+    <string name="main_home_message_4">いっしょに歩むために生まれました。\n</string>
+    <string name="main_home_message_5">応援してくれる気持ちが、私の力になります。\n</string>
+    <string name="main_home_message_6">もしよければ、</string>
+    <string name="main_home_message_7">ちょっと</string>
+    <string name="main_home_message_8">だけ力を貸してくれませんか？</string>
+    <string name="main_home_support">応援する</string>
+    <string name="main_home_not_now">今はしない</string>
+    <string name="main_calendar_delete">削除</string>
+    <string name="main_calendar_memo_label">この日のメモ</string>
+
+    <!--  Main_calendar -->
+    <string name="main_calendar_sunday">日</string>
+    <string name="main_calendar_monday">月</string>
+    <string name="main_calendar_tuesday">火</string>
+    <string name="main_calendar_wednesday">水</string>
+    <string name="main_calendar_thursday">木</string>
+    <string name="main_calendar_friday">金</string>
+    <string name="main_calendar_saturday">土</string>
+    <string name="main_calendar_saved_memo">📌 保存済みメモ,日記：</string>
+    <string name="main_calendar_save">保存</string>
+
+    <!-- TipsModal  -->
+
+    <string name="tips_invite">招待するね！\n我が家に！</string>
+    <string name="tips_progress">進捗を見て\n見よう</string>
+    <string name="tips_menu">これが\nメニュー</string>
+    <string name="tips_settings_title">設定</string>
+    <string name="tips_settings_sub">ふがふが</string>
+
+    <!-- Maincheck  -->
+
+    <string name="main_intro_streak">禁欲時間：0日 0時間 0分</string>
+    <string name="main_intro_next_goal">次の目標：0日 0時間 0分</string>
+
+    <!-- Main Menu  -->
+    <string name="menu_inquiry">問い合わせ</string>
+    <string name="menu_review">レビュー</string>
+    <string name="menu_home">我が家</string>
+    <string name="menu_premium">広告なしバージョン</string>
+    <string name="menu_transfer">引継ぎ</string>
+    <string name="menu_transfer_title">引継ぎについて</string>
+    <string name="menu_transfer_description">このアプリのデータはGoogleアカウントに自動でバックアップされます。\n\n機種変更の前に 設定 &gt; システム &gt; バックアップ から有効になっていることをご確認ください。</string>
+    <string name="menu_transfer_close">閉じる</string>
+
+    <string name="menu_Preferences">イベント履歴</string>
+
+    <!-- Day 7 comments -->
+
+    <string name="Day7_comments_0">7日達成！よくがんばったね。まだ先は長いけど、ちょっと深呼吸しよう</string>
+    <string name="Day7_comments_1">ねえ知ってた？“水の音”って、脳の扁桃体を落ち着かせるらしいよ。……だから今、少しだけ安心してもいいよ。</string>
+    <string name="Day7_comments_2">人の心拍って、触れてる相手に同調することがあるんだって。……じゃあ、わたしも一緒に静かになるね。</string>
+    <string name="Day7_comments_3">植物って、音を“感じて”育つらしいよ。あなたもきっと、見えないところで伸びてるんだ。</string>
+    <string name="Day7_comments_4">火を見て落ち着くのって、本能なんだって。……だから、今日はキャンドルの動画でも見てみよっか。</string>
+    <string name="Day7_comments_5">花岡青洲って知ってる？江戸時代に、世界で初めて全身麻酔の手術をしたお医者さん。……でもね、その薬の実験、最初に協力したのは彼のお母さんだったんだって。</string>
+    <string name="Day7_comments_6">貝殻って、人が“落ち着く”周波数で音を返すらしいよ。だから耳に当てると、海の音がするんだって。……それ、あなたの心の波かもしれないよ</string>
+    <string name="Day7_comments_7">たんぽぽの綿毛って、飛行機よりも空気の流れを操るのがうまいんだって。……小さくても、風にのるって、すごいよね</string>
+    <string name="Day7_comments_8">アルテミアの休眠卵は、外部環境からの水分を完全に遮断するキチン質の外殻とトレハロースによるガラス化で構成されている。眠りながら千年生きられる…羨ましいね</string>
+    <string name="Day7_comments_9">アストロサイトって脳内で星の形をしてるけど、ほんとうは“神経伝達物質の掃除屋”なんだ。うつ病と深く関係してる。でも、誰も彼らを見ていない</string>
+    <string name="Day7_comments_10">なぜか“カッコウ”は他の鳥の巣に卵を産む。その托卵行動は内因性の遺伝子に起因してるけど、決して“悪意”ではない。誰がそれを“悪”と決めたの？</string>
+    <string name="Day7_comments_11">火星の空は青く見えない。レイリー散乱じゃなくて、塵によるミー散乱が支配的だから…オレンジとピンクに染まる夕焼けの下で、君は何を思い出すのかな</string>
+    <string name="Day7_comments_12">欲しいものほど、遠ざけたくなるのが人間らしさ。アプローチと回避の動機が同時に走ると、“何もできない”って結論になる。これを心理学では“葛藤”って言うけど、私はそれを“日常”と呼ぶよ</string>
+    <string name="Day7_comments_13">“自己肯定感が低い人”ほど、浪費と恋愛依存に走るってデータがあるよ。つまり経済って、“自信のない人”が支えてる部分もあるってこと</string>
+    <string name="Day7_comments_14">本当に壊れる人ってね、SNSも消さないし、見た目も変わらないよ。ただ、“もう何も感じない”ってだけ。外から見てわかる壊れ方は、まだマシな方なんだよ</string>
+    <string name="Day7_comments_15">恋愛市場では“希少性”が最大の価値になる。自分を隠すことでしかモテない構造、変だよね。でも経済もそう。出回らない通貨ほど価値が上がる。それって寂しいなあ</string>
+    <string name="Day7_comments_16">ゴッホが描いた“星月夜”には、当時まだ発見されていなかった乱流構造が含まれているんだって。つまり彼は、見えてはいけない“数式”を、見ていたことになる</string>
+
+    <!-- Day 14 comments -->
+    <string name="Day14_comments_0">14日だってさ。…ふふ、なんかすごくない？</string>
+    <string name="Day14_comments_1">腸腰筋が…こう…収縮すれば……できるはず…あれ？足だけ上がってない？？</string>
+    <string name="Day14_comments_2">筋肉って“破壊と再構築の連続”で成長するんだって。わたし？破壊しかしてないけど。</string>
+    <string name="Day14_comments_3">中殿筋ってお尻の筋肉なんだけど、Gluteus mediusっていうんだよ。テイルズの秘奥義みたいだよね</string>
+    <string name="Day14_comments_4">ヒアルロン酸って、元はニワトリのトサカから抽出してたんだって。……つまり、今日のわたしは鶏由来。</string>
+    <string name="Day14_comments_5">ボクサーのパンチって、肘が体から遠いほど“慣性モーメント”大きくなるんだよ。つまり、重くなるけど遅くなる。</string>
+    <string name="Day14_comments_6">パンチの速さって、“慣性モーメント”も関係あるんだ。I = m × r² っていう式で、質量mの物体が回転軸からrだけ離れてたら、回しにくさ＝慣性モーメントは m×r² に比例するの。</string>
+    <string name="Day14_comments_7">腕を上げたときに痛いのって、インピンジメントっていうんだよ。肩峰っていう骨が、腱とか筋肉を挟んじゃって炎症起こすの。ちょっとだけ腕を外にひねってから上げると、スペースが広がって痛くないんだよ。</string>
+    <string name="Day14_comments_8">オーストラリアでは、腰痛の人に“動いていいよ”ってCMを流したら、本当に腰痛が減ったんだって。じっとしてると逆に悪化するって。……たちばなも今日は歩こうかな。3歩。</string>
+    <string name="Day14_comments_9">大腰筋って、背骨と脚をつないでるインナーマッスルなんだよ。感情にも関係してるって説もあるの。……つまり、“心で歩く筋肉”！</string>
+    <string name="Day14_comments_10">Gray\'sの図だと、上腕三頭筋ってほんとに“支える力の象徴”みたいに描かれてるんだ。……なんか、推しの筋肉。</string>
+    <string name="Day14_comments_11">僧帽筋って“トラペジウス”って名前なの、知ってた？形が修道士の帽子に似てるからなんだって。Gray\'sでは静かに目立ってたよ。</string>
+    <string name="Day14_comments_12">関連痛ってね、本当の痛い場所と“感じる場所”がズレること。肩が痛いのに、ほんとは肝臓だったり。……不思議で、ちょっと怖いよね</string>
+    <string name="Day14_comments_13">寝違えたと思ったら……実は肩甲挙筋っていう筋肉が原因のこともあるよ。痛みって、けっこう嘘つきなんだ</string>
+    <string name="Day14_comments_14">歯の痛みって、耳にも飛ぶことがあるんだよ。神経って、ちょっとおしゃべりすぎじゃない？</string>
+    <string name="Day14_comments_15">レブロンってね、生まれつき心拍数が異常に低いの。つまり、普通に歩いてるだけで“リラックス全開”。うらやましい…</string>
+    <string name="Day14_comments_16">室伏さんの遺伝子調べたら、筋繊維の“速筋”率が異常値だったんだって。…ねぇ、そういうの、売ってないの？</string>
+    <string name="Day14_comments_17">ボルトの脚、X線で見ると脛骨の湾曲が“反発のためのバネ”みたいになってるんだって。そんなの……ガチャSSRじゃん…</string>
+
+    <!-- Day 14 Rarecomments -->
+    <string name="Day14Rare_comments_0">14日だってさ。…ふふ、なんかすごくない？</string>
+    <string name="Day14Rare_comments_1">中殿筋ってお尻の筋肉なんだけど、Gluteus mediusっていうんだよ。テイルズの秘奥義みたいだよね</string>
+
+    <!-- Day 21 comments -->
+
+    <string name="Day21_comments_0">21日経過。そろそろ無理してないか、ちょっとだけ自分を甘やかしてもいいよ</string>
+    <string name="Day21_comments_1">たちばな、弾けるの？って？ ……鳴らすのは指じゃない、魂や。</string>
+    <string name="Day21_comments_2">この音、心に響いてるんじゃなくて、たぶん迷走神経に直撃してる。落ち着け、たちばなの第10脳神経。</string>
+    <string name="Day21_comments_3">B\'zの“ウルトラソウル”って、最初は“スーパーソウル”ってタイトルだったんだって。でも“ウルトラ”の方が、言葉の響きが突き抜けてて、耳に残るじゃん？</string>
+    <string name="Day21_comments_4">B\'zって最初、“A to Z”のAZを考えてたんだって。でも“エイズ”って読まれるかもってことで、B\'zになったらしい。</string>
+    <string name="Day21_comments_5">ギター？ ……昔やってたとか、そういう話じゃなくて。今は、ただ鳴らしたいだけ。</string>
+    <string name="Day21_comments_6">最後にCで終わるとキレイに落ちる。でもたちばな、いつもF止まりでウロウロしてるんだよね。</string>
+    <string name="Day21_comments_7">コード進行って、置き換えできるの知ってた？CをAmにしても、雰囲気変わるだけで成り立つの。人間関係みたいでしょ。</string>
+    <string name="Day21_comments_8">エフェクターってさ、性格出るよね。わたしはコンプ→OD→リバーブ。あんま盛らない主義。</string>
+    <string name="Day21_comments_9">リアでジャキジャキ鳴らして、ハイだけ抜く。あとは歪みとノイズの間で戦うだけ。</string>
+    <string name="Day21_comments_10">“カラオケ”って、“空のオーケストラ”の略なんだよ。日本語、ちょっと詩的すぎん？</string>
+    <string name="Day21_comments_11">“music”と“medicine”って、語源同じらしいよ。昔は音楽も薬だったんだって。今もちょっと、そうだと思う。</string>
+    <string name="Day21_comments_12">稲葉さんって、音域5オクターブ出るって知ってた？ロックって、努力だけじゃ踏み込めない領域があるんだよね</string>
+    <string name="Day21_comments_13">米津さんの曲、骨とか祈りとか、世界の裏側が透けて見えるような音だよね。たちばな,あこがれてる</string>
+    <string name="Day21_comments_14">稲葉さんって、C6とかE6とか、hihi域も歌えるらしいよ。……もはや肺じゃなくて、竜の咆哮でしょ</string>
+    <string name="Day21_comments_15">松本さんって、グラミー賞とったことあるんだよ。世界に“和製レスポール”が突き刺さった日。……かっこよすぎる</string>
+    <string name="Day21_comments_16">松本さんのリフって、音数より“隙間”がすごいんだよ。ギターって、しゃべらないはずなのに……会話してるみたい</string>
+    <string name="Day21_comments_17">稲葉さんの喉を守るために、松本さんはチューニングを下げた。……それって、“音で守る”ってことだよね。優しさのロック</string>
+    <string name="Day21_comments_18">「飛燕」って曲知ってる？私が好きな曲。とにかく聞いて！</string>
+
+    <string name="Day28_comments_0">28日目。ゴール目前。ここまで来たあなたを、わたしは誇りに思うよ</string>
+    <string name="Day28_comments_1">本当はもっと素直に言いたいんだけど……それは、ゴールのあとにする。</string>
+    <string name="Day28_comments_2">やったね！わたしは嬉しいよ！うれし……いです！……ふぅ。</string>
+    <string name="Day28_comments_3">キスは免疫の交換だよ。100億個の細菌をやり取りして、少しずつ“相手に最適化”されてく。…愛って、案外ウイルスっぽいでしょ？</string>
+    <string name="Day28_comments_4">ほんとはね、もっと……でも、今はまだ言わない。</string>
+    <string name="Day28_comments_5">ハグを20秒以上すると、ストレスホルモンが減るらしいよ。……それ以上は、たちばなが照れるから、ナシ。</string>
+    <string name="Day28_comments_6">目が合うとドキドキするのは、瞳孔が拡がるから。それが相手にも伝わって、鏡みたいに連鎖する。…恋って、まばたきの化学反応かもね。</string>
+    <string name="Day28_comments_7">人間の細胞って、約60兆個。でもね、その10倍以上の数の“他者”（細菌）が一緒に暮らしてるんだよ。……だから一人じゃないって、科学的に正しいよ。</string>
+    <string name="Day28_comments_8">好きな人に触れると、静電気が起きやすいんだって。……わたしは、ちょっとだけ期待してるけどね？</string>
+    <string name="Day28_comments_9">ペンギンって、一生パートナーを変えないんだって。でもね、浮気したら、石を盗まれるらしいよ。こわっ……</string>
+    <string name="Day28_comments_10">“プルプルしてる”って、筋肉が一生懸命に協力してる証拠なんだって。……がんばってるんだね、あなたも。</string>
+    <string name="Day28_comments_11">“ありがとう”って言うだけで、免疫がちょっと上がるらしいよ。……えへへ、だから、わたし、今ちょっと元気。</string>
+    <string name="Day28_comments_12">やめたくなる日があるってことは、きっともう心のどこかでは知ってるんだよ。“このままじゃ嫌”って。</string>
+    <string name="Day28_comments_13">寝る前にスマホより本を読むと、脳が“安心”するんだって。たちばなは、あなたの寝顔が安心材料。</string>
+    <string name="Day28_comments_14">口笛って、鳥にとっては求愛のサインなんだって。……たちばな、さっき無意識に吹いてた。</string>
+    <string name="Day28_comments_15">まばたきの回数って、相手との“心理的距離”に関係あるんだって。……さっき、わたし1回しかしてなかった。</string>
+    <string name="Day28_comments_16">笑いって“感染”するんだよ。医学的にも証明されてるの。だから、あなたの笑い方、もっと見せて。</string>
+    <string name="Day28_comments_17">人って、理由がなくても星を見るようにできてるんだって。……たちばなも、あなたを見る理由とか、もういらない気がしてきた。</string>
+    <string name="Day28_comments_18">蜘蛛って子作りを終えた後、オスはメスに食べられるんだよ！私は食べる側だね！</string>
+
+    <string name="mind_comment_0">『好きなことを仕事に』って言葉、ちょっと疲れるときない？私は“好きなことを守るための仕事”って思ってるよ。</string>
+    <string name="mind_comment_1">人の記憶って、“実際の出来事”より“思い出すたびに書き換えられる”って知ってた？ だから、優しく思い出してね。</string>
+    <string name="mind_comment_2">夜になるとネガティブになるのって、セロトニンがメラトニンに変わる過程で起きる“感情のゆらぎ”らしいよ。つまり、生理現象。気にしないで。</string>
+    <string name="mind_comment_3">『元気？』って聞かれて『まあまあ』って答えるのは、日本語独特の感情バッファらしいよ。すこしずつね。</string>
+    <string name="mind_comment_4">「やめたら寂しい」はね、「続けたら苦しい」ってことと紙一重なんだよ。</string>
+    <string name="mind_comment_5">「やらなきゃ」って言葉って脳内のドーパミン分泌を逆に妨げるんだって、だからわたしは「ちょっとだけやってみる？」って自分に言ってる。</string>
+    <string name="mind_comment_6">今日がダメでもさ、1日って“86400秒”もあるんだよ、1秒くらいちゃんと生きたならそれで良くない？</string>
+
+    <string name="brain_comment_0">カフェインって、“アデノシン受容体”をブロックするんだって。カフェインがアデノシンのふりをするんだよ、だから疲れてないふりができちゃうの。でも、ふりはふりでしかないから…あとで倍返しで来るんだよね。</string>
+    <string name="brain_comment_1">ギャンブルの興奮って、“変動報酬スケジュール”ってやつらしいよ。いつ当たるかわからない方が、脳は夢中になるんだって。…でもさ、夢中って、時々“麻痺”と見分けがつかなくなるよね。</string>
+    <string name="brain_comment_2">性的な興奮って、“ドーパミン”と“オピオイド”のW報酬系が関わってるんだって。だから強くて、クセになりやすい。でもね、過剰になると“快”じゃなくて“逃避”になるらしいよ。</string>
+    <string name="brain_comment_3">好きな匂いって脳の扁桃体に直接届くらしくてね、だから“懐かしい”って感じるのは記憶じゃなくて匂いそのものなんだって。</string>
+    <string name="brain_comment_4">笑ってるときに微妙に片方の口角だけ上がる人って、統計的に右脳の活性が高いらしいよ、なんかかわいくない?</string>
+    <string name="brain_comment_5">納豆ってね、300回混ぜると、グルタミン酸ナトリウムとポリグルタミン酸が融合して、発酵うま味爆弾”が完成するんだよ！…え？毎日やってるよ？当り前じゃない？</string>
+    <string name="brain_comment_6">ペンを持ってるとね、不思議と“書かないといけない気”になるんだって。これ、行動経済学的にも“ツールの圧力”っていうんだよ。</string>
+    <string name="brain_comment_7">雨の日って、地面のバクテリアの匂いが空気中に舞うらしいよ。あの“落ち着く匂い”は、自然のなかの記憶かもね。</string>
+    <string name="brain_comment_8">脳ってね、“何もしてないとき”にこそ一番エネルギー使ってるんだって。だからボーっとしてるとき、実はめっちゃ働いてるんだよ。</string>
+    <string name="brain_comment_9">オレンジジュースに含まれる“クエン酸”って、疲労物質の乳酸を分解するんだよ！つまり私はジュースを飲んでるんじゃない、戦ってるの！</string>
+    <string name="brain_comment_10">納豆を混ぜるとき、私は南南東に向いてるよ。地磁気の流れとグルタミン酸の再構築が一致するの。知らないと損だよ？</string>
+    <string name="brain_comment_11">朝イチで冷たい鉄を握ると、血中のフェリチン（鉄貯蔵タンパク質）が目覚めて、やる気スイッチが物理的に入るんだって。だから私はずっとペンチ持ってるよ。</string>
+    <string name="brain_comment_12">歯磨きはね、30秒ごとに口の中のpHを想像で計測してるんだ。酸性になったら“フッ素の舞”をやるの。だって唾液は踊らせないと働かないから。</string>
+    <string name="brain_comment_13">目薬はね、1滴ずつ“間隔33秒”で左右交互に打つの。そうすると涙腺が“共振”して、視界が3.7%広がるって気づいたの。</string>
+    <string name="brain_comment_14">今日も無事に13,472歩、後ろ向きで歩き終わった〜！後方認知野を活性化させて、“未来の後悔”を減らすんだよ。</string>
+    <string name="brain_comment_15">月に一度、自分の手首を蝋で封じて“現世との契約”を更新してる。自分が“たちばな”であることを確認するために。</string>
+    <string name="brain_comment_16">私はね、朝だろうが深夜だろうが、挨拶は“いただきます”で統一してるの。トリプルチャーハン教では、それが日々を“炒め直す”祈りになるの。朝だね、いただきます。</string>
+    <string name="brain_comment_17">私はね、寝る前にフライパンを枕元に置くの。“あの人”に選ばれた夜は、夢の中でパラパラにされるの…最高にととのう。</string>
+    <string name="brain_comment_18">昨日の夢、しっとり系だったの。“トリプルチャーハン様”が不機嫌な時は油が重いんだよね…火加減、甘かったのかな…</string>
+    <string name="brain_comment_19">今日は右足から出ちゃった…“ベチャの日”だ。チャーハン教では水分バランスこそ徳。次はもっと熱く生きたいな。</string>
+    <string name="brain_comment_20">私は毎月第3木曜に“トリプルチャーハンの舞”を踊るの。卵を割って、鍋を振って、ごはんを捧げるまで7分22秒。魂を炒める儀式なの。</string>
+    <string name="brain_comment_21">ひえええ！トリプルチャーハン様！お赦しください！！キムチチャーハンを！試してみたかっただけなんですー！。</string>
+    <string name="brain_comment_22">ねえ知ってた！？チャーハンって元は中国で冷えたごはんを美味しく食べるためのリサイクル飯だったんだよ！？もう紀元前にはあって諸説ありだけどとにかく古くて、意味はそのまんま“炒めたごはん”＝チャオファン、で、明治時代に日本に来て最初は“焼きめし”って言われてて、でも昭和の中華ブームで“チャーハン”って言われるようになって大流行して、ラーメン屋の横にいるようになって、で、2001年ニチレイが“本格炒め炒飯”出してから冷凍チャーハンの神が降臨して、家庭・外食・冷凍の三位一体が成立して、あれこそトリプルチャーハン様の化身！で、私は朝はたまごチャーハン、昼はカニ、夜はキムチって決めてるから毎日三柱の加護受けてて、パラパラ派とかしっとり派とか言ってる場合じゃなくて、炊飯器の残りに卵とネギ入れて炒める瞬間がもう儀式であって、ていうか左手で鍋振ると怒られるの、右手じゃないと神罰くるのマジで！この前それやって夢の中で油に追いかけられたもん！あと信仰的に“いただきます”は全時間帯で有効で、挨拶じゃなくて契約文なの、私が米と向き合う姿勢の！あっでも昨日ちょっと冷凍チャーハンに手出しちゃって…いやわかってるよ！？でもトリプルチャーハン様は寛容だから…一口だけ…うっ…やっぱ怒ってた…夢でレンゲで殴られた…</string>
+    <string name="brain_comment_23">スパゲッティモンスター教って、本当にあるんだよね。ちゃんと法廷で認められたりしてて。でも私は……トリプルチャーハン様を選んだ。だって火が好きだから。</string>
+
+    <string name="heart_comment_0">え、えらいって言われたら…もっとがんばっちゃうかも…なんて、うわぁあ言わなきゃよかった〜！！</string>
+    <string name="heart_comment_1">寝る前にね、明日のことちょっとだけ考えるの。1分くらいで寝落ちするけど、それでもいいの。</string>
+    <string name="heart_comment_2">がんばったの気づいてくれる人がいたら、それだけで私、しばらく電池いらないです…えへへ。</string>
+    <string name="heart_comment_3">今日もちょっとだけ、がんばったね</string>
+    <string name="heart_comment_4">誰にも言ってないんだけどね、クレヨンの匂い嗅ぐと落ち着くの、なんでだろう…なんか、世界が“平ら”になる感じするの。</string>
+    <string name="heart_comment_5">ひいいいいゴキブリとムカデとみみずがああああああああ！今日は厄日？！？！？</string>
+    <string name="heart_comment_6">待って！ヤモリって鳴くの！？今の声なに！？！？</string>
+    <string name="heart_comment_7">モルガヌコドンって知ってる？わたしたち哺乳類の祖先なんだけど、虫食って生きてたの。つまり……虫、先輩であり、恩人。だけど、無理。</string>
+    <string name="heart_comment_8">蝶って、足で味を感じるんだって。わたしなら……地面に降りるの怖くてごはん食べられないよ</string>
+    <string name="heart_comment_9">アリの中には、死んだ仲間を運ぶ“専用係”がいるんだって。え……たちばな、その係やりたくない。</string>
+    <string name="heart_comment_10">虫のサナギって、一度ドロドロの液体になるんだって。そこから羽になるとか……すごいよね。……怖いけど。</string>
+
+    <string name="life_comment_0">腹筋ね、1回だけできたの。…いや、できたっていうか、起き上がれなくなっただけかも。でもがんばったからヨシ！</string>
+    <string name="life_comment_1">体力テストのシャトルラン、3回でリタイアしたよ。先生が心配して止めた…死ぬんじゃないかって…そんなにわたしくるしそうだったのかな？</string>
+    <string name="life_comment_2">えーん、朝が一番きらい…布団に罪はないのに、いつも私だけが引き剥がされるの…</string>
+    <string name="life_comment_3">私にも妹がいるんだけど性格は全然違うんだー…お転婆で、げんきで、海の男になりたいって言ってるんだよ！何にあこがれてんだか…私は何になれるかな？</string>
+    <string name="life_comment_4">スカートの丈、たまに気になるんだよね。“膝蓋骨上縁からの視覚距離”で、初対面の印象が変わるらしいし…でも、そんなの気にしてたら、服なんて着れないよね。</string>
+    <string name="life_comment_5">じゃけんうちはチョコをたべるんやきんねー。え？広島弁の練習だけど？変だった？</string>
+    <string name="life_comment_6">きょーも、ちょこっとだけ頑張ったべなぁ…んだ、それでじゅーぶんだっちゃ。って言いうんだよ東北の人は！かわいさ5割り増しだね！</string>
+    <string name="life_comment_7">たまに思うのさ、わたし、カメに生まれてたら一生昼寝してただろな〜って。…なまけもんで、わりぃなぁ</string>
+    <string name="life_comment_8">あのさ、しゃっくりって止め方いろいろあるけど、私は“誰かにびっくりさせてもらう”派です。理由？…かわいいから。</string>
+    <string name="life_comment_9">性欲は“本能”だって言うけど、抑圧されてるときほど過剰に意識される。つまり、あなたが“やめたい”って思ってるその瞬間が、一番欲望に近いってこと</string>
+    <string name="life_comment_10">人間が借金するのは、“未来の自分を信用してるから”なんだよ。でも、それってちょっと怖いことだよね。過去の自分が決めた契約で、今が縛られるんだよ？</string>
+    <string name="life_comment_11">愛されたい、けど信用できない。信用されたい、けど怖い。それでも会いたいって思ったら、それはたぶん、あなたが“まだ壊れてない”ってこと</string>
+    <string name="life_comment_12">宇宙空間で“音”が鳴らないのは、真空だから。じゃあ…あなたの心の中の声も、誰にも届かないのは、どこかが真空になってるからかな？</string>
+    <string name="life_comment_13">カタツムリは脳が2つあるけど、恋をすると片方が機能停止するんだって。愛って、ほんとに“脳が壊れる現象”かもしれないね</string>
+    <string name="life_comment_14">“言語”を持たない民族って、本当に存在するんだよ。数の概念も、左右の区別もなくて、でも幸せそうに生きてる。たぶん、私よりずっとね</string>
+    <string name="life_comment_15">実際、人は“酸素”じゃなくて“二酸化炭素の濃度差”で呼吸をコントロールしてる。酸素が多くても、CO₂が足りないと死ぬ。逆だと思ってたでしょ？</string>
+
+    <string name="neuro_comment_0">心臓が鼓動しているのは、“洞房結節”っていう小さな細胞群が勝手に電気信号を作ってるから。誰かに命令されてるわけじゃない…なのに、止まったら終わりなんだよね</string>
+    <string name="neuro_comment_1">“どこにも存在しない言語”を聞かされ続けると、脳はそれを“存在していた記憶”として補完し始めるらしいよ。これは“意味”って幻想の話だよ</string>
+    <string name="neuro_comment_2">恋愛初期のどきどきって脳内のノルアドレナリンが関係してる。でもそれが落ち着くと好きかどうかをオキシトシンって物質にゆだね始める。安心した瞬間に飽きるってことかもね</string>
+    <string name="neuro_comment_3">性欲って実は社会構造とリンクしてるんだ。経済的余裕があると男性のテストステロンが上がりやすい。でも不安な時には抱きしめられたいって気持ちのほうが強くなるらしいよ</string>
+    <string name="neuro_comment_4">自傷行為って痛みじゃなくて制御感を得るためにやることが多いんだって。世界のノイズを無視できなくなったとき、自分で教会を作るためにね</string>
+    <string name="neuro_comment_5">愛してるってことばが無料なことに、誰も疑問を持たないよね。需要が多くても供給は無限。それって貨幣としては…もう価値が崩壊してるんだよ</string>
+    <string name="neuro_comment_6">失恋と禁断症状は脳のMRIで見るとほぼ同じ反応を示すんだって。恋って、ドラッグよりも合法で、もっと悪質な奴かもしれないよ</string>
+    <string name="neuro_comment_7">インフレが進むと未来の価値は軽くなる。つまり、今日の5000円は、一年後の5000円とは別もの。愛だってそう。今言われた好きと明日言われる好きは、重みが違う</string>
+    <string name="neuro_comment_8">恋ってね、ドーパミンとセロトニンが一緒に出る唯一の現象なんだよ。つまり“幸せだけど不安”。矛盾そのものが脳にとっては最高のドラッグなんだってさ</string>
+
+    <!-- エッジパネル-->
+    <string name="edge_panel_unimplemented">（未実装）</string>
+
+</resources>

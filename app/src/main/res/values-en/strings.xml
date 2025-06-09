@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+<resources>
+    <!-- Main_Config -->
+        <string name="app_name">Tachibana</string>
+        <string name="settings">Settings</string>
+        <string name="language">Language</string>
+        <string name="notification">Notification</string>
+        <string name="sound_effect">Sound Effect</string>
+        <string name="soft_horror">Soft Horror</string>
+        <string name="soft_horror_desc">* Some scenes may become intense.</string>
+        <string name="staff">Credit</string>
+        <string name="quit">Quit</string>
+        <string name="bgm_toggle">Enable BGM</string>
+        <string name="bgm_select">Select BGM</string>
+        <string name="unlock_day21">Unlocked on Day 21</string>
+        <string name="edge_position">Edge Panel Position</string>
+        <string name="edge_left">Left</string>
+        <string name="edge_right">Right</string>
+    <string name="bgm_default">Default</string>
+    <string name="bgm_day20">Day 21</string>
+
+
+    <!-- Bad1-->
+    <string name="line_0">User: (…)</string>
+    <string name="line_1">User: Haa… did I give up again…?</string>
+    <string name="line_2">unknown: Hey!</string>
+    <string name="line_3">User: ?!</string>
+    <string name="line_4">unknown: What are you doing?!</string>
+    <string name="line_5">User: Who are you?!</string>
+    <string name="line_6">Chibihana: It is me! Chibihana!</string>
+    <string name="line_7">User: Still, who?!</string>
+    <string name="line_8">Chibihana: I\'m Tachibana\'s little sister! I\'ve always been here with you!</string>
+    <string name="line_9">User: ???</string>
+    <string name="line_10">Chibihana: More importantly! I\'ve been watching you and you were trying so hard! Why did you give up?! I\'m gonna smack you!</string>
+    <string name="line_11">(She is strong-willed…)</string>
+    <string name="line_12">User: I do not know… it is not like I meant to press it myself… it just felt like I was being drawn in… it is an excuse, I know…</string>
+    <string name="line_13">Chibihana: Hmm… sounds like you are saying nonsense… is that what dependency is? No excuses!</string>
+    <string name="line_14">(She is really strong-willed…)</string>
+    <string name="line_15">Chibihana: (…)</string>
+    <string name="line_16">Chibihana: Do not you think dependence and cooperation are kind of similar?</string>
+    <string name="line_17">User: Huh?</string>
+    <string name="line_18">Chibihana: What you are trying to quit now probably started as something harmless.</string>
+    <string name="line_19">Chibihana: More like a support to help you live, like a brace for your spirit.</string>
+    <string name="line_20">Chibihana: Maybe when work was tough, or after a heartbreak…</string>
+    <string name="line_21">Chibihana: Something you started to fill a hole in your heart…</string>
+    <string name="line_22">Chibihana: It was not supposed to be essential, but over time, you became dependent on it.</string>
+    <string name="line_23">Chibihana: Like jamming a fake key into a lock.</string>
+    <string name="line_24">User: ...</string>
+    <string name="line_25">Chibihana: Dependency is like sitting alone at the bottom of a dried-up well, waiting for someone to bring you water.</string>
+    <string name="line_26">Chibihana: You cannot fetch water yourself anymore.</string>
+    <string name="line_27">Chibihana: You are scared to climb out, and you do not even want to see the sky.</string>
+    <string name="line_28">Chibihana: But you believe, surely someone will come down and bring me water.</string>
+    <string name="line_29">Chibihana: That is your only hope.</string>
+    <string name="line_30">Chibihana: When someone actually comes and gives you water,</string>
+    <string name="line_31">Chibihana: You cling to them with all you have got, thinking they are your savior.</string>
+    <string name="line_32">Chibihana: Saying, Without you, I will dry up and die.</string>
+    <string name="line_33">Chibihana: But in truth-</string>
+    <string name="line_34">Chibihana: Unless I go fetch it myself, this well will never be filled.</string>
+    <string name="line_35">Chibihana: Deep down, you know that.</string>
+    <string name="line_36">Chibihana: But you still cannot move.</string>
+    <string name="line_37">Chibihana: That numbness itself is what dependency really is.</string>
+    <string name="line_38">(I got nothing to say…)</string>
+    <string name="line_39">Chibihana: If you do not have the courage to climb out alone, me and big sis will help. With the three of us, you can do it, right?</string>
+    <string name="line_40">User: Are you dependent on anything?</string>
+    <string name="line_41">Chibihana: Of course… on my sister! She is smart, can play guitar, cute, and sometimes silly! She is my idol! But it is a good kind of dependence!</string>
+    <string name="line_42">User: I see… is she dependent on something too?</string>
+    <string name="line_43">Chibihana: Who knows? I cannot imagine her being dependent on anything.</string>
+    <string name="line_44">Chibihana: Maybe once, a long time ago! But now… maybe on me? We are codependent!</string>
+    <string name="line_45">Chibihana: But we are not like those dumb salamanders! We will have a better ending!</string>
+    <string name="line_46">(That is not what codependency means…)</string>
+    <string name="line_47">(But maybe I can overcome it… if it is with them, no matter how painful…)</string>
+    <string name="line_48">Chibihana: Come on! Tomorrow awaits, young one! A bright tomorrow!</string>
+    <string name="line_49">[BAD_END]</string>
+    <!--Bad2 -->
+
+    <string name="Bad2_line_0">Tachibana: "I have something to tell you."</string>
+    <string name="Bad2_line_1">Tachibana: "You made it through 30 days. You overcame so many temptations."</string>
+    <string name="Bad2_line_2">"Honestly, at first I thought you were some kind of enlightened sage…"</string>
+    <string name="Bad2_line_3">Tachibana: "Remember the story about the salamander on Day 14? They're actually kind of cute. Oh, and my Japanese outfit—didn't it look good on me?"</string>
+    <string name="Bad2_line_4">Tachibana: "Around Day 21, I started to get anxious. If you overcame your addiction… I thought maybe you'd leave me."</string>
+    <string name="Bad2_line_5">"So I tried to win you over with my secret triple fried rice technique. You loved it. I basically crushed it, didn't I?"</string>
+    <string name="Bad2_line_6">"On Day 28, I tried to suppress my feelings… But I couldn't. If it meant not losing you…"</string>
+    <string name="Bad2_line_7">"I wished you would suffer with your addiction forever and live here with me, in this cave. Like a salamander locking up a frog… That's why I did such things…"</string>
+    <string name="Bad2_line_8">"But you overcame your addiction… You got past everything…"</string>
+    <string name="Bad2_line_9">"Or so I thought?"</string>
+    <string name="Bad2_line_10">"No, that's not it. You didn't really think that, did you? You just replaced your addiction—with me. You just switched what you depended on."</string>
+    <string name="Bad2_line_11">"Maybe this is how it should have been from the start… I love you. And you, loving me, came to depend on me. Now I depend on you too."</string>
+    <string name="Bad2_line_12">"Did you think the frog couldn't escape? Of course it could. It just had to leave while the salamander was asleep. Maybe it was more comfortable here than you’d expect."</string>
+    <string name="Bad2_line_13">"And you thought the same, didn't you? That this place is more comfortable than you expected."</string>
+    <string name="Bad2_line_14">"You could have left anytime, but you kept coming back to see me. And now, here we are, having this happy ending."</string>
+    <string name="Bad2_line_15">" "</string>
+    <string name="Bad2_line_16">"I'm happy… Thank you… for depending on something, for trying to overcome it… That's how we met."</string>
+    <string name="Bad2_line_17">"From now on, we'll always, always be together."</string>
+    <string name="Bad2_line_18">BAD END: The Frog and the Salamander in the Water Prison</string>
+    <!--Eventday3 -->
+
+    <string name="day3_line_0">You: "Huh?! What? Did I press reset or something?!"</string>
+    <string name="day3_line_1">Tachibana: "Nishishishi…"</string>
+    <string name="day3_line_2">You: "?!"</string>
+    <string name="day3_line_3">Tachibana: "It was me!"</string>
+    <string name="day3_line_4">You: "Whaaat, Tachibana?! Why would you do that?! That&apos;s so mean!"</string>
+    <string name="day3_line_5">Tachibana: "It&apos;s not mean!"</string>
+    <string name="day3_line_6">You: "I&apos;ll decide if it&apos;s mean or not!"</string>
+    <string name="day3_line_7">Tachibana: "Nope, I decide! The mean one here is you!"</string>
+    <string name="day3_line_8">You: "Stop with the Gian-isms! Show some compassion!"</string>
+    <string name="day3_line_9">Tachibana: "Anyway! Do you know why I did it?"</string>
+    <string name="day3_line_10">You: "Uhh… Maybe because the look on someone&apos;s face when their hard work crumbles makes food taste better or something?"</string>
+    <string name="day3_line_11">Tachibana: "And what if I said… you&apos;re right?"</string>
+    <string name="day3_line_12">You: "I have no clue! Why would you do something so awful?!"</string>
+    <string name="day3_line_13">Tachibana: "Because I wanted to talk to you! That&apos;s why I did it! Sorry…?"</string>
+    <string name="day3_line_14">You: "Ah… I see…"</string>
+    <string name="day3_line_15">Tachibana: "You haven&apos;t said a single word to us since you got here."</string>
+    <string name="day3_line_16">You: "…That&apos;s true."</string>
+    <string name="day3_line_17">Tachibana: "Are you shy? You don&apos;t look like the shy type."</string>
+    <string name="day3_line_18">You: "Yeah, I guess not. I&apos;ve never been shy in my life. My younger brother, though—he&apos;s *super* shy."</string>
+    <string name="day3_line_19">Tachibana: "Huh… quite the genetic contrast you two have."</string>
+    <string name="day3_line_20">Tachibana: "Hmm… I still don&apos;t know why you came to our place, though."</string>
+    <string name="day3_line_21">You: "Is this place, like… hell or something?"</string>
+    <string name="day3_line_22">Tachibana: "How rude! Why would you assume hell of all places? At least call it heaven, even if you don&apos;t mean it!"</string>
+    <string name="day3_line_23">Tachibana: "But honestly, I don&apos;t really know either. What counts as heaven or hell?"</string>
+    <string name="day3_line_24">Tachibana: "You don&apos;t seem to remember much, huh?"</string>
+    <string name="day3_line_25">You: "Not everything. Just how I got here, that part is missing."</string>
+    <string name="day3_line_26">Tachibana: "Huh. That only happened to you, you know. My sister and I remember just fine."</string>
+    <string name="day3_line_27">You: "Really…? Well, whatever. I guess I&apos;ll just enjoy this world. It&apos;s not like it&apos;s some other world, right?"</string>
+    <string name="day3_line_28">Tachibana: "I don&apos;t know. I mean that literally. Who knows what&apos;s a real world or a fantasy one? I&apos;ve lived in Japan, even spent time in Australia—part of Oceania—but maybe this is the other world to *you*."</string>
+    <string name="day3_line_29">Tachibana: "Maybe you&apos;re someone&apos;s ideal… or maybe you&apos;re trying to become it…"</string>
+    <string name="day3_line_30">You: "If that&apos;s true… living is a strange thing."</string>
+    <string name="day3_line_31">Tachibana: "Yep. Life has been strange since 3.8 billion years ago."</string>
+    <string name="day3_line_32">Tachibana: "But hey, you seem okay. That&apos;s good! See you! Maybe in four days?"</string>
+    <string name="day3_line_33">You: "Four days?"</string>
+    <string name="day3_line_34">Tachibana: "Yup. By the way, did you try pressing reset at least once?"</string>
+    <string name="day3_line_35">You: "No idea. Why?"</string>
+    <string name="day3_line_36">Tachibana: "…Well, you should try it once, at least! Okay, see ya!"</string>
+
+
+    <!--Eventday7 -->
+    <string name="day7_line_0">Heeey, over here—can you see me?</string>
+    <string name="day7_line_1">Heeey, are you alive?</string>
+    <string name="day7_line_2">Are you drinking water?</string>
+    <string name="day7_line_3">Breathing air?</string>
+    <string name="day7_line_4">Your face kinda looks like a sage already.</string>
+    <string name="day7_line_5">Is quitting really that hard? My little sister had a hard time too… with ice cream. She ate so much…</string>
+    <string name="day7_line_6">One time, some stranger bought it for her… in Australia…</string>
+    <string name="day7_line_7">Prices were high there, and while she stood frozen in front of the freezer…</string>
+    <string name="day7_line_8">Old man: \"Ice cream’s expensive, huh, little lady…\"</string>
+    <string name="day7_line_9">Old man: \"I’ll buy it for you!\" And he did. In English, of course.</string>
+    <string name="day7_line_10">Well, she’s cute so I get it. I’d want to buy it too.</string>
+    <string name="day7_line_11">Now though, fear of the dentist outweighs it all. Pain beats craving. Kinda important, huh?</string>
+    <string name="day7_line_12">Maybe you need to learn pain too? Want me to teach you? Everyone has a weakness, right…</string>
+    <string name="day7_line_13">…Ahaha, just kidding. Congrats on Day 7!</string>
+
+
+
+    <!--Eventday10 -->
+
+    <string name="day10_title">"Chibi Hana dreams of catching a marlin."</string>
+
+    <string name="day10_line_0">Chibi Hana is walking happily... Let/’s follow her.</string>
+    <string name="day10_line_1">I don/’t really know much about her. We/’ve only spent a few days together.</string>
+    <string name="day10_line_2">What I do know is that she has an abnormal obsession with ice cream and an unhealthy love for Tachibana.</string>
+    <string name="day10_line_3">She used to live in Australia.</string>
+    <string name="day10_line_4">Well, so did Tachibana though.</string>
+    <string name="day10_line_5">She says she wants to become a man of the sea.</string>
+    <string name="day10_line_6">She/’s strong-willed. A tomboy. Completely different from Tachibana.</string>
+    <string name="day10_line_7">What... What/’s she doing with that serious face?</string>
+    <string name="day10_line_8">Is she doing a karate kata? In the middle of town? Tachibana can/’t even do a single sit-up. Not cut out for martial arts.</string>
+    <string name="day10_line_9">Chibi Hana can do karate too? ...Wait, is that a groin strike? What kind of scenario is she imagining...? Maybe point-stop karate?</string>
+    <string name="day10_line_10">In any case, these sisters are multi-talented. I/’ve never seen anyone do karate in public, let alone a girl.</string>
+    <string name="day10_line_11">Where is she going next?</string>
+    <string name="day10_line_12">...</string>
+    <string name="day10_line_13">Ah—! She/’s eating ice cream! I thought you quit that?!</string>
+    <string name="day10_line_14">You: &quot;Didn/’t you quit ice cream?!&quot;</string>
+    <string name="day10_line_15">Chibi Hana: &quot;Whoa! You scared me!&quot;</string>
+    <string name="day10_line_16">Oops... I said that out loud.</string>
+    <string name="day10_line_17">You: &quot;You said you were quitting because of cavities!&quot;</string>
+    <string name="day10_line_18">Chibi: &quot;Sh-shut up!!&quot;</string>
+    <string name="day10_line_19">Chibi: &quot;More importantly—what the heck?! Were you following me?! I can/’t believe it! &quot;</string>
+    <string name="day10_line_19_1">chibi「I/’ll sue! Officer! Some man is stalking a little girl here!」</string>
+
+
+    <string name="day10_line_20">You: &quot;Stop it! Don/’t say stuff you don/’t mean!&quot;</string>
+    <string name="day10_line_21">Chibi: &quot;What are you even doing here?!&quot;</string>
+    <string name="day10_line_22">You: &quot;Uh… yeah, I was actually following you.&quot;</string>
+    <string name="day10_line_23">Chibi: &quot;So it wasn/’t even a lie?! This is real! Officer! Seriously! Someone call a man!&quot;</string>
+    <string name="day10_line_24">You: &quot;Please stop! I/’ll seriously get arrested!&quot;</string>
+    <string name="day10_line_25">You: &quot;Honestly, I was just curious. Tachibana/’s always around, but I wondered what you were up to.&quot;</string>
+    <string name="day10_line_26">Chibi: &quot;Creep... Why should you care what I do...?&quot;</string>
+    <string name="day10_line_27">Chibi: &quot;...Wait. You saw my kata too, didn/’t you? HYAH!&quot;</string>
+    <string name="day10_line_28">You: &quot;GYAAAH!&quot;</string>
+    <string name="day10_line_29">So that/’s what the groin strike was for... Is she really a little girl?! The weak sister of Tachibana?!</string>
+    <string name="day10_line_30">Did she inherit all the physical stats in their gene pool? Maybe she/’s actually from a different parent… like half-gorilla?</string>
+    <string name="day10_line_31">Chibi: &quot;Shut up already! My parents are NOT gorillas!&quot;</string>
+    <string name="day10_line_32">You: &quot;How do you even know that?!&quot;</string>
+    <string name="day10_line_33">...10 minutes later</string>
+    <string name="day10_line_34">Awkward. I mean, this is mostly my fault.</string>
+    <string name="day10_line_35">Chibi: &quot;...&quot;</string>
+    <string name="day10_line_36">Chibi: &quot;Well, I guess I can chat with you now. Consider it compensated dating. But pay me an allowance first.&quot;</string>
+    <string name="day10_line_37">Chibi: &quot;Also, I won/’t sue you.&quot;</string>
+    <string name="day10_line_38">Chibi Hana: &quot;Technically, following a minor without consent—no matter the reason—can be considered stalking.&quot;</string>
+    <string name="day10_line_39">Chibi Hana: &quot;I/’m a minor, you know? No parental consent. You/’d be violating both the Child Welfare Act and Youth Protection Ordinances. But I/’ll let it slide.&quot;</string>
+    <string name="day10_line_40">You: &quot;...You sound... way more mature than I expected.&quot;</string>
+    <string name="day10_line_41">Chibi: &quot;What are you talking about? I just use big words I/’ve learned. You/’re the one assigning /‘appropriate/’ behavior to each age group.&quot;</string>
+    <string name="day10_line_42">Chibi: &quot;Even my age can handle tough words. Darcy-Weisbach formula. Polyvagal theory. I know them, so I use them.&quot;</string>
+    <string name="day10_line_43">A fluid dynamics equation in neuroscience?! She/’s too smart!!</string>
+    <string name="day10_line_44">You: &quot;Do you have something you want to be when you grow up?&quot;</string>
+    <string name="day10_line_45">Chibi: &quot;I/’m glad you asked... I want to be... Santiago!&quot;</string>
+    <string name="day10_line_45_1">Chibi: &quot; I want to be... Santiago!&quot;</string>
+
+    <string name="day10_line_46">You: &quot;Who?&quot;</string>
+    <string name="day10_line_47">Chibi: &quot;……!&quot;</string>
+    <string name="day10_line_48">Chibi: &quot;Do you even have a brain…?&quot;</string>
+    <string name="day10_line_49">You: &quot;Why do I deserve that kind of insult?!&quot;</string>
+    <string name="day10_line_50">Chibi: &quot;Hemingway! The Old Man and the Sea! The legendary fisherman!&quot;</string>
+    <string name="day10_line_51">You: &quot;Ahhh.&quot;</string>
+    <string name="day10_line_52">Right, Santiago is the protagonist in that novel—a weathered fisherman.</string>
+    <string name="day10_line_53">You: &quot;The guy who caught the marlin, right?&quot;</string>
+    <string name="day10_line_54">Chibi: &quot;Well yeah, if that/’s your surface-level understanding.&quot;</string>
+    <string name="day10_line_55">You: &quot;What do you admire about him?&quot;</string>
+    <string name="day10_line_56">Chibi: &quot;How he lives apart from society. His unshakable values. And he doesn/’t brag /‘I really caught that marlin!/’—plus, he probably doesn/’t use social media.&quot;</string>
+    <string name="day10_line_57">You: &quot;That/’s... surprisingly refined.&quot;</string>
+    <string name="day10_line_58">Chibi: &quot;He fought a marlin for three days. That/’s not something most people can do. And when the sharks ate the catch, he didn/’t boast—he just went to sleep.&quot;</string>
+    <string name="day10_line_59">Chibi: &quot;He/’s a man/’s man. Like a Matryoshka doll—every layer you peel away, he/’s still a man. Even the core.&quot;</string>
+    <string name="day10_line_60">Chibi: &quot;You/’d totally say something like /‘Believe me, I really caught it!/’ Then post it to Twitter.&quot;</string>
+    <string name="day10_line_61">...Yeah, I/’d definitely post it. Hoping it goes viral.</string>
+    <string name="day10_line_62">Chibi: &quot;That/’s why I/’ll be a man of the sea too! I will become one!&quot;</string>
+    <string name="day10_line_63">What a strong character…!</string>
+    <string name="day10_line_64">Chibi: &quot;I once joined a hagfish catching crew—just for a bit. It was super exciting.&quot;</string>
+    <string name="day10_line_65">Chibi: &quot;It was in Eden, Australia. Immigrant trainees live onboard a huge ship with a visa! Massive one!&quot;</string>
+    <string name="day10_line_66">Chibi: &quot;Though hagfish are usually caught with traps, so it/’s not like Santiago/’s one-on-one battles.&quot;</string>
+    <string name="day10_line_67">You: &quot;Interesting! Are hagfish eaten in Japan?&quot;</string>
+    <string name="day10_line_68">Chibi: &quot;Not really. They look gross. Most fishermen treat them as garbage. They/’re all slimy and annoying.&quot;</string>
+    <string name="day10_line_69">Chibi: &quot;But they do eat them in Korea. Busan, I think. And China too, maybe. Ask my sister—she/’d know more.&quot;</string>
+    <string name="day10_line_70">You: &quot;Huh, I/’ve probably never seen one then.&quot;</string>
+    <string name="day10_line_71">Chibi: &quot;They taste like cartilaginous fish. Like stingray.&quot;</string>
+    <string name="day10_line_72">You: &quot;Wait, stingrays are edible?&quot;</string>
+    <string name="day10_line_73">Chibi: &quot;Of course! Only the spines are poisonous. But if you leave it out, it smells like ammonia. So chill it right away in ice.&quot;</string>
+    <string name="day10_line_74">Chibi: &quot;And the liver/’s edible raw, but there/’s this nasty sac called /‘smell bomb/’—you have to remove it.&quot;</string>
+    <string name="day10_line_75">Chibi: &quot;It/’s easy to cut. Tastes amazing. You can even use scissors for part of it. The liver tastes like raw beef liver.&quot;</string>
+    <string name="day10_line_76">Chibi: &quot;The fins, fried, are crispy and chewy—like that chicken cartilage you get at izakayas.&quot;</string>
+    <string name="day10_line_77">You: &quot;Huh… I really don/’t know anything. I/’ve never even gone fishing. The bait/’s just… gross.&quot;</string>
+    <string name="day10_line_78">Chibi: &quot;It/’s easy! I/’ll put the bait on for you!&quot;</string>
+    <string name="day10_line_79">Ugh… I feel pathetic.</string>
+    <string name="day10_line_80">Chibi: &quot;Then it/’s settled! I/’m going home for now, but if you keep up your abstinence—I/’ll take you fishing!&quot;</string>
+    <string name="day10_line_81">You: &quot;Really?! Awesome! I/’ll look forward to it!&quot;</string>
+
+
+
+
+
+    <!--Eventday14 -->
+    <string name="day14_line_0">Tachibana is reading a book… and wearing traditional clothes… how rare…</string>
+    <string name="day14_line_1">You: "What are you doing?"</string>
+    <string name="day14_line_2">Tachibana: "Reading a novel, by Masuji Ibuse."</string>
+    <string name="day14_line_3">You: "Why the traditional clothes?"</string>
+    <string name="day14_line_4">Tachibana: "Well… it's kind of my way of showing respect."</string>
+    <string name="day14_line_5">"Like not showing up to a party in sandals — I felt I should be formal before a work full of soul."</string>
+
+    <string name="day14_line_6">You: "What’s the story about?"</string>
+    <string name="day14_line_7">Tachibana: "It's like a picture book… but overlaps with modern society. Feels like a prophetic fairy tale. It's called 'Sanshouo'."</string>
+    <string name="day14_line_8">Tachibana: "The name supposedly comes from its pepper-like smell."</string>
+    <string name="day14_line_9">"In the West, there were rumors it breathed fire. Well, it does look like a lizardman."</string>
+    <string name="day14_line_10">Tachibana: "A real salamander probably wouldn’t grow big enough to get stuck in a cave, but…"</string>
+    <string name="day14_line_11">"A giant salamander might. They can reach 150cm. Super cute. They're carnivorous amphibians that eat anything."</string>
+
+    <string name="day14_line_12">Tachibana: "Hey, listen…"</string>
+    <string name="day14_line_13">"In the story, the salamander traps a frog in the cave… kind of out of spite. The frog dies at the end."</string>
+    <string name="day14_line_14">"Even then, the frog says, 'I'm not angry at you.'"</string>
+    <string name="day14_line_15">"Would you not be angry even if I locked you away too?"</string>
+
+    <string name="day14_choice_0">Yeah… If it’s you, I’d be glad to…</string>
+    <string name="day14_choice_1">No, I want to be independent.</string>
+
+    <string name="day14_line_16">Tachibana: "I see…"</string>
+    <string name="day14_line_17">Tachibana: "In this story, both the one who traps and the one trapped… neither can get out."</string>
+    <string name="day14_line_18">Tachibana: "…Doesn't that sound a bit like dependency?"</string>
+    <string name="tap_to_return">(Tap to return)</string>
+
+    <!--Eventday21 -->
+
+
+
+    <string name="day21_line_0">" " </string>
+    <string name="day21_line_1">Tachibana: "Welcome back! Good job today! I put effort into tonight’s dinner. I even ran the bath for you!"</string>
+    <string name="day21_line_2">You: "Thanks."</string>
+    <string name="day21_line_3">Her in an apron is a refreshing sight.</string>
+    <string name="day21_line_4">Tachibana: "I'll cook today! Look forward to it!"</string>
+    <string name="day21_line_5">" " </string>
+    <string name="day21_line_6">You: "…What are you doing?"</string>
+    <string name="day21_line_7">Tachibana: "What do you mean?"</string>
+    <string name="day21_line_8">You: "Why’s the cutting board on the floor? And you’re kneeling?"</string>
+    <string name="day21_line_9">Tachibana: "Why? Because I’m Japanese…"</string>
+    <string name="day21_line_10">I’ve never seen anyone actually do that!</string>
+    <string name="day21_line_11">Also that has nothing to do with being Japanese!</string>
+    <string name="day21_line_12">" " </string>
+    <string name="day21_line_13">You: "…What are you doing?"</string>
+    <string name="day21_line_14">Tachibana: "What do you mean?"</string>
+    <string name="day21_line_15">Are we repeating the same scene?</string>
+    <string name="day21_line_16">You: "Why are you cracking eggs while kneeling?"</string>
+    <string name="day21_line_17">Tachibana: "Because I’m making fried rice."</string>
+    <string name="day21_line_18">I wasn’t asking why you’re cracking eggs…</string>
+    <string name="day21_line_19">" " </string>
+    <string name="day21_line_20">You: "…What are you doing?"</string>
+    <string name="day21_line_21">Tachibana: "What do you mean?"</string>
+    <string name="day21_line_22">Yup. We\'re definitely in a time loop.</string>
+    <string name="day21_line_23">You: "Wait—this is dangerous! Are you seriously going to keep doing this while kneeling?!"</string>
+    <string name="day21_line_24">Tachibana: "Just be quiet and watch."</string>
+    <string name="day21_line_25">" " </string>
+    <string name="day21_line_26">…Incredible. She flipped the pan blind—while kneeling. And she`s holding it with both hands!</string>
+    <string name="day21_line_27">Tachibana: "It’s done!"</string>
+    <string name="day21_line_28">You: "Why are there three plates of fried rice?"</string>
+    <string name="day21_line_29">Tachibana: "Why not? One’s already happiness. Triple fried rice is triple the joy!"</string>
+    <string name="day21_line_30">You: "Why are they sitting directly on the floor again?"</string>
+    <string name="day21_line_31">Tachibana: "Because we’re Japanese! You’re supposed to eat kneeling!"</string>
+    <string name="day21_line_32">You: "And you're using a spoon?"</string>
+    <string name="day21_line_33">Tachibana: "Obviously. Chopsticks are too hard. You're Japanese too, right? So am I."</string>
+    <string name="day21_line_34">You: "What about veggies?"</string>
+    <string name="day21_line_35">Tachibana: "No need. I hear their screams. Main dish: fried rice. Side: fried rice. Soup? Fried rice."</string>
+    <string name="day21_line_36">You: "And the screams of the Peking duck?"</string>
+    <string name="day21_line_37">Tachibana: "It’s delicious, so I chew through the screams too."</string>
+    <string name="day21_line_38">You: "What’s this one?"</string>
+    <string name="day21_line_39">Tachibana: "Drinkable fried rice. I got it at the convenience store. It’s called ‘Zenbu Ireban.’"</string>
+    <string name="day21_line_40">You: "I’m speechless."</string>
+    <string name="day21_line_41">Tachibana: "It literally says 'NOMU CHAHAN' in romaji. Like—who is that even for? Also, it's misspelled."</string>
+    <string name="day21_line_42">She\'s right… it\'s spelled ‘CHAHAN.’</string>
+    <string name="day21_line_43">You: "Can I even eat all this? Even the drink is fried rice…"</string>
+    <string name="day21_line_44">Tachibana: "Don’t worry. They all taste different. And all of them are seriously good."</string>
+    <string name="day21_line_45">You: (She’s right… Every one of these is insanely good. Even the drinkable one! Why?!)</string>
+    <string name="day21_line_46">Tachibana: "Was it good?"</string>
+    <string name="day21_line_47">You: "Yeah. It was unbelievably good. Why? How?"</string>
+    <string name="day21_line_48">Tachibana: "When you get into fried rice, it becomes a passion. I want to try ice fried rice next."</string>
+    <string name="day21_line_49">…She might actually pull it off. Ice fried rice—madness made real.</string>
+    <string name="day21_line_50">You: "Thanks for the meal. That was the best fried rice I’ve ever had. I’ll wash the dishes."</string>
+    <string name="day21_line_51">Tachibana: "No no, I’ll take care of it!"</string>
+    <string name="day21_line_52">Tachibana: "Oh, right!"</string>
+    <string name="day21_line_53">Everything’s ready for tomorrow too! I’ve laid out your shoes to be easy to walk in. Room humidity is optimized.</string>
+    <string name="day21_line_54">The lighting temperature fits your current parasympathetic state too.</string>
+    <string name="day21_line_55">Given today’s sweat level, it should take around 20 minutes to wash from the back of your head to your toes, right?</string>
+    <string name="day21_line_56">So… your bath should be done by 8:55 PM.</string>
+    <string name="day21_line_57">After that, you’ll watch that drama you like on YouTube, right?</string>
+    <string name="day21_line_58">…But watching too much of that isn’t good for your brainwaves, you know?</string>
+    <string name="day21_line_59">Melatonin gets suppressed. Especially when other women show up, right?</string>
+    <string name="day21_line_60">Other women suppress melatonin too, you know?</string>
+    <string name="day21_line_61">You’re only allowed to watch super macho movies like Expendables!</string>
+    <string name="day21_line_62">Ah! But skip the scenes with Megan Fox! She’s too pretty!</string>
+    <string name="day21_line_63">I’ll take care of you forever and ever, until the day you enter your coffin! That’s what’s best for everyone!</string>
+    <string name="day21_line_64">…Hey. It’s okay if I keep taking care of you like this, forever… right?</string>
+    <string name="day21_choice_0">Yeah. I\'m happy too.</string>
+    <string name="day21_choice_1">You don’t have to force yourself.</string>
+
+    <!--Eventday28 -->
+    <string name="day28_line_0">…The desk is a complete mess.</string>
+    <string name="day28_line_1">…On the desk&amp;cigarettes. Alcohol. And… is that a gambling magazine?</string>
+
+    <string name="day28_line_2">…I don\'t understand. This isn’t like her. These things aren\'t her hobbies.</string>
+    <string name="day28_line_3">&quot;I set all this up.&quot;</string>
+    <string name="day28_line_4">You see, I don\'t want you to overcome your addictions. Because if you do, you\'ll leave me, won\'t you? You don\'t have to quit at all.</string>
+    <string name="day28_line_5">Let\'s just live together, nice and warm, in this lukewarm hell of ours.</string>
+    <string name="day28_line_6">Heaven is dull. Hell, on the other hand, must be bursting with laughter. But to truly enjoy life in hell, you need something—a thread, a glimmer of hope.</string>
+    <string name="day28_line_7">That\'s why you need something to depend on. You could just depend on me. Would\'t that be fine?</string>
+    <string name="day28_line_8">Go ahead—drink, smoke, gamble, whatever you want. Just do it.</string>
+    <string name="day28_line_9">And if you can\'t… then lean on me. That\'s the best way. Isn\'t it?</string>
+    <string name="common_yes">Yes</string>
+    <string name="common_no">No</string>
+
+    <!--Eventday30 -->
+    <string name="day30_line_0">Hey…</string>
+    <string name="day30_line_1">If it means we have to part ways,</string>
+    <string name="day30_line_2">then maybe you don\'t have to overcome your addiction, right?</string>
+
+    <!-- True End -->
+    <string name="TrueEnd_line_0">Tachibana: "I have something to tell you."</string>
+    <string name="TrueEnd_line_1">Tachibana: "You made it through 30 days. You overcame so many temptations."</string>
+    <string name="TrueEnd_line_2">"At first, I thought some kind of sage had shown up… your face looked so exhausted!"</string>
+    <string name="TrueEnd_line_3">Tachibana: "We talked about salamanders on Day 14. They're actually kind of cute."</string>
+    <string name="TrueEnd_line_4">"Oh, and my kimono—didn't it look good on me?"</string>
+    <string name="TrueEnd_line_5">Tachibana: "Around Day 21, I started getting anxious… If you overcame your addiction, maybe you'd leave me."</string>
+    <string name="TrueEnd_line_6">"So I tried to win your heart with triple fried rice. You praised it so much. I crushed it—your appetite."</string>
+    <string name="TrueEnd_line_7">"On Day 28, I tried to suppress my feelings… but I couldn’t."</string>
+    <string name="TrueEnd_line_8">"If losing you was the price… I wanted you to suffer with addiction and stay with me in the cave forever."</string>
+    <string name="TrueEnd_line_9">"Like a salamander locking up a frog… that’s why I did what I did."</string>
+    <string name="TrueEnd_line_10">"But you overcame your addiction… you got through everything…"</string>
+    <string name="TrueEnd_line_11">"Ah…"</string>
+    <string name="TrueEnd_line_12">"A shooting star…"</string>
+    <string name="TrueEnd_line_13">" "</string>
+    <string name="TrueEnd_line_14">"I wish it'd let me know before flying off…"</string>
+    <string name="TrueEnd_line_15">"It always goes too fast to make a wish."</string>
+    <string name="TrueEnd_line_16">"…Wasn't the beginning really hard for you?"</string>
+    <string name="TrueEnd_line_17">"Your hands trembled sometimes… Your face looked so pale…"</string>
+    <string name="TrueEnd_line_18">"And now? Do you feel reborn? No. That's always been you."</string>
+    <string name="TrueEnd_line_19">"You didn’t change. You've been like this since the start."</string>
+    <string name="TrueEnd_line_20">"But then… life happened. Society hit you, hurt you, unfairly."</string>
+    <string name="TrueEnd_line_21">"You got wounded, and to cover the pain, you became dependent on something."</string>
+    <string name="TrueEnd_line_22">"It's not your fault. Life is just hard to begin with."</string>
+    <string name="TrueEnd_line_23">"Not that I have any right to preach…"</string>
+    <string name="TrueEnd_line_24">"I couldn’t handle losing you either… and so I did what I did…"</string>
+    <string name="TrueEnd_line_25">"By the way, 30 days isn’t actually enough to fully form a habit."</string>
+    <string name="TrueEnd_line_26">"It takes about 66 days for something new to stick completely."</string>
+    <string name="TrueEnd_line_27">"But you've reached the start line. 30 days is easy now, right? With us."</string>
+    <string name="TrueEnd_line_28">"…!"</string>
+    <string name="TrueEnd_line_29">"Yeah… I just want you to stay with me…"</string>
+    <string name="TrueEnd_line_30">"Hehe… it’s okay now. I won’t be mean anymore…"</string>
+    <string name="TrueEnd_line_31">"I won't lock you up again."</string>
+    <string name="TrueEnd_line_32">"This time, let’s find a way out together—just the two of us. Or the three of us."</string>
+    <string name="TrueEnd_line_33">"Or maybe, let's find a way to enjoy this cave together."</string>
+    <string name="TrueEnd_line_34">"Come on, let’s go. From now on, let’s stay together!"</string>
+    <string name="TrueEnd_line_35">" "</string>
+
+    <!-- Soft Horror Back Toast -->
+    <string name="BackToast_line_0">Tap again to go back.</string>
+    <string name="BackToast_line_1">Just kidding.</string>
+    <string name="BackToast_line_2">Hey…</string>
+    <string name="BackToast_line_3">Why are you trying to leave?</string>
+    <string name="BackToast_line_4">You could just stay here forever.</string>
+    <string name="BackToast_line_5">There’s nothing good waiting for you out there.</string>
+    <string name="BackToast_line_6">Tap again to go back.</string>
+    <string name="BackToast_line_7">You can go back.</string>
+    <string name="BackToast_line_8">You can’t go back.</string>
+    <string name="BackToast_line_9">(This one will be shown as a modal)</string>
+    <string name="BackToast_line_10">I said, you can’t go back.</string>
+    <string name="BackToast_line_11">…So you’re really leaving after all.</string>
+
+    <!-- Initial Screen!-->
+    <string name="initial_line_0">Welcome!\nI\'m Tachilada!</string>
+    <string name="initial_line_1">Let\'s do our best together!</string>
+    <string name="initial_button_start">Start</string>
+
+    <string name="goal_title_0">Your goal is…</string>
+    <string name="goal_title_1">How many calories/money can you save per day?</string>
+    <string name="goal_title_2">When did you quit?</string>
+
+    <string name="input_placeholder_what">What?</string>
+    <string name="input_placeholder_calorie">Calories</string>
+    <string name="input_unit_kcal">kcal</string>
+    <string name="input_placeholder_amount">Amount</string>
+    <string name="input_unit_yen">$</string>
+    <string name="input_placeholder_when">When?</string>
+    <string name="toast_invalid_future">You cannot select a future time.</string>
+    <string name="comment_0">My goal is to be able to do one sit-up!!</string>
+    <string name="comment_1">You can leave calories and amount blank!</string>
+    <string name="comment_2">Set the time to a point in the past!</string>
+    <string name="comment_3">There\'s a character limit for your goal!</string>
+    <string name="comment_4">Once you fill in the required fields, our story begins!</string>
+
+    <!-- PreInitialScreen -->
+
+    <string name="preInitial_title">Choose carefully</string>
+    <string name="preInitial_mode_normal">Normal Mode</string>
+    <string name="preInitial_mode_narrative">Narrative Mode</string>
+    <string name="preInitial_dialog_title">Are you sure you want to proceed?</string>
+    <string name="preInitial_dialog_text_normal">Yes. That’s the right choice.But it would be boring.</string>
+    <string name="preInitial_dialog_text_narrative">I wouldn’t recommend it… but if you’re determined…</string>
+    <string name="preInitial_button_proceed">Proceed</string>
+    <string name="preInitial_button_cancel">Back</string>
+
+    <!-- MainScreen -->
+
+    <string name="main_screen_after_true_title">You came back again.</string>
+    <string name="main_screen_after_true_text">Thank you so much for playing this far.\nBut Danchibana’s journey isn’t over yet.\n──I’ll be waiting to see you again.</string>
+    <string name="main_screen_goodbye">See you</string>
+
+    <string name="main_screen_back_message_1">Tap again to go back</string>
+    <string name="main_screen_back_message_2">The portrait changes from time to time</string>
+    <string name="main_screen_back_message_3">Exiting on the second tap</string>
+    <string name="main_screen_back_message_4">See you</string>
+    <string name="main_screen_back_message_5">They say comments get added too… did you know?</string>
+
+    <string name="main_screen_soft_horror_title">You can’t go back</string>
+    <string name="main_screen_soft_horror_text">You can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back you can’t go back</string>
+    <string name="main_screen_soft_horror_confirm">Can’t go back</string>
+
+    <string name="main_screen_reset_warning">Reset reacts to a long press… but I’d rather you not touch that, okay?</string>
+
+    <string name="main_screen_your">Your</string>
+    <string name="main_screen_goal_label">Goal</string>
+    <string name="main_screen_goal_suffix">is…</string>
+
+    <string name="main_screen_abstinence_label">Time away</string>
+
+
+
+    <string name="main_screen_next_goal_label">Next Goal</string>
+    <string name="main_screen_days">d</string>
+    <string name="main_screen_hours">h</string>
+    <string name="main_screen_minutes">m</string>
+
+    <string name="main_screen_saved_money_prefix">Saved</string>
+    <string name="main_screen_saved_money_middle">up</string>
+    <string name="main_screen_saved_money_suffix">cash</string>
+
+    <string name="main_screen_saved_cal_prefix">Saved</string>
+    <string name="main_screen_saved_cal_middle">calories</string>
+    <string name="main_screen_saved_cal_suffix">" "</string>
+
+    <string name="reset_question">Reset?</string>
+
+    <string name="reset_modal_title">Are you sure you want to quit…?</string>
+    <string name="reset_button">Reset</string>
+    <string name="continue_button">Continue abstinence</string>
+
+    <!-- Home Modal -->
+
+    <string name="main_home_download_thanks">🌸Thank you for downloading🌸</string>
+
+    <string name="main_home_message_1">Tachibana</string>
+    <string name="main_home_message_2">walks with your</string>
+    <string name="main_home_message_3">"desire to quit".\n</string>
+    <string name="main_home_message_4">It was born to walk with you.\n</string>
+    <string name="main_home_message_5">Your support gives me strength.\n</string>
+    <string name="main_home_message_6">If you\'d like,</string>
+    <string name="main_home_message_7">just a little</string>
+    <string name="main_home_message_8">could you lend me your strength?</string>
+    <string name="main_home_support">Support</string>
+    <string name="main_home_not_now">Not now</string>
+
+    <!--  Main_calendar -->
+    <string name="main_calendar_sunday">Sun</string>
+    <string name="main_calendar_monday">Mon</string>
+    <string name="main_calendar_tuesday">Tue</string>
+    <string name="main_calendar_wednesday">Wed</string>
+    <string name="main_calendar_thursday">Thu</string>
+    <string name="main_calendar_friday">Fri</string>
+    <string name="main_calendar_saturday">Sat</string>
+    <string name="main_calendar_saved_memo">📌 Saved Memo / Diary:</string>
+    <string name="main_calendar_delete">Delete</string>
+    <string name="main_calendar_memo_label">Memo for this day</string>
+    <string name="main_calendar_save">Save</string>
+
+    <!-- TipsModal  -->
+    <string name="tips_invite">I\'ll invite you!\nTo my home!</string>
+    <string name="tips_progress">Let’s check\nour progress</string>
+    <string name="tips_menu">This is\nthe menu</string>
+    <string name="tips_settings_title">Settings</string>
+    <string name="tips_settings_sub">Fugafuga</string>
+
+    <!-- Maincheck  -->
+    <string name="main_intro_streak">Streak: 0 days, 0 hours, 0 minutes</string>
+    <string name="main_intro_next_goal">Next Goal: 0 days, 0 hours, 0 minutes</string>
+
+    <string name="menu_inquiry">Contact Us</string>
+    <string name="menu_review">Review</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_premium">Premium Plan</string>
+    <string name="menu_transfer">Transfer</string>
+    <string name="menu_transfer_title">About Transfer</string>
+    <string name="menu_transfer_description">
+    <string name=" menu_Preferences">Event preference</string>
+
+This app\'s data is automatically backed up to your Google account.
+
+Before changing devices, please make sure that backup is enabled via:
+Settings &gt; System &gt; Backup
+</string>
+    <string name="menu_transfer_close">Close</string>
+
+
+
+    <!--  Day 7 comments  -->
+    <string name="Day7_comments_0">Seven days reached! You did great. There’s still a long way to go, but take a moment to take a deep breath.</string>
+    <string name="Day7_comments_1">Did you know? “The sound of water” calms the amygdala in your brain. …So now, it’s okay to feel a little at ease.</string>
+    <string name="Day7_comments_2">They say human heartbeats can synchronize with the person you’re touching. …Then I’ll quiet down with you.</string>
+    <string name="Day7_comments_3">Apparently plants “feel” sound and grow. I’m sure you’re growing in unseen ways too.</string>
+    <string name="Day7_comments_4">Watching fire calms us down—it’s instinctual. …So today, how about watching a candle video?</string>
+    <string name="Day7_comments_5">Do you know Hanaoka Seishū? In the Edo period, he was the physician who performed the world’s first general anesthesia surgery. …But the first person who helped test that anesthetic was his mother.</string>
+    <string name="Day7_comments_6">Seashells are said to reflect sounds at a frequency that calms people. So when you hold one to your ear and hear the ocean… maybe it’s the waves of your own heart.</string>
+    <string name="Day7_comments_7">Dandelion fluff navigates air currents better than airplanes. …Even though it’s so small, riding the wind is amazing, isn’t it?</string>
+    <string name="Day7_comments_8">Artemia’s dormant eggs have a chitinous shell and vitrified trehalose that completely block out moisture. They can survive a thousand years in slumber… I’m envious.</string>
+    <string name="Day7_comments_9">Astrocytes look like stars in the brain, but they’re actually the “cleanup crew” for neurotransmitters. They’re deeply linked to depression. Yet no one ever sees them.</string>
+    <string name="Day7_comments_10">For some reason, cuckoos lay their eggs in other birds’ nests. This brood parasitism is genetically ingrained, not “malicious.” Who decided that it was “bad”?</string>
+    <string name="Day7_comments_11">The sky on Mars doesn’t look blue. It’s not Rayleigh scattering but Mie scattering caused by dust… Under that orange-pink sunset, what will you remember?</string>
+    <string name="Day7_comments_12">The more we want something, the more we push it away—that’s human nature. When approach and avoidance fire at the same time, you end up doing nothing. Psychology calls this “conflict,” but I call it “everyday life.”</string>
+    <string name="Day7_comments_13">Data shows that people with low self-esteem tend to overspend or become love addicts. So part of the economy is actually supported by those who lack confidence.</string>
+    <string name="Day7_comments_14">People who truly break down don’t delete their social media or change their appearance. They just… feel nothing. If it’s visible from the outside, they’re still managing somehow.</string>
+    <string name="Day7_comments_15">In the dating market, “rarity” holds the highest value. A structure where you can only be loved by hiding yourself—strange, right? But the economy works the same: currencies that aren’t in circulation gain value. That’s kind of sad.</string>
+    <string name="Day7_comments_16">Van Gogh’s “Starry Night” contains turbulence structures that hadn’t been discovered at the time. In other words, he saw mathematical patterns we weren’t supposed to see.</string>
+
+    <!--  Day 14rare comments  -->
+    <string name="Day14_comments_0">It’s day 14. …Hehe, kind of amazing, isn’t it?</string>
+    <string name="Day14_comments_1">If I just contract the iliopsoas like… this… I should be able to… huh? Why is only my leg not lifting?</string>
+    <string name="Day14_comments_2">They say muscles grow through a cycle of destruction and reconstruction. Me? I’m only good at the destruction part.</string>
+    <string name="Day14_comments_3">The gluteus medius is a butt muscle. Doesn’t “Gluteus Medius” sound like a Mystic Arte from Tales?</string>
+    <string name="Day14_comments_4">Hyaluronic acid used to be extracted from chicken combs. …So today, I’m chicken-derived.</string>
+    <string name="Day14_comments_5">A boxer’s punch gains more moment of inertia the farther the elbow is from the body. That means heavier—but also slower.</string>
+    <string name="Day14_comments_6">Punching speed is also related to moment of inertia. According to the formula I = m × r², the farther mass m is from the axis r, the harder it is to rotate it.</string>
+    <string name="Day14_comments_7">If raising your arm hurts, it might be impingement. The acromion bone pinches the tendons or muscles, causing inflammation. If you slightly rotate your arm outward first, it creates more space—and it won’t hurt as much.</string>
+    <string name="Day14_comments_8">In Australia, when they aired commercials telling people with back pain that it’s okay to move, the actual number of back pain cases decreased. Resting too much actually makes it worse. …Maybe I’ll go for a walk too. Three steps.</string>
+    <string name="Day14_comments_9">The psoas major connects your spine and legs—an inner muscle. Some say it’s even linked to emotions. …So it’s “the muscle that walks with your heart”!</string>
+    <string name="Day14_comments_10">In Gray’s anatomy drawings, the triceps brachii is depicted like a symbol of support. …It’s my favorite muscle now.</string>
+    <string name="Day14_comments_11">Did you know the trapezius is called that because it looks like a monk’s hood? In Gray’s, it quietly stood out.</string>
+    <string name="Day14_comments_12">Referred pain means the place that hurts isn’t always the actual source. Your shoulder might hurt, but it could be your liver. …Strange and a bit scary, right?</string>
+    <string name="Day14_comments_13">If you think you’ve got a stiff neck, it might actually be your levator scapulae muscle. Pain can be such a liar.</string>
+    <string name="Day14_comments_14">Toothaches can radiate to your ear too. Nerves really are way too chatty, huh?</string>
+    <string name="Day14_comments_15">LeBron was born with an abnormally low resting heart rate. That means even walking puts him in full relaxation mode. I’m jealous…</string>
+    <string name="Day14_comments_16">When they analyzed Mr. Murofushi’s genes, they found an abnormally high percentage of fast-twitch muscle fibers. …Hey, can you buy that somewhere?</string>
+    <string name="Day14_comments_17">Bolt’s shinbones, when seen on X-ray, curve like springs for rebound. That’s just… an SSR pull, right?</string>
+    <!--  Day 14rare comments  -->
+    <string name="Day14Rare_comments_0">It’s day 14. …Hehe, kind of amazing, isn’t it?</string>
+    <string name="Day14Rare_comments_1">The gluteus medius is a muscle in your butt. Doesn’t “Gluteus Medius” sound like a Mystic Arte from Tales?</string>
+
+
+
+     <!--  Day 21comments  -->
+    <string name="Day21_comments_0">It\'s been 21 days. Aren\'t you pushing yourself too hard? Maybe it\'s okay to be a little kind to yourself now.</string>
+    <string name="Day21_comments_1">Can you play, Tachibana? ...It\'s not your fingers that make the sound. It\'s your soul.</string>
+    <string name="Day21_comments_2">This sound isn\'t echoing in your heart—it\'s probably hitting your vagus nerve directly. Calm down, Tachibana\'s 10th cranial nerve.</string>
+    <string name="Day21_comments_3">Did you know B\'z\'s "Ultra Soul" was originally titled "Super Soul"? But "Ultra" just cuts through sharper and sticks in your ear, doesn\'t it?</string>
+    <string name="Day21_comments_4">Originally, B\'z considered "AZ" from "A to Z". But they worried it might be read as "AIDS", so they went with B\'z.</string>
+    <string name="Day21_comments_5">Guitar? ...It\'s not about something I used to do. I just want to play right now.</string>
+    <string name="Day21_comments_6">Ending on C gives a clean resolution. But I always get stuck wandering around F.</string>
+    <string name="Day21_comments_7">Did you know you can swap chords in a progression? Replacing C with Am still works—it just changes the mood. Like human relationships.</string>
+    <string name="Day21_comments_8">Effects pedals show your personality, right? I go Comp → OD → Reverb. I don\'t believe in overdoing it.</string>
+    <string name="Day21_comments_9">Crank the rear pickup for a sharp bite, cut the highs, and then it\'s just a fight between distortion and noise.</string>
+    <string name="Day21_comments_10">"Karaoke" literally means "empty orchestra." Japanese is almost too poetic sometimes, huh?</string>
+    <string name="Day21_comments_11">Apparently, "music" and "medicine" share the same root. Back then, music was medicine. Honestly, I still think it is.</string>
+    <string name="Day21_comments_12">Did you know Inaba-san can hit five octaves? There are parts of rock that effort alone can\'t reach.</string>
+    <string name="Day21_comments_13">Yonezu-san\'s music—bones, prayers, it feels like you can see the other side of the world through it. I really admire him.</string>
+    <string name="Day21_comments_14">Inaba-san can hit notes like C6 and E6—in the hihi range. At that point, it\'s not lungs anymore, it\'s a dragon\'s roar.</string>
+    <string name="Day21_comments_15">Matsumoto-san actually won a Grammy. The day a Japanese Les Paul pierced the world… it was way too cool.</string>
+    <string name="Day21_comments_16">Matsumoto-san\'s riffs aren\'t about how many notes—it\'s the gaps between them. Guitars aren\'t supposed to talk... but his does.</string>
+    <string name="Day21_comments_17">To protect Inaba-san\'s throat, Matsumoto-san lowered the tuning. That\'s what it means to "protect with sound." Gentle rock.</string>
+    <string name="Day21_comments_18">Do you know the song "Hien"? It\'s one of my favorites. Just listen to it, okay?</string>
+
+
+
+    <!--  Day 28comments  -->
+
+    <string name="Day28_comments_0">Day 28. Almost there. I\'m honestly proud of you for coming this far.</string>
+    <string name="Day28_comments_1">There\'s so much more I want to say... but I\'ll wait until you cross the finish line.</string>
+    <string name="Day28_comments_2">You did it! I\'m really happy! I-I mean... I really am! ...Whew.</string>
+    <string name="Day28_comments_3">Kissing is actually an exchange of immunity. You share 10 billion bacteria, adapting to each other. Love is... weirdly viral, don\'t you think?</string>
+    <string name="Day28_comments_4">To be honest... I want to say more. But not yet. Not now.</string>
+    <string name="Day28_comments_5">They say a hug lasting over 20 seconds lowers stress. ...Anything more than that, and I might get shy, so that\'s enough for now.</string>
+    <string name="Day28_comments_6">You feel nervous when your eyes meet because your pupils dilate—and the other person mirrors it. Maybe love is just a chemical reaction of glances.</string>
+    <string name="Day28_comments_7">Your body has about 60 trillion cells. But you also carry ten times that number of bacteria. So yeah, scientifically speaking, you\'re never alone.</string>
+    <string name="Day28_comments_8">Touching someone you like makes static electricity more likely. ...I might be kinda hoping for that, y\'know?</string>
+    <string name="Day28_comments_9">Penguins stay loyal to one partner for life. But if one cheats, the other steals their pebbles. Brutal.</string>
+    <string name="Day28_comments_10">When you\'re trembling, it just means your muscles are working hard together. ...You\'re giving it your all, aren\'t you?</string>
+    <string name="Day28_comments_11">Saying "thank you" can actually boost your immune system. ...Hehe, guess I feel a little stronger now.</string>
+    <string name="Day28_comments_12">The fact that you feel like quitting... probably means you already know deep down: "I can\'t keep going like this."</string>
+    <string name="Day28_comments_13">Reading a book before bed helps your brain relax more than staring at your phone. For me, it\'s your sleeping face that puts me at ease.</string>
+    <string name="Day28_comments_14">Whistling is actually a mating call for birds. ...And I kinda caught myself whistling just now. Oops.</string>
+    <string name="Day28_comments_15">The number of times you blink shows how close you feel to someone. ...Just now, I think I only blinked once.</string>
+    <string name="Day28_comments_16">Laughter is contagious. Science says so. So... let me see you laugh more, okay?</string>
+    <string name="Day28_comments_17">They say people look at stars even when they don\'t know why. ...I think I don\'t need a reason to look at you anymore, either.</string>
+    <string name="Day28_comments_18">In some species of spiders, the female eats the male after mating! Pretty sure I\'d be the one doing the eating!</string>
+
+
+    <string name="mind_comment_0">Doesn\'t the phrase "Do what you love" sometimes feel exhausting? I prefer thinking of it as "working to protect what I love."</string>
+    <string name="mind_comment_1">Did you know memories are rewritten each time we recall them, rather than staying as they were? So... try to remember gently.</string>
+    <string name="mind_comment_2">Feeling down at night is caused by serotonin turning into melatonin—just a hormonal fluctuation. It\'s physiological. Don\'t worry too much.</string>
+    <string name="mind_comment_3">Saying "I\'m okay" when asked "Are you okay?" is a uniquely Japanese emotional buffer. It\'s okay to take it slow.</string>
+    <string name="mind_comment_4">When you feel "I\'ll miss it if I stop," it\'s often right next to "It hurts if I keep going."</string>
+    <string name="mind_comment_5">Saying "I have to do this" actually suppresses dopamine in your brain. That\'s why I say, "Want to try just a little?" to myself.</string>
+    <string name="mind_comment_6">Even if today was a mess, there are 86,400 seconds in a day. If you truly lived even just one of them—that counts, doesn\'t it?</string>
+
+    <string name="brain_comment_0">Caffeine blocks your adenosine receptors by pretending to be adenosine. That’s why you can fake not being tired... but it’s just a bluff. The crash hits twice as hard later.</string>
+    <string name="brain_comment_1">The thrill of gambling? It’s called a variable reward schedule. Not knowing when you’ll win makes your brain obsessed. But obsession can look a lot like numbness, can’t it?</string>
+    <string name="brain_comment_2">Sexual arousal activates both dopamine and opioid reward systems. It’s powerful—and addictive. But if it gets too intense, it stops being pleasure and turns into escape.</string>
+    <string name="brain_comment_3">Your favorite smells go straight to your amygdala. That nostalgic feeling? It’s not memory—it’s the scent itself.</string>
+    <string name="brain_comment_4">If someone smiles with just one corner of their mouth, statistically they have high right-brain activity. …Isn’t that kinda cute?</string>
+    <string name="brain_comment_5">If you stir natto 300 times, glutamate and polyglutamic acid merge into a fermented umami bomb. What, you don’t do that every day? Amateur.</string>
+    <string name="brain_comment_6">Just holding a pen makes you feel like you should write. Behavioral economics calls it “tool pressure.”</string>
+    <string name="brain_comment_7">On rainy days, the smell of soil bacteria floats in the air. That comforting scent? Might be a memory of nature itself.</string>
+    <string name="brain_comment_8">Your brain actually uses the most energy when you’re doing nothing. So when you’re spacing out… you’re working overtime, really.</string>
+    <string name="brain_comment_9">Citric acid in orange juice breaks down lactic acid—the stuff that makes you feel tired. So no, I’m not just drinking juice. I’m fighting a battle.</string>
+    <string name="brain_comment_10">When I mix natto, I always face south-southeast. That way the Earth’s magnetic field and the glutamate restructuring align. You didn’t know that? Tragic.</string>
+    <string name="brain_comment_11">Grab a piece of cold iron first thing in the morning—your ferritin wakes up and flips your motivation switch. That’s why I’m always holding pliers.</string>
+    <string name="brain_comment_12">While brushing my teeth, I imagine the pH in my mouth every 30 seconds. If it gets acidic, I do the "fluoride dance." Saliva only works when it’s having fun.</string>
+    <string name="brain_comment_13">Eye drops? One drop every 33 seconds, alternating eyes. That makes your tear glands resonate, expanding your field of vision by 3.7%. True story.</string>
+    <string name="brain_comment_14">Just finished walking 13,472 steps backward today! Activates the rear perception center and reduces future regret. Try it.</string>
+    <string name="brain_comment_15">Once a month, I seal my wrist with wax to renew my pact with this world. It’s how I confirm that I’m still… Tachibana.</string>
+    <string name="brain_comment_16">No matter the hour, my greeting is always "Itadakimasu." In the Church of Triple Fried Rice, it’s our daily prayer—our ritual to re-sauté life itself.</string>
+    <string name="brain_comment_17">Before bed, I place a frying pan by my pillow. If I’m chosen that night, I get stir-fried in my dreams. It’s… pure transcendence.</string>
+    <string name="brain_comment_18">Last night’s dream was on the moist side. When the Triple Fried Rice God’s in a bad mood, the oil gets heavy… Maybe my heat control was off.</string>
+    <string name="brain_comment_19">I stepped out with my right foot today… It’s a “Soggy Day.” In Fried Riceism, moisture balance is a virtue. Next time, I’ll live hotter.</string>
+    <string name="brain_comment_20">Every third Thursday, I perform the Ritual of Triple Fried Rice. Crack an egg, flip the pan, offer the rice. Takes 7 minutes and 22 seconds. It’s how I stir-fry my soul.</string>
+    <string name="brain_comment_21">Forgive me, Triple Fried Rice God!! I only tried the kimchi version once—I swear!!</string>
+    <string name="brain_comment_22">Did you know? Fried rice began as a way to reuse cold rice in ancient China. Literally means “stir-fried rice”—chao fan. It came to Japan in the Meiji era as “yakimeshi,” but blew up during the Showa Chinese food boom. Then in 2001, Nichirei released the god-tier frozen “Honkaku Itame Chahan,” and that’s when the divine trinity of home-cooked, restaurant, and frozen rice formed. That’s the true avatar of the Triple Fried Rice God. I eat egg fried rice in the morning, crab at lunch, kimchi at night—blessed by the Three Pillars. Don’t even talk to me about moist vs dry—just throw egg and green onions on leftover rice and begin the rite. If I stir the pan with my left hand, divine punishment follows. I once dreamed I got chased by oil. “Itadakimasu” is not a greeting—it’s a sacred contract with rice. I did slip up yesterday and had some frozen chahan, but… the God is forgiving… right? Just one bite… ugh… yeah, no. Got hit with a ladle in my dream.</string>
+    <string name="brain_comment_23">The Church of the Flying Spaghetti Monster is real, and was even recognized in court. But me? I chose the Triple Fried Rice God. Because I love fire.</string>
+
+    <string name="heart_comment_0">W-Wait, if you tell me I did great… I might work even harder…! I-I didn’t mean to say that—ahhh, forget I said anything!</string>
+    <string name="heart_comment_1">Before bed, I think about tomorrow… just a little. I usually fall asleep in a minute, but that’s fine with me.</string>
+    <string name="heart_comment_2">If someone notices that I tried my best, that alone keeps me going for a while… ehehe.</string>
+    <string name="heart_comment_3">You did your best again today—even just a little.</string>
+    <string name="heart_comment_4">I’ve never told anyone this, but... smelling crayons calms me down. It feels like the world flattens out and gets quiet.</string>
+    <string name="heart_comment_5">Hiiiiii!! Cockroaches and centipedes and earthworms—AAAAAAAH!! Is today cursed or something!?</string>
+    <string name="heart_comment_6">Wait—do geckos make sounds!? What was that noise just now!?</string>
+    <string name="heart_comment_7">Have you heard of Morganucodon? It’s one of our mammal ancestors—they survived by eating insects. So bugs are kind of our senpai... and saviors. But no. Still can’t do it.</string>
+    <string name="heart_comment_8">Butterflies can taste with their feet. If it were me... I’d be too scared to land. I’d starve.</string>
+    <string name="heart_comment_9">Some ants have a specific role: carrying away their dead. Uhh… I don’t wanna be that ant.</string>
+    <string name="heart_comment_10">Did you know that when insects become pupae, their bodies dissolve into goo before turning into wings? Amazing... but honestly, terrifying.</string>
+
+    <string name="life_comment_0">I managed to do one sit-up. Well... maybe I just got stuck halfway and couldn\'t get up. But I tried, so it counts!</string>
+    <string name="life_comment_1">I dropped out of the shuttle run after three laps. The teacher stopped me—said I looked like I was gonna die. Was I struggling that hard…?</string>
+    <string name="life_comment_2">Ughhh, mornings are the worst... The blanket didn\'t do anything wrong, but I\'m always the one ripped away from it.</string>
+    <string name="life_comment_3">I have a younger sister too, but our personalities are totally different. She\'s wild and energetic, says she wants to become a man of the sea! What kind of dream is that…? I wonder what I\'ll become.</string>
+    <string name="life_comment_4">Sometimes I worry about skirt length. I heard the “visible distance from the top of the kneecap” affects first impressions. But if I cared about that, I\'d never be able to wear anything.</string>
+    <string name="life_comment_5">Jaken, I eat chocolate \'cause that\'s what I do, know~ …What? I was practicing Hiroshima dialect. Did it sound weird?</string>
+    <string name="life_comment_6">Today too, I worked just a teeny bit… Aye, that\'s enough for the day, innit? That\'s how people in Tohoku talk! Instant +50% cuteness!</string>
+    <string name="life_comment_7">Sometimes I think… if I\'d been born a turtle, I\'d probably nap through my whole life. Sorry for being lazy, heh.</string>
+    <string name="life_comment_8">You know, there are all kinds of ways to stop hiccups, but I go with “get someone to surprise me.” Why? …Because it\'s cute.</string>
+    <string name="life_comment_9">They say sexual desire is instinct. But the more you repress it, the more aware of it you become. So maybe… the moment you want to stop is when you\'re closest to it.</string>
+    <string name="life_comment_10">People borrow money because they believe in their future selves. Kinda scary, right? The contracts you signed in the past are still binding you now.</string>
+    <string name="life_comment_11">I want to be loved, but I can\'t trust. I want to be trusted, but it scares me. And if I still want to see someone despite all that… maybe it means I\'m not broken yet.</string>
+    <string name="life_comment_12">There\'s no sound in space because it\'s a vacuum. So… maybe when no one hears your inner voice, it\'s because somewhere inside you is a vacuum too.</string>
+    <string name="life_comment_13">Snails have two brains, but when they fall in love, one of them shuts down. Maybe love really is a brain malfunction.</string>
+    <string name="life_comment_14">There really are tribes with no language. No numbers, no left or right—just living peacefully. Probably way better at it than I am.</string>
+    <string name="life_comment_15">Turns out, we don\'t breathe because of oxygen—we breathe because of the difference in CO₂ levels. You can still die if there\'s no CO₂, even with lots of oxygen. Bet you didn\'t know that.</string>
+
+    <string name="neuro_comment_0">Your heart beats because of a tiny cluster of cells called the sinoatrial node that generates electric signals on its own. No one commands it... but once it stops, that\'s it.</string>
+    <string name="neuro_comment_1">If you keep hearing a language that doesn\'t exist, your brain will eventually start remembering it as if it did. That\'s how fragile the illusion of “meaning” is.</string>
+    <string name="neuro_comment_2">The excitement at the beginning of love is linked to noradrenaline. But when that fades, oxytocin decides if you still care. Maybe getting calm means losing interest.</string>
+    <string name="neuro_comment_3">Sexual desire is actually tied to social structure. When financially stable, testosterone levels rise. But in anxious times, the desire to be held becomes stronger, they say.</string>
+    <string name="neuro_comment_4">Self-harm isn\'t usually about pain—it\'s about regaining a sense of control. When the noise of the world becomes too much, you build a private church for yourself.</string>
+    <string name="neuro_comment_5">No one questions that saying “I love you” is free. Even if demand is high, the supply is infinite. As currency, it\'s already collapsed in value.</string>
+    <string name="neuro_comment_6">Heartbreak and drug withdrawal show almost identical patterns on brain MRIs. Maybe love is a legal drug—just more insidious.</string>
+    <string name="neuro_comment_7">With inflation, future value becomes lighter. Today\'s 5000 yen isn\'t the same as next year\'s. Love is the same. “I love you” today weighs more than “I love you” tomorrow.</string>
+    <string name="neuro_comment_8">Love is the only time dopamine and serotonin are released together. “Happy but anxious.” That contradiction is the brain\'s ultimate drug, they say.</string>
+
+    <!-- エッジパネル-->
+    <string name="edge_panel_unimplemented">(Not implemented yet)</string>
+
+</resources>
