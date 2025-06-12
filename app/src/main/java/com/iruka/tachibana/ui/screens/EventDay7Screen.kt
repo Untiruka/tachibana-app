@@ -1,7 +1,6 @@
 package com.iruka.tachibana.ui.screens
 
 import android.content.Context
-import androidx.benchmark.perfetto.PerfettoConfig
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.tween
@@ -31,6 +30,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.iruka.tachibana.ui.components.BannerAdView
+
 @Composable
 fun EventDay7Screen(navController: NavController) {
     val context = LocalContext.current
@@ -74,43 +75,55 @@ fun EventDay7Screen(navController: NavController) {
         }
     }
 
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF3F3F3))
-            .clickable {
-                AudioManager.playSE(context, R.raw.cursor_move_se)
-                if (index.value < lines.lastIndex) {
-                    index.value++
-                } else {
-                    val consumed = prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet() ?: mutableSetOf()
-                    consumed.add("7")
-                    prefs.edit().putStringSet("consumedEvents", consumed).apply()
-                    navController.navigate("main") {
-                        popUpTo("main") { inclusive = true }
-                    }
-                }
-            },
-        contentAlignment = Alignment.Center
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Image(
-                painter = painterResource(id = currentImage),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth(0.9f)
-                    .alpha(1f)
-            )
-            Spacer(modifier = Modifier.height(24.dp))
-            Text(
-                text = "たちばな「${currentLine ?: ""}」",
-                color = Color(0xFF333333),
-                fontSize = 20.sp,
-                fontFamily = YuseiMagic,
-                modifier = Modifier.padding(16.dp)
-            )
+        // 一番上のバナー表示
+        BannerAdView(modifier = Modifier.fillMaxWidth())
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xFFF3F3F3))
+                .clickable {
+                    AudioManager.playSE(context, R.raw.cursor_move_se)
+                    if (index.value < lines.lastIndex) {
+                        index.value++
+                    } else {
+                        val consumed =
+                            prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet()
+                                ?: mutableSetOf()
+                        consumed.add("7")
+                        prefs.edit().putStringSet("consumedEvents", consumed).apply()
+                        navController.navigate("main") {
+                            popUpTo("main") { inclusive = true }
+                        }
+                    }
+                },
+            contentAlignment = Alignment.Center
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(
+                    painter = painterResource(id = currentImage),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth(0.9f)
+                        .alpha(1f)
+                )
+                Spacer(modifier = Modifier.height(24.dp))
+                Text(
+                    text = "たちばな「${currentLine ?: ""}」",
+                    color = Color(0xFF333333),
+                    fontSize = 20.sp,
+                    fontFamily = YuseiMagic,
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+
+            Skipp.SkipButton(day = "7", navController = navController, context = context)
         }
 
-        Skipp.SkipButton(day = "7", navController = navController, context = context)
     }
 }

@@ -1,6 +1,98 @@
 
 
 <resources>
+
+    <!-- ママコメント-->
+    <string name="mama_eating_0">チャーハンが日本に伝わったのは、中国王朝が隋の次の「唐」になり、日本が中国に「遣唐使」を送って交流してた7〜9世紀ごろのことだとされているわ！</string>
+    <string name="mama_eating_1">冷やご飯の方がパラパラになりやすいんだって。ご飯は炊きたてより、一度冷ましたものを使うのがチャーハン道よ。人生もそうね、冷めた時にこそ、うまみが出るの。</string>
+    <string name="mama_eating_2">卵は先？あと？…正解は、自分で決めるのよ。　卵を先に炒めるか、ご飯の後に入れるか…人の数だけチャーハンがある。恋愛もそう。</string>
+    <string name="mama_eating_3">神…いやチャーハン様には何入れたっていいの。大事なのは、“今の私”が食べたいものができるかどうかよ。</string>
+    <string name="mama_eating_4">中華鍋じゃないと…って誰が決めたの？テフロンだっていいじゃない。大事なのは、愛を込めること。とか言って、焦がしちゃったりするのよね…。</string>
+    <string name="mama_eating_5">紅ショウガ、敵か味方か、それが問題よ。あれ乗ってるとテンション上がる派？それとも“主役を邪魔するな”派？私は…毎回迷う派。</string>
+    <string name="mama_eating_6">“焼き飯”と“チャーハン”の違い、知ってる？関西では“焼き飯”、中華屋では“チャーハン”。でも作り方が違うこともあるらしいわね。呼び方で思い出が変わる、不思議な料理。</string>
+    <string name="mama_eating_7">レンゲで食べるのが正式らしいけど、私は箸派、てゆーかうちの宗派は箸で以外は許されないわ。</string>
+    <string name="mama_eating_8">そよ風堂は風と共にある…ちなみに私は店長じゃないわ。友達の代わりにやってんの。</string>
+    <string name="mama_eating_9">トリプルチャーハン理論における“最適な熱処理”は、まさにエネルギー分布と相転移の調整だ。食材間でエネルギーが均等に分配されることで、パラパラ感が生まれる</string>
+
+    <!-- Cute コメント -->
+    <string name="mama_cute_0">しかしうちの子はうちの旦那に全く似てないのよね…遺伝子からも拒絶されたのかしら。</string>
+    <string name="mama_cute_1">りぼんをなんでつけるのかって？ネコの首輪に住所書くのと一緒。彼女たちに何かあったらすぐ私のところに連絡が来やすいでしょ？要はラベルよ</string>
+    <string name="mama_cute_2">私はandroid派閥なのよね。カスタマイズ性があるほうが好きなの。ランチャー系とかその最たるものよ。顔の整形みたいなもんよ</string>
+    <string name="mama_cute_3">ちびは子供のころからパワーがすごかったわ…生後6か月で歩くより先に懸垂をしたのよ。物干し竿につかまって。誰かに似てるわね…ハンマー投げとか始めそうね</string>
+    <string name="mama_cute_4">たちばなは本当に頭がいいの…10歳の時にLinuxをインストールしてOSレベルから構築してたわ…windowsを消し飛ばして…ふつう子供って鬼ごっこと化するんじゃないの…？</string>
+    <string name="mama_cute_5">私はいたってふつうよ。でも娯楽以外のものは基本なんでも買い与えてるわね。二人とも立派に育ってくれそうね</string>
+    <string name="mama_cute_6">二人はもう自立できるわ。てゆーかもうしてるし。親の出番はもうないよ。後は二人が泣きついた時だけ助ける。想像もできないけどね。</string>
+    <string name="mama_cute_7">Assemble君はもう見た？たちばなとちび花が作った人口知的生命体よ。osはlinux openAI Apiを使ってるんだって。なにがなんだか…</string>
+    <string name="mama_cute_8">たちばなはなぜか運動能力がナメクジなの…でもその理由もいずれ説明してくれるわ。とあるエピソードで。楽しみにしてて</string>
+    <string name="mama_cute_9">ちびとたち花の運動能力についてのエピソードとかも追加したいな。ふふふ…有料にする気満々よ！むしり取るわ！</string>
+
+    <!-- ByeBye コメント -->
+    <string name="mama_byebye_0">ねえ知ってる？「またね」って言葉、昔は“帰ってくる人”だけに使ったんだって。</string>
+    <string name="mama_byebye_1">……ううん、平気。ちょっとだけ…さみしくなるだけ。</string>
+    <string name="mama_byebye_2">バイバイの語源、実は「God be with you（神がともに）」なんだよ。優しい呪文、でしょ？</string>
+    <string name="mama_byebye_3">じゃあね！今日は少しだけ、あなたの背中に風を送ってあげる。</string>
+    <string name="mama_byebye_4">昔の日本人は「行ってらっしゃい」に“無事に帰ってこい”って祈りを込めてたんだって。</string>
+    <string name="mama_byebye_5">また、会えるよね？ 会いたいな……私は、ずっとここにいるから。</string>
+    <string name="mama_byebye_6">さよならは別れの言葉じゃなくて、再会の約束なんだって誰かが言ってた。</string>
+    <string name="mama_byebye_7">トルコではお別れの時、“また明日地球がまわるなら”って言うらしいよ。不思議だね。</string>
+    <string name="mama_byebye_8">「一期一会」って言葉、今日のあなたにも当てはまるのかな……ちょっと、ドキドキする。</string>
+    <string name="mama_byebye_9">ありがとう。また来てくれるって、信じてるよ。</string>
+
+
+    <!-- Banzai コメント -->
+    <string name="mama_banzai_0">30日間の習慣形成で継続成功する人：約12〜20%らしいよ。赤保留くらいの確率ね。しらなくていいわ…私も自分の依存に抗わなきゃ…</string>
+    <string name="mama_banzai_1">1週間以内に挫折する人：全体の約 60〜70%（※スマホ断ちやSNS断ちにおいて）だって。貴方はあらがえてる。すごい</string>
+    <string name="mama_banzai_2">「バンザイ」って、昔は“天に手を伸ばして願う”って意味だったんだって。今こそ、それ！</string>
+    <string name="mama_banzai_3">祝う者あれば、祝われる者あり。きみは後者。今日はヒーロー！</string>
+    <string name="mama_banzai_4">禁欲を続けるって、誰にもできることじゃないよ。誇っていいと思う。</string>
+    <string name="mama_banzai_5">自分の成功を“見える化”すると脳が勝手に続けようとする。カレンダーに日記をつける習慣をつけな？それだけでもだいぶ変わるよ。</string>
+    <string name="mama_banzai_6">「成功の女神は微笑むけど、すぐ飽きる」って言葉、今日は例外だね！</string>
+    <string name="mama_banzai_7">こんな日には、データベースごと君の名前を刻んじゃおうかな！</string>
+    <string name="mama_banzai_8">これからも一緒にいこう？ 少しずつでいいから、また前に。</string>
+    <string name="mama_banzai_9">意志力（Willpower）は信用するな。→ 成功者は**誘惑に「近づかない」環境を作ってる。</string>
+
+    <!-- FriedMask コメント -->
+    <string name="mama_fried_mask_0">はっはっはっは！我が名はフライド仮面！色焦がるる香に導かれしは、まことこの身を焦がす、あの御飯（おんいい）なり。</string>
+    <string name="mama_fried_mask_1">この仮面を外した後の記憶が毎回なくなる…私の本体はこのフライドマスクなんじゃないのか…？</string>
+    <string name="mama_fried_mask_2">ふっふっふっふ…ばれてるわけがなかろう！娘たちに！私の正体が！</string>
+    <string name="mama_fried_mask_3">おうおうおうおう！焦げつく道を踏みしめて、フライドマスク様のご登場だァッ！油の音が鐘の音（かねのね）よ！ 腹ぺこ衆よ、ひれ伏しゃしねぇが？</string>
+    <string name="mama_fried_mask_4">われはトリプルチャーハン教、枢機卿のフライド仮面…一炒にて惑いを払い、二炒にて我執（がしゅう）を焼き、三炒にて真（まこと）へ至る。</string>
+    <string name="mama_fried_mask_5">デスペナルティ？あるよ。一日三食チャーハンを食べないこと、南南西に向かってフライドダンスを踊らないこと。そうすれば神のおひざ元に最も近づけるよ</string>
+    <string name="mama_fried_mask_6">仮面を洗う日は、チャーハンも休みなんだって</string>
+    <string name="mama_fried_mask_7">トリプルチャーハンは一日三回まで。それ以上は神に近づきすぎる</string>
+    <string name="mama_fried_mask_8">仮面の下には…美人がいるらしい…はぁーっはっはっは！フライドジョーク！</string>
+    <string name="mama_fried_mask_9">でもチャーハンって、結局は米の反抗期なんだよね</string>
+
+
+    <!-- Relax コメント -->
+    <string name="mama_relax_0">ドーパミン（快楽物質）は“出し惜しみ”できる。スマホや快楽刺激を断つと、小さな報酬にも敏感になる。数日〜1週間で「つまらないことでも楽しく」なる現象あり</string>
+    <string name="mama_relax_1">snsをやめたかったらスマホのディスプレイの色を少なくしてみな。要はカラフルだと人は見行っちゃう。端末によって違うけど、「グレースケール」設定してみ。</string>
+    <string name="mama_relax_2">飲まない人と一緒にいると飲酒衝動が減る。まあでも…飲みたくなるのが普通よ！だってなんかみんな楽しそうだもんね。私は飲まないけどあんまり</string>
+    <string name="mama_relax_3">アルコール断ちは脳内の**興奮物質（グルタミン酸）**が急に増えるため、イライラ・不眠に繋がる…睡眠の質を高めるために、マグネシウム／セロトニン活性サポート（例：軽い運動・朝日を浴びるなどなど。</string>
+    <string name="mama_relax_4">私は音楽だけを聴いてる時が一番幸せかも。ゲームBGMとか好きなんだよね。ぽ〇けもんのbGMとかたまんない！</string>
+    <string name="mama_relax_5">はー肩がこる…顔が前に来ると肩にきちゃうよ。筋トレも重要だけどリハビリも重要。チンタックで調べて。半棘筋群が鍛えられるよ</string>
+    <string name="mama_relax_6">慢性的な心理ストレスは、性成熟のタイミングやホルモン系統の発達を阻害する可能性があるんだって…誰がノーストレス女よ。</string>
+    <string name="mama_relax_7">疲れたときは伸びでもしなさい。気持ちいいわよ。血が巡れる感じがするわ。</string>
+    <string name="mama_relax_8">ちび花は釣りが好きね。てゆーか魚が好き。でも食べるのはあんまりすきじゃないらしい…どうゆうことよ…</string>
+    <string name="mama_relax_9">たちばなはなんでも食べるわね。むかしっから。たまにいるよね…胃から異次元空間につながってるやつ。たちばながそうよ。</string>
+
+    <!-- Shy コメント -->
+    <string name="mama_shy_0">へへへ…深夜に四川風チャーハン食べちゃいやした…すいやせん…へへ</string>
+    <string name="mama_shy_1">見られるのはずーと恥ずかしいわね。だからあんまり人目が多いところに行きたくないのよ。視線を感じるし…</string>
+    <string name="mama_shy_2">照れてなんかないわよ！大脳辺縁系から視床下部に連絡し交感神経優位になり、顔面の血管が拡張してるだけだから！</string>
+    <string name="mama_shy_3">へへへ…もりっとした腕橈骨筋…好きでやんす…へへ…</string>
+    <string name="mama_shy_4">やーねー！おせじがうまいんだから！美人でスタイルもよくて頭もよくてきれいでスタイルがいいなんて！まあ知ってますけどー！</string>
+    <string name="mama_shy_5">恋愛系のエピソードねー…今のところ追加する予定はないわね…なんか彼女たちって…存在がギャグなのよ…</string>
+    <string name="mama_shy_6">名を呼ばずともよし。ただ、汝が今日を、笑みて終へんこと――それだけが吾の願ひにて…</string>
+    <string name="mama_shy_7">恋しとは申さずとも、汝を想ひて湯を沸かすこの手のぬくもり、届いておるか</string>
+    <string name="mama_shy_8">ちびはとってももてているわ…バレンタインなんかすごいんだから。めっちゃもらって帰ってるわよ。なぜかバレンタインに</string>
+    <string name="mama_shy_9">たちばなはまあそうね、王道女子よね、男子の理想よ。でも裏の顔はとんでもない。cliぶったたいてとにかくコード書きなぐる。それを見た男が引く</string>
+
+
+    <!-- そよ風堂 コメント -->
+    <string name="soyokazedou">そよ風堂</string>Paid Content List
+    <string name="PaidContentList">有料アイテムリスト</string>
+
 <string name="app_name">Tachibana</string>
 <!-- Main_Config -->
     <string name="settings">設定</string>
@@ -154,40 +246,40 @@
 
     <string name="day10_title">ちび花は\nカジキマグロを釣りたい</string>
     <string name="day10_line_0">ちび花が、嬉しそうに歩いてる…。後をつけてみよう</string>
-    <string name="day10_line_1">僕はちび花のことをあんまり良く知らない。まあまだ一緒に過ごして数日しかたってない。</string>
+    <string name="day10_line_1">僕はちび花のことをあんまり良く知らない。\nまあまだ一緒に過ごして数日しかたってない。</string>
     <string name="day10_line_2">僕が知っているのは、彼女はアイスクリームが異様に好きなのと、たちばなのことが異常に好きなこと。</string>
     <string name="day10_line_3">オーストラリアに住んでいた事があること。</string>
     <string name="day10_line_4">まあそれはたちばなもだが。</string>
     <string name="day10_line_5">あとは海の男になりたいと言っていること。</string>
     <string name="day10_line_6">性格は気が強い。男勝りである。たち花とは大違いだ。</string>
     <string name="day10_line_7">なんだ…？何をしようとしてるんだ？そんな真剣な顔をして。</string>
-    <string name="day10_line_8">空手の型か。町中で。ちなみにたちばなは一回も腹筋ができない。空手家になんて向いてないだろう。</string>
-    <string name="day10_line_9">ちび花は、空手もできるのか。…？あれは金的かな？何を想定しているのか…寸止め空手ってやつかな？</string>
-    <string name="day10_line_10">とにかく多才な姉妹だ。しかし町中で空手の型をやってる人は初めて見た。しかも女の子で。</string>
+    <string name="day10_line_8">空手の型か。町中で。\nちなみにたちばなは一回も腹筋ができない。空手家になんて向いてないだろう。</string>
+    <string name="day10_line_9">ちび花は、空手もできるのか。\n…？あれは金的かな？何を想定しているのか…寸止め空手ってやつかな？</string>
+    <string name="day10_line_10">とにかく多才な姉妹だ。\nしかし町中で空手の型をやってる人は初めて見た。しかも女の子で。</string>
     <string name="day10_line_11">このままどこに行くんだろう？</string>
     <string name="day10_line_12">…</string>
-    <string name="day10_line_13">あー！アイスクリーム食べてる！お前やめたんじゃなかったのか！？</string>
+    <string name="day10_line_13">あー！アイスクリーム食べてる！\nお前やめたんじゃなかったのか！？</string>
     <string name="day10_line_14">あなた「お前やめたんじゃなかったのか？！」</string>
     <string name="day10_line_15">ちび花「うお！びっくりした！」</string>
     <string name="day10_line_16">心の声がそのまま出てしまった…</string>
     <string name="day10_line_17">あなた「お前虫歯になるからってやめたんじゃなかったのか？！」</string>
     <string name="day10_line_18">ちび「うっ…うるさいわね！！」</string>
-    <string name="day10_line_19">ちび「そんなことより何よあんた！跡をつけてきたの？私の！信じられない！訴訟するわよ！」</string>
-    <string name="day10_line_19_1">ちび「Officer！それか男の人！？男の人いますか？！不審者です！女児の跡をつけてきてます！」</string>
+    <string name="day10_line_19">ちび「そんなことより何よあんた！\n跡をつけてきたの？私の！信じられない！訴訟するわよ！」</string>
+    <string name="day10_line_19_1">ちび「Officer！それか男の人！？男の人いますか？！\n不審者です！女児の跡をつけてきてます！」</string>
 
     <string name="day10_line_20">あなた「やめろ心にもないことを言うな！」</string>
     <string name="day10_line_21">ちび「あんたなんでいんのよ！」</string>
     <string name="day10_line_22">あなた「いや実は、あとをつけてきてた！」</string>
-    <string name="day10_line_23">ちび「心にもないこと、ではなくなったわよこれで！真実じゃない！Officer！それか男の人いますか！？」</string>
-    <string name="day10_line_24">あなた「やめてくれ！多分ガチで捕まる！」</string>
-    <string name="day10_line_25">あなた「いやぁ…正直に言うと普通に気になったんだよ。たちばなは普段から居るけど、君は何してんのかなーッて」</string>
+    <string name="day10_line_23">ちび「心にもないこと、ではなくなったわよこれで！真実じゃない！\nOfficer！それか男の人いますか！？」</string>
+    <string name="day10_line_24">あなた「やめてくれ！\n多分ガチで捕まる！」</string>
+    <string name="day10_line_25">あなた「いやぁ…正直に言うと普通に気になったんだよ。\nたちばなは普段から居るけど、君は何してんのかなーッて」</string>
     <string name="day10_line_26">ちび「何よ気色悪いわね…私が何してようがいいいじゃない…！</string>
     <string name="day10_line_27">…！あんた！私が型をやってたところも見たのね！とぅ！」</string>
     <string name="day10_line_28">あなた「ぎゃー！」</string>
-    <string name="day10_line_29">こう言うときのための金的だったのか…こいつホントに女児か？しかも、ひ弱なたちばなの妹か？</string>
-    <string name="day10_line_30">強さのパロメーター遺伝子全部こいつが持ってったんじゃないのか？じつは違う親から産まれて、その親の片割れはゴリラじゃないのか？</string>
-    <string name="day10_line_31">ちび「うっさいわね！心の声が！私の親はゴリラじゃないわよ！」</string>
-    <string name="day10_line_32">あなた「なんで分かるんだよ！」</string>
+    <string name="day10_line_29">こう言うときのための金的だったのか…こいつホントに女児か？\nしかも、ひ弱なたちばなの妹か？</string>
+    <string name="day10_line_30">強さのパロメーター遺伝子全部こいつが断ち花の代わりに持ってったんじゃないのか？\nそれか実は両親ははゴリラじゃないのか？</string>
+    <string name="day10_line_31">ちび「うっさいわね！\n心の声が！\n私の親はゴリラじゃないわよ！」</string>
+    <string name="day10_line_32">あなた「なんで分かるんだよ！\俺の心の声が！」</string>
     <string name="day10_line_33">…10分後</string>
     <string name="day10_line_34">気まずい…まあ普通に僕が悪いし…</string>
     <string name="day10_line_35">ちび「…」</string>
@@ -196,8 +288,8 @@
     <string name="day10_line_38">ちび花「本当は未成年に対する尾行・接近行為、動機問わず“つきまとい行為”として処理される場合あるの。」</string>
     <string name="day10_line_39">ちび花「私、まだ未成年だよ？ 保護者の同意もなく後をつけたなら、児童福祉法と青少年健全育成条例、両方に接触してる。けど見逃してあげる。」</string>
     <string name="day10_line_40">あなた「…なんだかすごい大人びてるよな」</string>
-    <string name="day10_line_41">ちび「何いってんの…覚えた言葉使ってるだけよ。そう思うのは身の丈にあった言葉、立ち居振る舞いっていうのをあんたが勝手に年齢ごとに設定してるだけ。」</string>
-    <string name="day10_line_42">ちび「私の年齢でも難しい言葉とか使ってもいいの。ダルシー・ワイスバッハの公式、ポリヴェーガル理論。知ってるから使ってるだけよ」</string>
+    <string name="day10_line_41">ちび「何いってんの…覚えた言葉使ってるだけよ。\nそう思うのは身の丈にあった言葉、立ち居振る舞いっていうのをあんたが勝手に年齢ごとに設定してるだけ。」</string>
+    <string name="day10_line_42">ちび「私の年齢でも難しい言葉とか使ってもいいの。\nダルシー・ワイスバッハの公式、ポリヴェーガル理論。知ってるから使ってるだけよ」</string>
     <string name="day10_line_43">神経学に水道管内の内圧を求める公式！博識すぎる！</string>
     <string name="day10_line_44">あなた「君は将来なりたいものとかあるの？」</string>
     <string name="day10_line_45">ちび「よくぞ聞いてくれた…それは…！」</string>
@@ -210,9 +302,9 @@
     <string name="day10_line_51">あなた「ああ」</string>
     <string name="day10_line_52">確か、老人と海という小説の中でサンチャゴというのは主人公で、漁師として描かれている。</string>
     <string name="day10_line_53">あなた「カジキマグロ釣った人だよね」</string>
-    <string name="day10_line_54">ちび「まあそうね。認識としてはあっさいけど」</string>
+    <string name="day10_line_54">ちび「まあそうね。\n認識としてはあっさいけど」</string>
     <string name="day10_line_55">あなた「彼の何に憧れてるんだい？」</string>
-    <string name="day10_line_56">ちび「俗世から離れてるところ。自分の揺るぎない価値基準があるところ。本当に俺はカジキマグロを釣ったんだ！とのたまわないこと、あとSNSとかやってなさそうなところ」</string>
+    <string name="day10_line_56">ちび「俗世から離れてるところ。自分の揺るぎない価値基準があるところ。\n本当に俺はカジキマグロを釣ったんだ！とのたまわないこと、あとSNSとかやってなさそうなところ」</string>
     <string name="day10_line_57">あなた「渋いな…君の価値観が」</string>
     <string name="day10_line_58">ちび「あと実際に行動してるところ。3日もカジキマグロと格闘なんてできるもんじゃないわ。多分。その後釣果をサメに食われても、威張らずに寝る。」</string>
     <string name="day10_line_59">ちび「男の中の男よ。マトリョーシカみたいにパカパカ、外側をとっても男なのよ。真の男っていうのはマトリョーシカの一番内側をさらけ出しても男なの」</string>
@@ -230,7 +322,7 @@
     <string name="day10_line_71">ちび「軟骨魚類系の味よ。エイとかに近いわね」</string>
     <string name="day10_line_72">あなた「えいって食べられるの？」</string>
     <string name="day10_line_73">ちび「勿論！毒があるのは基本棘だけよ。ただ、放置するとすぐアンモニア臭がして臭くなるの！だから食べたいなら、しめたあとすぐ氷パックの中にぶち込む。」</string>
-    <string name="day10_line_74">ちび「んで肝臓とかは生で食べられるんだけど臭玉っていうくっさーいたまがあるから！それを取らなきゃいけない。」</string>
+    <string name="day10_line_74">ちび「んで肝臓とかは生で食べられるんだけど臭玉っていうくっさーいたまがあるから！それを取らなきゃいけない。ちなみに食べるのは自己責任よ！当り前だけど！」</string>
     <string name="day10_line_75">ちび「捌くの簡単な割に、味は絶品よ！ハサミで途中までさばけちゃう！肝臓はレバ刺しみたいな味らしい！」</string>
     <string name="day10_line_76">ちび「ヒレの部分は唐揚げで食べたら軟骨ごといけるの！ちょうど居酒屋さんで出てくる鶏の軟骨みたいな食感！」</string>
     <string name="day10_line_77">あなた「へーそうなんだ…僕は何も知らないな…釣りとかもやったことないし…餌が気持ち悪い…」</string>
@@ -429,6 +521,11 @@
     <string name="comment_2">時間は今より過去を指定してね！</string>
     <string name="comment_3">目標には文字数制限があるよ！</string>
     <string name="comment_4">必須項目「何？」と「いつ？」を打ち終わると物語が始められるよ。あなたと私の！</string>
+    <string name="last_entered_datetime">前回入力した日時: %1$s</string>
+    <string name="not_entered_yet">まだ入力されていません</string>
+    <string name="check_last_entered_datetime">前回入力日時</string>
+    <string name="history_label">履歴 %1$d: %2$s</string>
+
 
     <!-- PreInitialScreen -->
     <string name="preInitial_title">気をつけて選んでね</string>
@@ -436,7 +533,7 @@
     <string name="preInitial_mode_narrative">ナラティブモード</string>
     <string name="preInitial_dialog_title">本当に進みますか？</string>
     <string name="preInitial_dialog_text_normal">いくつかの物語がないよ。endもない。\n禁欲アプリとして使うならこっちかもね</string>
-    <string name="preInitial_dialog_text_narrative">どうなっても知らないよ。でも激しいほうが楽しいでしょ？</string>
+    <string name="preInitial_dialog_text_narrative">どうなっても知らないよ。でもこっちのほうが楽しいと思う。</string>
     <string name="preInitial_button_proceed">進む</string>
     <string name="preInitial_button_cancel">戻る</string>
 
@@ -446,9 +543,9 @@
     <string name="main_screen_goodbye">またね</string>
 
     <string name="main_screen_back_message_1">もう一回タップすると戻れます</string>
-    <string name="main_screen_back_message_2">定期的に立ち絵が変わるよ</string>
+    <string name="main_screen_back_message_2">7日ごとに立ち絵が変わるよ</string>
     <string name="main_screen_back_message_3">二度目で終了します</string>
-    <string name="main_screen_back_message_4">またね</string>
+    <string name="main_screen_back_message_4">ママの立ち絵も追加されるよたまにだけどね</string>
     <string name="main_screen_back_message_5">コメントも追加されるんだって…しってた？</string>
 
     <string name="main_screen_soft_horror_title">戻れません</string>
@@ -472,7 +569,7 @@
     <string name="main_screen_saved_money_prefix">節約</string>
     <string name="main_screen_saved_money_middle">した</string>
     <string name="main_screen_saved_money_suffix">お金</string>
-
+    <string name="saved_amount">%,d円</string>
     <string name="main_screen_saved_cal_prefix">我慢</string>
     <string name="main_screen_saved_cal_middle">できた</string>
     <string name="main_screen_saved_cal_suffix">カロリー</string>
@@ -599,6 +696,20 @@
     <string name="Day21_comments_16">松本さんのリフって、音数より“隙間”がすごいんだよ。ギターって、しゃべらないはずなのに……会話してるみたい</string>
     <string name="Day21_comments_17">稲葉さんの喉を守るために、松本さんはチューニングを下げた。……それって、“音で守る”ってことだよね。優しさのロック</string>
     <string name="Day21_comments_18">「飛燕」って曲知ってる？私が好きな曲。とにかく聞いて！</string>
+
+
+
+    <string name="day25_comments_0">ゴッホが描い当時まだ発見されていなかった乱流構造が含まれてい 関数のスコープ内でのみ使えるためるれていなかっ、“音で守る”ってた乱流げた。……それってこ構当時まだ発見さ含まれているんだって造がんだってた“星月夜”には、当時まだ発見さ含まれているんだって。つまり彼は、たこと星月夜いになる</string>
+    <string name="day25_comments_1">うしろ。</string>
+    <string name="day25_comments_2">あ、そういえば</string>
+    <string name="day25_comments_3">さっきの着信のことだけど…</string>
+    <string name="day25_comments_4">私じゃないよ…？</string>
+
+
+
+
+
+
 
     <string name="Day28_comments_0">28日目。ゴール目前。ここまで来たあなたを、わたしは誇りに思うよ</string>
     <string name="Day28_comments_1">本当はもっと素直に言いたいんだけど……それは、ゴールのあとにする。</string>

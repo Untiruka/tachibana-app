@@ -21,6 +21,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.iruka.tachibana.R
+import com.iruka.tachibana.ui.components.BannerAdView
 import kotlinx.coroutines.delay
 
 @Composable
@@ -78,7 +79,7 @@ fun EventDay3Screen(navController: NavController) {
         stringResource(R.string.day3_line_15) to R.drawable.day3_3,
         stringResource(R.string.day3_line_20) to R.drawable.day3_1,
         stringResource(R.string.day3_line_24) to R.drawable.day3_0,
-                stringResource(R.string.day3_line_32) to R.drawable.day3_4
+        stringResource(R.string.day3_line_32) to R.drawable.day3_4
     )
 
     val index = remember { mutableIntStateOf(0) }
@@ -94,65 +95,85 @@ fun EventDay3Screen(navController: NavController) {
     }
 
     val isAtLast = index.value == lines.lastIndex
-
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF3F3F3))
-            .clickable {
-                if (index.value < lines.lastIndex) {
-                    index.value++
-                }
-            },
-        contentAlignment = Alignment.Center
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            currentImageResId?.let {
-                Image(
-                    painter = painterResource(id = it),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(300.dp)
-                )
-            }
+        // 一番上のバナー表示
+        BannerAdView(modifier = Modifier.fillMaxWidth())
 
-            Spacer(modifier = Modifier.height(16.dp))
 
-            currentLine?.let {
-                Text(
-                    text = it,
-                    color = Color.Black,
-                    fontSize = 20.sp,
-                    fontFamily = YuseiMagic,
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                )
-            }
-        }
-
-        Skipp.SkipButton(day = "3", navController = navController, context = context)
-    }
-
-    if (isAtLast) {
         Box(
+
+
             modifier = Modifier
                 .fillMaxSize()
+                .background(Color(0xFFF3F3F3))
                 .clickable {
-                    AudioManager.playSE(context, R.raw.cursor_move_se)
-                    val consumed = prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet() ?: mutableSetOf()
-                    consumed.add("3")
-                    editor.putStringSet("consumedEvents", consumed).apply()
-                    navController.navigate("main")
+                    if (index.value < lines.lastIndex) {
+                        index.value++
+                    }
+
                 },
-            contentAlignment = Alignment.BottomCenter
+
+
+            contentAlignment = Alignment.Center
+
         ) {
-            Text(
-                text = "（タップして戻る）",
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.Gray,
-                fontFamily = YuseiMagic,
-                modifier = Modifier.padding(32.dp)
-            )
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+
+                currentImageResId?.let {
+                    Image(
+                        painter = painterResource(id = it),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(300.dp)
+                    )
+
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                currentLine?.let {
+                    Text(
+                        text = it,
+                        color = Color.Black,
+                        fontSize = 20.sp,
+                        fontFamily = YuseiMagic,
+                        modifier = Modifier.padding(horizontal = 16.dp)
+                    )
+                }
+
+
+            Skipp.SkipButton(day = "3", navController = navController, context = context)
+        }
+
+        if (isAtLast) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clickable {
+                        AudioManager.playSE(context, R.raw.cursor_move_se)
+                        val consumed =
+                            prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet()
+                                ?: mutableSetOf()
+                        consumed.add("3")
+                        editor.putStringSet("consumedEvents", consumed).apply()
+                        navController.navigate("main")
+                    },
+                contentAlignment = Alignment.BottomCenter
+            ) {
+                Text(
+                    text = "（タップして戻る）",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Color.Gray,
+                    fontFamily = YuseiMagic,
+                    modifier = Modifier.padding(32.dp)
+                )
+            }
         }
     }
+}
 }

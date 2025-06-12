@@ -1,4 +1,4 @@
-//package com.iruka.tachibana
+package com.iruka.tachibana
 
 import android.app.Application
 import android.content.Context
@@ -8,8 +8,16 @@ import coil.ImageLoader
 import coil.ImageLoaderFactory
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
+import com.google.android.gms.ads.MobileAds
 
 
+class TachibanaApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        // MobileAds初期化
+        MobileAds.initialize(this)
+    }
+}
 
 //class TachibanaApplication : Application(), ImageLoaderFactory {
   //  override fun newImageLoader(context: Context): ImageLoader {

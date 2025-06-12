@@ -104,7 +104,8 @@ fun MenuModal(onClose: () -> Unit, navController: NavController) {
                         title = { Text("イベント履歴", fontFamily = yuseiFont) },
                         text = {
                             Column {
-                                listOf(3, 7,10, 14, 21, 28).forEach { day ->
+                                listOf("3", "7", "10", "14", "21", "28", "30", "bad1", "bad2", "true_end")
+                                    .forEach { day ->
                                     if (consumedEvents.contains(day.toString())) {
                                         Text(
                                             text = "Day $day",
@@ -119,7 +120,13 @@ fun MenuModal(onClose: () -> Unit, navController: NavController) {
                                     }
                                 }
                             }
+
+
                         },
+
+
+
+
                         confirmButton = {
                             TextButton(onClick = { showEventsDialog.value = false }) {
                                 Text("閉じる", fontFamily = yuseiFont)

@@ -69,6 +69,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.net.URLEncoder
 import java.util.Calendar
+import org.json.JSONArray
 
 
 @Composable
@@ -413,35 +414,37 @@ fun InitialScreen(
                                                 set(Calendar.HOUR_OF_DAY, hour)
                                                 set(Calendar.MINUTE, minute)
                                             }
-
                                             if (pickedDateTime.timeInMillis > System.currentTimeMillis()) {
                                                 Toast.makeText(
                                                     context,
-                                                    context.getString(R.string.toast_invalid_future), // ← 差し替え
+                                                    context.getString(R.string.toast_invalid_future),
                                                     Toast.LENGTH_SHORT
                                                 ).show()
                                                 return
                                             }
-// 🧠 保存する！（←これを追加）
-                                            val sharedPref = context.getSharedPreferences(
-                                                "tachibana_prefs",
-                                                Context.MODE_PRIVATE
-                                            )
-                                            sharedPref.edit().putLong(
-                                                "startTimeInMillis",
-                                                pickedDateTime.timeInMillis
-                                            ).apply()
 
+                                            // 日時をフォーマット
+                                            val selected = "%04d/%02d/%02d %02d:%02d".format(year, month + 1, day, hour, minute)
 
-                                            selectedDateTime = "%04d/%02d/%02d %02d:%02d".format(
-                                                year, month + 1, day, hour, minute
-                                            )
+                                            // state更新（→これでボタンが出る）
+                                            selectedDateTime = selected
+
+                                            // --- 履歴に追加 ---
+                                            val historyJson = sharedPref.getString("datetime_history", "[]")
+                                            val historyList = try {
+                                                JSONArray(historyJson).let {
+                                                    List(it.length()) { i -> it.getString(i) }
+                                                }
+                                            } catch (e: Exception) {
+                                                emptyList<String>()
+                                            }
+                                            val updatedHistory = (listOf(selected) + historyList).take(10)
+                                            sharedPref.edit().putString("datetime_history", JSONArray(updatedHistory).toString()).apply()
                                         },
                                         calendar.get(Calendar.HOUR_OF_DAY),
                                         calendar.get(Calendar.MINUTE),
                                         true
                                     ).show()
-
                                 },
                                 calendar.get(Calendar.YEAR),
                                 calendar.get(Calendar.MONTH),
@@ -610,7 +613,102 @@ fun InitialScreen(
                 }
 
 
+
+
+
+
+            }
+
+        }
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.BottomStart // 左下に配置
+    ) {
+        // 前回入力した日時を取得
+        val context = LocalContext.current
+        val sharedPref = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
+
+        // 履歴を取得（履歴が空でない場合）
+        val historyJson = sharedPref.getString("datetime_history", "[]")
+        val historyList = try {
+            JSONArray(historyJson).let {
+                List(it.length()) { i ->
+                    it.getString(i)
+                }
+            }
+        } catch (e: Exception) {
+            emptyList<String>()
+        }
+
+        // 日時のフォーマット処理
+        val currentDateTime = "%04d/%02d/%02d %02d:%02d".format(
+            Calendar.getInstance().get(Calendar.YEAR),
+            Calendar.getInstance().get(Calendar.MONTH) + 1,
+            Calendar.getInstance().get(Calendar.DAY_OF_MONTH),
+            Calendar.getInstance().get(Calendar.HOUR_OF_DAY),
+            Calendar.getInstance().get(Calendar.MINUTE)
+        )
+
+        // 状態管理：モーダルが表示されているかどうか
+        var showModal by remember { mutableStateOf(false) }
+
+        // 履歴を保存
+        fun saveHistory(newDateTime: String) {
+            val updatedHistory = listOf(newDateTime) + historyList
+            val historyJson = JSONArray(updatedHistory).toString()
+            sharedPref.edit().putString("datetime_history", historyJson).apply()
+        }
+
+        // 「前回入力した日時をチェック」ボタン
+        Button(
+            onClick = {
+                // 現在の日時を保存
+
+
+                // モーダルを表示
+                showModal = true
+            },
+            modifier = Modifier.padding(16.dp) // 左下に配置
+        ) {
+            Text(text = stringResource(id = R.string.check_last_entered_datetime))
+        }
+
+        // モーダルが表示されている場合
+        if (showModal) {
+            ModalWrapper(
+                onClose = { showModal = false } // 画面外タップでモーダルを閉じる
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.Black.copy(alpha = 0.5f)) // 半透明の背景
+                        .clickable(onClick = { showModal = false }) // クリックで閉じる
+                ) {
+                    // モーダル内容
+                    Box(
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .background(Color.White, shape = RoundedCornerShape(8.dp))
+                            .padding(16.dp)
+                    ) {
+                        // 履歴表示
+                        Column {
+                            historyList.forEachIndexed { index, datetime ->
+                                Text(
+                                    text = stringResource(
+                                        id = R.string.history_label,
+                                        index + 1,  // 履歴番号
+                                        datetime   // 日時
+                                    ))
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 
+
+
+
+}

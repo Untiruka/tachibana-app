@@ -27,11 +27,17 @@ fun EventDay30Screen(navController: NavController) {
     var currentLineIndex by remember { mutableStateOf(0) }
     var showFinalChoice by remember { mutableStateOf(false) }
 
+    LaunchedEffect(Unit) {
+        AudioManager.stopBgm() // BGMを停止
+    }
+
     val lines = listOf(
         stringResource(R.string.day30_line_0),
         stringResource(R.string.day30_line_1),
         stringResource(R.string.day30_line_2)
     )
+
+
 
     Box(
         modifier = Modifier

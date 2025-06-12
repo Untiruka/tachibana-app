@@ -34,6 +34,7 @@ import androidx.navigation.NavController
 import kotlinx.coroutines.delay
 
 import com.iruka.tachibana.R
+import com.iruka.tachibana.ui.components.BannerAdView
 
 enum class ChibiExpression {
     Angry, Pointing, Thinking, Smile, Smile2, Smile3, Happy, Question, Relax, ArmsCrossed, YareYare, Cry,
@@ -204,6 +205,7 @@ fun Bad1Screen(navController: NavController) {
 
         // 星アニメレイヤー
         AnimatedStarLayer()
+        BannerAdView(modifier = Modifier.fillMaxWidth()) // ここでバナーを表示
 
         // 🎨 表情画像表示（FadeInか通常表示か分岐）
         if (currentLine == "[BAD_END]") {
@@ -277,17 +279,18 @@ fun Bad1Screen(navController: NavController) {
                     )
                 }
             }
+
         }
 
 
         // スキップボタン
         Text(
-            text = "スキップ",
+            text = "Skip",
             color = Color.Gray,
             fontSize = 12.sp,
             modifier = Modifier
                 .align(Alignment.TopEnd)
-                .padding(16.dp)
+                .padding(top = 60.dp)
                 .clickable {
                     navController.navigate("preinitial") {
                         popUpTo("bad1") { inclusive = true }

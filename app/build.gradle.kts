@@ -13,8 +13,8 @@ android {
         applicationId = "com.iruka.tachibana"
         minSdk = 28
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -47,6 +47,8 @@ android {
     }
 }
 
+
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -61,7 +63,7 @@ dependencies {
     implementation(libs.androidx.ui.text)
     implementation(libs.androidx.foundation)
     implementation(libs.androidx.navigation.runtime.android)
-    implementation(libs.androidx.benchmark.macro)
+   // implementation(libs.androidx.benchmark.macro)
     implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -71,8 +73,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.androidx.navigation.compose)
-
-
+    dependencies {
+        implementation("com.google.android.gms:play-services-ads:24.4.0")  // 最新のAdMob SDK
+     //   implementation(libs.play.services.ads.compose)  // 適切なバージョンを使用
+    }
     implementation("com.kizitonwose.calendar:compose:2.7.0")
 
 

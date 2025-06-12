@@ -42,6 +42,7 @@ fun TipsModal(
     ModalWrapper(onClose = onClose) {
         Row(
             modifier = Modifier
+                .zIndex(20f)
                 .align(Alignment.BottomStart)
                 .padding(start = 8.dp, bottom = 12.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -61,6 +62,7 @@ fun TipsModal(
                 offsetX = (-20).dp,
                 offsetY = (-70).dp,
                 size = Pair(82.dp, 119.dp)
+
             )
         }
 

@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.iruka.tachibana.ui.screens.YuseiMagic
 import androidx.compose.ui.res.stringResource
+import com.iruka.tachibana.ui.components.BannerAdView
 
 import com.iruka.tachibana.ui.screens.AudioManager
 
@@ -162,83 +163,103 @@ fun EventDay21Screen(navController: NavController) {
         }
     }
 
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFEEE8DD))
-            .clickable {
-                AudioManager.playSE(context, R.raw.cursor_move_se)
-                if (index.value < lines.lastIndex) {
-                    index.value++
-                }
-},
-        contentAlignment = Alignment.Center
+            .background(Color(0xFFF3F3F3))
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            key(currentImageResId) {
-                Image(
-                    painter = painterResource(id = currentImageResId),
-                    contentDescription = null,
+        // 一番上のバナー表示
+        BannerAdView(modifier = Modifier.fillMaxWidth())
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xFFEEE8DD))
+                .clickable {
+                    AudioManager.playSE(context, R.raw.cursor_move_se)
+                    if (index.value < lines.lastIndex) {
+                        index.value++
+                    }
+                },
+
+            contentAlignment = Alignment.Center
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                key(currentImageResId) {
+                    Image(
+                        painter = painterResource(id = currentImageResId),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(300.dp),
+                        contentScale = ContentScale.Fit
+                    )
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+                currentLine?.let {
+                    Text(
+                        text = it,
+                        fontFamily = YuseiMagic,
+                        fontSize = 20.sp,
+                        color = Color.Black,
+                        modifier = Modifier.padding(horizontal = 16.dp)
+                    )
+                }
+            }
+
+            if (index.value == lines.lastIndex) {
+                Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .height(300.dp),
-                    contentScale = ContentScale.Fit
-                )
+                        .fillMaxSize()
+                        .padding(32.dp),
+                    verticalArrangement = Arrangement.Bottom,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Button(
+                        onClick = {
+                            prefs.edit().putBoolean("bad2_selected", true).apply()
+                            val consumed =
+                                prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet()
+                                    ?: mutableSetOf()
+                            consumed.add("21")
+                            editor.putStringSet("consumedEvents", consumed).apply()
+                            navController.navigate("main") { popUpTo("main") { inclusive = true } }
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(
+                            text = stringResource(R.string.day21_choice_0),
+                            fontFamily = YuseiMagic
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Button(
+                        onClick = {
+                            val consumed =
+                                prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet()
+                                    ?: mutableSetOf()
+                            consumed.add("21")
+                            editor.putStringSet("consumedEvents", consumed).apply()
+                            navController.navigate("main") { popUpTo("main") { inclusive = true } }
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(
+                            text = stringResource(R.string.day21_choice_1),
+                            fontFamily = YuseiMagic
+                        )
+                    }
+                }
             }
-            Spacer(modifier = Modifier.height(16.dp))
-            currentLine?.let {
-                Text(
-                    text = it,
-                    fontFamily = YuseiMagic,
-                    fontSize = 20.sp,
-                    color = Color.Black,
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                )
-            }
+            Skipp.SkipButton(day = "21", navController = navController, context = context)
         }
 
-        if (index.value == lines.lastIndex) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(32.dp),
-                verticalArrangement = Arrangement.Bottom,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Button(
-                    onClick = {
-                        prefs.edit().putBoolean("bad2_selected", true).apply()
-                        val consumed = prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet() ?: mutableSetOf()
-                        consumed.add("21")
-                        editor.putStringSet("consumedEvents", consumed).apply()
-                        navController.navigate("main") { popUpTo("main") { inclusive = true } }
-                    },
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(12.dp)
-                ) {
-                    Text(text = stringResource(R.string.day21_choice_0), fontFamily = YuseiMagic)
-                }
-                Spacer(modifier = Modifier.height(8.dp))
-                Button(
-                    onClick = {
-                        val consumed = prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet() ?: mutableSetOf()
-                        consumed.add("21")
-                        editor.putStringSet("consumedEvents", consumed).apply()
-                        navController.navigate("main") { popUpTo("main") { inclusive = true } }
-                    },
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(12.dp)
-                ) {
-                    Text(text = stringResource(R.string.day21_choice_1), fontFamily = YuseiMagic)
-                }
-            }
-        }
+
     }
 
-    Skipp.SkipButton(day = "21", navController = navController, context = context)
 }
-
-
 
 
 
@@ -274,10 +295,17 @@ object Skipp {
     @Composable
     fun SkipButton(day: String, navController: NavController, context: Context) {
         val prefs = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
+
+        Column {
+            Spacer(modifier = Modifier.height(50.dp))
+
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.TopEnd
         ) {
+
+
+
             TextButton(
                 onClick = {
                     val consumed = prefs.getStringSet("consumedEvents", emptySet())?.toMutableSet()
@@ -288,9 +316,9 @@ object Skipp {
                 },
                 modifier = Modifier.padding(16.dp)
             ) {
-                Text("スキップ", fontFamily = YuseiMagic)
+                Text("Skip", fontFamily = YuseiMagic)
             }
-        }
+        }}
     }
     fun getStartDestination(isDebug: Boolean, isInitialized: Boolean): String {
         return if (isDebug) {

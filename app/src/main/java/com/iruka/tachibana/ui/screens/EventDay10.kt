@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.iruka.tachibana.R
+import com.iruka.tachibana.ui.components.BannerAdView
 
 @Composable
 fun EventDay10Screen(navController: NavController) {
@@ -350,6 +351,9 @@ fun EventDay10Screen(navController: NavController) {
                 }
             }
     ) {
+        BannerAdView(modifier = Modifier.fillMaxWidth())
+
+        Spacer(Modifier.height(30.dp))
         Text(
             text = stringResource(R.string.day10_title),
             fontFamily = yuseiFont,
@@ -363,7 +367,9 @@ fun EventDay10Screen(navController: NavController) {
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(500.dp)
+                .height(400.dp)
+                .padding(top = 12.dp)
+
         )
 
         Spacer(Modifier.height(16.dp))

@@ -18,6 +18,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.google.android.gms.ads.MobileAds
 import com.iruka.tachibana.ui.screens.AudioManager
 import com.iruka.tachibana.ui.screens.Bad1Screen
 import com.iruka.tachibana.ui.screens.Bad2Screen
@@ -40,6 +41,7 @@ import com.iruka.tachibana.ui.screens.Day25LineScreen
 import com.iruka.tachibana.ui.screens.EndingRollScreen
 import com.iruka.tachibana.ui.screens.EventDay10Screen
 import com.iruka.tachibana.ui.screens.MainIntroScreen
+import com.iruka.tachibana.ui.screens.ShopScreen
 
 // 今は使わないが、Google連携のために保持（再有効化しやすく）
 /*
@@ -61,6 +63,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        MobileAds.initialize(this)
         val sharedPref = getSharedPreferences("tachibana_prefs", MODE_PRIVATE)
         AudioManager.isBgmEnabled = sharedPref.getBoolean("bgm_enabled", true)
         AudioManager.isSoundEnabled = sharedPref.getBoolean("sound_enabled", true)
@@ -89,16 +92,11 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
 
                 val sharedPref = getSharedPreferences("tachibana_prefs", MODE_PRIVATE)
-                val isInitialized = sharedPref.contains("startTimeInMillis")
-
-                // 起動先ルート判定（本番用）
-        val startDestination = if (isInitialized) "main_check" else "preinitial"
-              //  val startDestination = if (isInitialized) "day25_line" else "preinitial"
-
-             //   val startDestination = if (isInitialized) "event_day10" else "preinitial"
-
-                //  val startDestination = Debug.getStartDestination(isDebug = true, isInitialized = isInitialized)
-
+                if (!sharedPref.contains("startTimeInMillis")) {
+                    val startTime = System.currentTimeMillis()
+                    sharedPref.edit().putLong("startTimeInMillis", startTime).apply()
+                }
+                val startDestination = if (sharedPref.contains("startTimeInMillis")) "main_check" else "preinitial"
 
 
                 // デバッグ用に一時的に固定したい場合はこちらを使用
@@ -110,6 +108,8 @@ class MainActivity : ComponentActivity() {
                         startDestination = startDestination,
                         modifier = Modifier.padding(innerPadding)
                     ) {
+
+
 
                         composable("main_check") {
                             val context = LocalContext.current
@@ -124,7 +124,6 @@ class MainActivity : ComponentActivity() {
                                     3 -> "event_day3"
                                     7 -> "event_day7"
                                     10 -> "event_day10"
-
                                     14 -> "event_day14"
                                     21 -> "event_day21"
                                     28 -> "event_day28"
@@ -162,6 +161,8 @@ class MainActivity : ComponentActivity() {
                             MainScreen(navController = navController, fromEnding = fromEnding) // ← これだけでOK
 
                         }
+
+
                         composable("bad1") {
                             Bad1Screen(navController = navController)
                         }
@@ -169,18 +170,23 @@ class MainActivity : ComponentActivity() {
                             MainScreen(navController = navController, forceZeroDisplay = true)
                         }
 
+
                         composable("event_day3") {
                             EventDay3Screen(navController = navController)
                         }
-
+                        composable("shop_screen/{elapsedDays}") { backStackEntry ->
+                            val days = backStackEntry.arguments?.getString("elapsedDays")?.toIntOrNull() ?: 0
+                            ShopScreen(
+                                onBack = { navController.popBackStack() },
+                                elapsedDays = days  // ← ここでelapsedDaysを渡す
+                            )
+                        }
                         composable("event_day7") { EventDay7Screen(navController = navController) }
                         composable("event_day10") { EventDay10Screen(navController = navController) }
 
                         composable("event_day14") { EventDay14Screen(navController = navController) }
                         composable("event_day21") { EventDay21Screen(navController = navController) }
-                        composable("day25_line") {
-                            Day25LineScreen()
-                        }
+
                         composable("event_day28") { EventDay28Screen(navController = navController) }
                         composable("event_day30") { EventDay30Screen(navController = navController) }
                         composable("bad2") {

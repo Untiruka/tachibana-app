@@ -24,6 +24,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.EaseInOutCirc
+import com.iruka.tachibana.ui.components.BannerAdView
 
 @Composable
 fun Bad2Screen(navController: NavController) {
@@ -94,69 +95,78 @@ fun Bad2Screen(navController: NavController) {
         AudioManager.playBgm(context, R.raw.bad1bgm)
     }
 
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFEEE8DD))
-            .clickable(enabled = !isAnimating.value && !showFinalChoice.value) {
-                AudioManager.playSE(context, R.raw.cursor_move_se)
-                if (index.value < lines.lastIndex) {
-                    index.value++
-                } else {
-                    showFinalChoice.value = true
-                }
-            }
+            .background(Color(0xFFF3F3F3))
     ) {
-        Column(
+        // 一番上のバナー表示
+        BannerAdView(modifier = Modifier.fillMaxWidth())
+
+        Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(bottom = 30.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            if (currentImage != null) {
-                ChibiHanaFadeIn(
-                    imageResId = currentImage,
-                    appearAtLine = appearAtLine ?: "",
-                    currentLine = currentLine ?: "",
-                    onAnimationStateChange = { isAnimating.value = it },
-                    bottomContent = {
-                        currentLine?.let {
-                            Row(
-                                modifier = Modifier.padding(horizontal = 24.dp),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Text(
-                                    text = it,
-                                    fontSize = 20.sp,
-                                    color = Color.Black,
-                                    fontFamily = YuseiMagic
-                                )
-                            }
-                        }
+                .background(Color(0xFFEEE8DD))
+                .clickable(enabled = !isAnimating.value && !showFinalChoice.value) {
+                    AudioManager.playSE(context, R.raw.cursor_move_se)
+                    if (index.value < lines.lastIndex) {
+                        index.value++
+                    } else {
+                        showFinalChoice.value = true
                     }
-                )
-            }
-        }
-
-        if (showFinalChoice.value) {
+                }
+        ) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(32.dp),
-                verticalArrangement = Arrangement.Bottom,
-                horizontalAlignment = Alignment.CenterHorizontally
+                    .padding(bottom = 30.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
             ) {
-                Button(
-                    onClick = {
-                        navController.navigate("main") {
-                            popUpTo("main") { inclusive = true }
+                if (currentImage != null) {
+                    ChibiHanaFadeIn(
+                        imageResId = currentImage,
+                        appearAtLine = appearAtLine ?: "",
+                        currentLine = currentLine ?: "",
+                        onAnimationStateChange = { isAnimating.value = it },
+                        bottomContent = {
+                            currentLine?.let {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 24.dp),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Text(
+                                        text = it,
+                                        fontSize = 20.sp,
+                                        color = Color.Black,
+                                        fontFamily = YuseiMagic
+                                    )
+                                }
+                            }
                         }
-                    },
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(12.dp)
+                    )
+                }
+            }
+
+            if (showFinalChoice.value) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(32.dp),
+                    verticalArrangement = Arrangement.Bottom,
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("タイトルへ戻る", fontFamily = YuseiMagic)
+                    Button(
+                        onClick = {
+                            navController.navigate("main") {
+                                popUpTo("main") { inclusive = true }
+                            }
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text("タイトルへ戻る", fontFamily = YuseiMagic)
+                    }
                 }
             }
         }

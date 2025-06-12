@@ -28,10 +28,9 @@ import kotlinx.coroutines.delay
 import com.iruka.tachibana.ui.components.BouncingDotsIndicator
 import android.os.Handler
 import android.os.Looper
-
-
+import androidx.navigation.NavController
 @Composable
-fun Day25LineScreen() {
+fun Day25LineScreen(onDismiss: () -> Unit) {
     val context = LocalContext.current
     val icon1: Painter = painterResource(id = R.drawable.line_1)
     val icon2: Painter = painterResource(id = R.drawable.line_2)
@@ -42,18 +41,37 @@ fun Day25LineScreen() {
     }
 
     LaunchedEffect(Unit) {
+        val prefs = context.getSharedPreferences("tachibana_prefs", Context.MODE_PRIVATE)
+
+        // 🎯 一度表示したら二度と出さないフラグ
+        val hasLaunched = prefs.getBoolean("day25_line_shown", false)
+        if (hasLaunched) {
+            onDismiss() // 既に表示済みなら即終了
+            return@LaunchedEffect
+        }
+
+        // 🎯 フラグ保存（今後一切出ないように）
+        prefs.edit()
+            .putBoolean("day25_line_shown", true)
+            .putBoolean("just_returned_from_day25", true) // → MainScreen用
+
+            .apply()
+
+        // 🔊 着信音（10秒）
         val ring = MediaPlayer.create(context, R.raw.line25)
         ring?.start()
-
         delay(10_000)
         ring?.stop()
         ring?.release()
 
-        // delay不要。すぐ day25_1 を再生
+        // 🔊 セリフ（4.5秒）
         val voice = MediaPlayer.create(context, R.raw.day25_1)
         voice?.start()
-    }
+        delay(4_500)
 
+        // 🔚 終了処理
+        onDismiss()
+    }
 
     DisposableEffect(Unit) {
         onDispose {
@@ -64,6 +82,7 @@ fun Day25LineScreen() {
         }
     }
 
+    // 🌙 UI（そのまま）
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -71,21 +90,9 @@ fun Day25LineScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
-        Image(
-            painter = icon1,
-            contentDescription = "Caller Icon",
-            modifier = Modifier.size(128.dp),
-            contentScale = ContentScale.Fit
-        )
-
-        Text(
-            text = "Incoming call",
-            fontSize = 24.sp,
-            color = Color.White
-        )
-
+        Image(painter = icon1, contentDescription = "Caller Icon", modifier = Modifier.size(128.dp))
+        Text(text = "Incoming call", fontSize = 24.sp, color = Color.White)
         BouncingDotsIndicator()
-
         Row(
             modifier = Modifier
                 .fillMaxWidth()

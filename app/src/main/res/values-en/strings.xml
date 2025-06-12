@@ -4,6 +4,97 @@
 
 
 <resources>
+
+
+
+    <!-- ママコメント-->
+    <!-- Mama Eating -->
+    <string name="mama_eating_0">It\'s said that fried rice came to Japan during the 7th to 9th centuries, when Japan sent envoys to China under the Tang dynasty after the Sui.</string>
+    <string name="mama_eating_1">They say cold rice separates better. Use rice that\'s been cooled once, not fresh. That\'s the way of fried rice. Life too—flavor comes out after it cools down.</string>
+    <string name="mama_eating_2">Eggs first? Or later? … The right answer is up to you. Everyone has their own fried rice. Love is like that too.</string>
+    <string name="mama_eating_3">God… no, the Fried Rice God allows anything. What matters is whether it becomes what *I* want to eat right now.</string>
+    <string name="mama_eating_4">Who said you have to use a wok? Teflon is fine. What matters is cooking with love… though I still end up burning it.</string>
+    <string name="mama_eating_5">Pickled ginger—friend or foe? Does it hype you up, or ruin the main dish? Me? I get torn every time.</string>
+    <string name="mama_eating_6">Do you know the difference between “yakimeshi” and “chahan”? Kansai folks say yakimeshi, Chinese diners say chahan. Sometimes even the cooking method differs. A mysterious dish that changes with the name.</string>
+    <string name="mama_eating_7">They say you should eat it with a spoon, but I use chopsticks. My clan forbids anything else.</string>
+    <string name="mama_eating_8">Soyokazedo flows with the wind… and by the way, I\'m not the manager. Just filling in for a friend.</string>
+    <string name="mama_eating_9">In the Triple Fried Rice Theory, the optimal heat treatment is all about balancing energy distribution and phase transitions. When energy is evenly distributed, fluffiness is achieved.</string>
+
+
+    <string name="mama_cute_0">But my kid doesn\'t resemble my husband at all… Did even the genes reject him?</string>
+    <string name="mama_cute_1">Why the ribbon? It\'s like putting an address tag on a cat. If anything happens to them, people can contact me right away. It\'s a label, basically.</string>
+    <string name="mama_cute_2">I\'m an Android fan. I like customization. Launchers are the pinnacle of that. It\'s like plastic surgery for your phone.</string>
+    <string name="mama_cute_3">Chibi was super strong even as a baby… At 6 months old, she did pull-ups before walking—on the laundry bar. Reminds me of someone… She might start hammer throw someday.</string>
+    <string name="mama_cute_4">Tachibana is seriously smart… At age 10, she wiped Windows and built a Linux OS from scratch. Don\'t kids usually just play tag or something?</string>
+    <string name="mama_cute_5">I\'m pretty normal, really. I just buy them anything except entertainment. I think they\'re growing up just fine.</string>
+    <string name="mama_cute_6">They can already live on their own. Actually, they already are. A parent\'s job is done—unless they come crying. Not that I can imagine that.</string>
+    <string name="mama_cute_7">Have you met Assemble-kun? He\'s an AI lifeform made by Tachibana and Chibihana. His OS is Linux and he uses OpenAI API. I don\'t really get it either…</string>
+    <string name="mama_cute_8">Tachibana has the motor skills of a slug for some reason… But she said she\'ll explain it one day. Look forward to it.</string>
+    <string name="mama_cute_9">I want to add stories about Chibi and Tachibana\'s athletic abilities too. Fufufu… Totally planning to make it paid content!</string>
+
+
+    <string name="mama_byebye_0">Hey, did you know? The phrase \"See you again\" used to be said only to people who were expected to return.</string>
+    <string name="mama_byebye_1">...No, I\'m fine. Just a little... lonely, that\'s all.</string>
+    <string name="mama_byebye_2">The origin of \"bye-bye\" is actually \"God be with you.\" It\'s like a gentle spell, isn\'t it?</string>
+    <string name="mama_byebye_3">See you! Today, I\'ll send a little breeze to your back as you go.</string>
+    <string name="mama_byebye_4">In the past, Japanese people used \"Itterasshai\" with a prayer for safe return.</string>
+    <string name="mama_byebye_5">We\'ll see each other again, right? I hope so… I\'ll be here, always.</string>
+    <string name="mama_byebye_6">They say \"Goodbye\" isn\'t a farewell, but a promise to meet again.</string>
+    <string name="mama_byebye_7">In Turkey, people say \"If the Earth spins again tomorrow\" when parting. Strange, huh?</string>
+    <string name="mama_byebye_8">Do you think \"Ichigo Ichie\" (once-in-a-lifetime meeting) applies to today too...? It gives me butterflies.</string>
+    <string name="mama_byebye_9">Thank you. I believe you\'ll come back again.</string>
+
+
+    <string name="mama_banzai_0">They say only about 12–20% succeed at forming a 30-day habit. Like a red alert in pachinko. You don\'t need to know that… I need to fight my own addictions too…</string>
+    <string name="mama_banzai_1">60–70% of people fail within the first week (like quitting smartphones or social media). But you\'re holding strong. Amazing.</string>
+    <string name="mama_banzai_2">\"Banzai\" used to mean \"reaching toward the heavens in hope.\" Now is the time for that!</string>
+    <string name="mama_banzai_3">Where there are celebrators, there are the celebrated. Today, you\'re the latter. You\'re the hero!</string>
+    <string name="mama_banzai_4">Sticking with self-restraint isn\'t something anyone can do. You should be proud.</string>
+    <string name="mama_banzai_5">Visualizing your success makes your brain want to keep going. Try journaling on a calendar—it really helps.</string>
+    <string name="mama_banzai_6">\"The goddess of success smiles... but gets bored quickly.\" Today, you\'re the exception!</string>
+    <string name="mama_banzai_7">On a day like this, maybe I should carve your name into the database!</string>
+    <string name="mama_banzai_8">Let\'s keep moving forward, little by little. Together, okay?</string>
+    <string name="mama_banzai_9">Don\'t rely on willpower. → Successful people build environments where they don\'t get tempted in the first place.</string>
+
+    <string name="mama_fried_mask_0">Hahaha! I am Fried Mask! Drawn by the aroma of charred delight, I offer myself to the sacred rice!</string>
+    <string name="mama_fried_mask_1">Every time I take off this mask, I lose my memory… Maybe the mask is the real me?</string>
+    <string name="mama_fried_mask_2">Fufufu… There\'s no way they know! My daughters! My true identity!</string>
+    <string name="mama_fried_mask_3">Ohhh! Treading the burnt path, the Fried Mask makes her entrance! The sound of oil is the sound of divine bells! Bow down, hungry masses!</string>
+    <string name="mama_fried_mask_4">I am the cardinal of the Triple Fried Rice Faith… One fry to banish confusion, two to burn ego, three to reach truth.</string>
+    <string name="mama_fried_mask_5">Despenalty? Of course. Not eating fried rice three times a day. Not dancing the Fried Dance facing south-southwest. Only then can you draw closest to the divine lap.</string>
+    <string name="mama_fried_mask_6">The day I wash my mask… is also a rest day from fried rice.</string>
+    <string name="mama_fried_mask_7">Triple fried rice, no more than three times a day. Any more and you risk getting too close to God.</string>
+    <string name="mama_fried_mask_8">Beneath this mask… they say there\'s a beauty… Ha-ha-ha! Fried Joke!</string>
+    <string name="mama_fried_mask_9">Fried rice is basically rice in its rebellious phase.</string>
+
+    <string name="mama_relax_0">Dopamine (the pleasure chemical) can be \"rationed.\" When you cut off smartphones and pleasure stimuli, even small rewards start to feel satisfying. After a few days to a week, \"boring things feel fun\" again.</string>
+    <string name="mama_relax_1">Want to quit SNS? Try reducing your screen colors. When it\'s colorful, people get drawn in. Depending on your device, try setting it to \"grayscale.\"</string>
+    <string name="mama_relax_2">Being with people who don\'t drink helps reduce drinking urges. Well… it\'s normal to want to drink. Everyone seems so happy when they do. I don\'t, though—not much.</string>
+    <string name="mama_relax_3">Quitting alcohol suddenly raises **glutamate** (an excitatory neurotransmitter), causing irritability and insomnia. To improve sleep: magnesium, serotonin boosters like light exercise or morning sunlight.</string>
+    <string name="mama_relax_4">I might be happiest when I\'m just listening to music. I love game BGM. Especially from Pok\*mon—it\'s so good!</string>
+    <string name="mama_relax_5">Ahh, my shoulders ache… When your head leans forward, it hits the shoulders. Strength training is good, but so is rehab. Look up \"chin tuck\"—it works the semispinalis muscles.</string>
+    <string name="mama_relax_6">Chronic mental stress can mess with puberty timing and hormone development… Who said I\'m a stress-free woman?</string>
+    <string name="mama_relax_7">Stretch when you\'re tired. Feels great. You can really feel the blood flow again.</string>
+    <string name="mama_relax_8">Chibihana loves fishing. Or rather, she loves fish. But she doesn\'t like eating them much… What\'s up with that?</string>
+    <string name="mama_relax_9">Tachibana eats everything. Always has. Some people seem to have an interdimensional stomach. She\'s one of them.</string>
+
+
+    <string name="mama_shy_0">Hehehe… I snuck in some Sichuan-style fried rice late at night… Sorry… hehehe…</string>
+    <string name="mama_shy_1">Being watched is always embarrassing. That\'s why I avoid crowded places. I can feel the stares…</string>
+    <string name="mama_shy_2">I\'m not blushing! It\'s just that my limbic system signals the hypothalamus, activating the sympathetic nerves and dilating the blood vessels in my face!</string>
+    <string name="mama_shy_3">Hehehe… bulging brachioradialis muscles… I like those… hehehe…</string>
+    <string name="mama_shy_4">Oh stop it—you\'re such a smooth talker! Beautiful, stylish, smart, pretty, and stylish again?! Well, I do know that!</string>
+    <string name="mama_shy_5">Romance stories, huh…? None planned right now. They\'re just… such gag material already…</string>
+    <string name="mama_shy_6">No need to say my name. Just end this day with a smile—that\'s all I wish for…</string>
+    <string name="mama_shy_7">Even if I don\'t say I love you, I warm the water thinking of you. Does the warmth reach you?</string>
+    <string name="mama_shy_8">Chibi gets a ton of attention… Valentine\'s Day is wild. She brings back so many chocolates. Every single time.</string>
+    <string name="mama_shy_9">Tachibana? She\'s the classic ideal girl… but her hidden side is wild. She smashes the CLI and just cranks out code. The guys get scared watching her.</string>
+
+    <!-- そよ風堂 コメント -->
+    <string name="soyokazedou">Zephyr House</string>
+    <string name="PaidContentList">Paid Content List</string>
+
+
     <!-- Main_Config -->
         <string name="app_name">Tachibana</string>
         <string name="settings">Settings</string>
@@ -159,20 +250,20 @@
 
     <string name="day10_title">"Chibi Hana dreams of catching a marlin."</string>
 
-    <string name="day10_line_0">Chibi Hana is walking happily... Let/’s follow her.</string>
-    <string name="day10_line_1">I don/’t really know much about her. We/’ve only spent a few days together.</string>
+    <string name="day10_line_0">Chibi Hana is walking happily... Let’s follow her.</string>
+    <string name="day10_line_1">I don’t really know much about her. We’ve only spent a few days together.</string>
     <string name="day10_line_2">What I do know is that she has an abnormal obsession with ice cream and an unhealthy love for Tachibana.</string>
     <string name="day10_line_3">She used to live in Australia.</string>
     <string name="day10_line_4">Well, so did Tachibana though.</string>
     <string name="day10_line_5">She says she wants to become a man of the sea.</string>
     <string name="day10_line_6">She/’s strong-willed. A tomboy. Completely different from Tachibana.</string>
-    <string name="day10_line_7">What... What/’s she doing with that serious face?</string>
+    <string name="day10_line_7">What... What’s she doing with that serious face?</string>
     <string name="day10_line_8">Is she doing a karate kata? In the middle of town? Tachibana can/’t even do a single sit-up. Not cut out for martial arts.</string>
     <string name="day10_line_9">Chibi Hana can do karate too? ...Wait, is that a groin strike? What kind of scenario is she imagining...? Maybe point-stop karate?</string>
     <string name="day10_line_10">In any case, these sisters are multi-talented. I/’ve never seen anyone do karate in public, let alone a girl.</string>
     <string name="day10_line_11">Where is she going next?</string>
     <string name="day10_line_12">...</string>
-    <string name="day10_line_13">Ah—! She/’s eating ice cream! I thought you quit that?!</string>
+    <string name="day10_line_13">Ah—! She’s eating ice cream! I thought you quit that?!</string>
     <string name="day10_line_14">You: &quot;Didn/’t you quit ice cream?!&quot;</string>
     <string name="day10_line_15">Chibi Hana: &quot;Whoa! You scared me!&quot;</string>
     <string name="day10_line_16">Oops... I said that out loud.</string>
@@ -182,12 +273,12 @@
     <string name="day10_line_19_1">chibi「I/’ll sue! Officer! Some man is stalking a little girl here!」</string>
 
 
-    <string name="day10_line_20">You: &quot;Stop it! Don/’t say stuff you don/’t mean!&quot;</string>
+    <string name="day10_line_20">You: &quot;Stop it! Don’t say stuff you don/’t mean!&quot;</string>
     <string name="day10_line_21">Chibi: &quot;What are you even doing here?!&quot;</string>
     <string name="day10_line_22">You: &quot;Uh… yeah, I was actually following you.&quot;</string>
-    <string name="day10_line_23">Chibi: &quot;So it wasn/’t even a lie?! This is real! Officer! Seriously! Someone call a man!&quot;</string>
-    <string name="day10_line_24">You: &quot;Please stop! I/’ll seriously get arrested!&quot;</string>
-    <string name="day10_line_25">You: &quot;Honestly, I was just curious. Tachibana/’s always around, but I wondered what you were up to.&quot;</string>
+    <string name="day10_line_23">Chibi: &quot;So it wasn’t even a lie?! This is real! Officer! Seriously! Someone call a man!&quot;</string>
+    <string name="day10_line_24">You: &quot;Please stop! I’ll seriously get arrested!&quot;</string>
+    <string name="day10_line_25">You: &quot;Honestly, I was just curious. Tachibana’s always around, but I wondered what you were up to.&quot;</string>
     <string name="day10_line_26">Chibi: &quot;Creep... Why should you care what I do...?&quot;</string>
     <string name="day10_line_27">Chibi: &quot;...Wait. You saw my kata too, didn/’t you? HYAH!&quot;</string>
     <string name="day10_line_28">You: &quot;GYAAAH!&quot;</string>
@@ -220,32 +311,32 @@
     <string name="day10_line_53">You: &quot;The guy who caught the marlin, right?&quot;</string>
     <string name="day10_line_54">Chibi: &quot;Well yeah, if that/’s your surface-level understanding.&quot;</string>
     <string name="day10_line_55">You: &quot;What do you admire about him?&quot;</string>
-    <string name="day10_line_56">Chibi: &quot;How he lives apart from society. His unshakable values. And he doesn/’t brag /‘I really caught that marlin!/’—plus, he probably doesn/’t use social media.&quot;</string>
-    <string name="day10_line_57">You: &quot;That/’s... surprisingly refined.&quot;</string>
-    <string name="day10_line_58">Chibi: &quot;He fought a marlin for three days. That/’s not something most people can do. And when the sharks ate the catch, he didn/’t boast—he just went to sleep.&quot;</string>
-    <string name="day10_line_59">Chibi: &quot;He/’s a man/’s man. Like a Matryoshka doll—every layer you peel away, he/’s still a man. Even the core.&quot;</string>
-    <string name="day10_line_60">Chibi: &quot;You/’d totally say something like /‘Believe me, I really caught it!/’ Then post it to Twitter.&quot;</string>
-    <string name="day10_line_61">...Yeah, I/’d definitely post it. Hoping it goes viral.</string>
-    <string name="day10_line_62">Chibi: &quot;That/’s why I/’ll be a man of the sea too! I will become one!&quot;</string>
+    <string name="day10_line_56">Chibi: &quot;How he lives apart from society. His unshakable values. And he doesn’t brag /‘I really caught that marlin!’—plus, he probably doesn/’t use social media.&quot;</string>
+    <string name="day10_line_57">You: &quot;That’s... surprisingly refined.&quot;</string>
+    <string name="day10_line_58">Chibi: &quot;He fought a marlin for three days. That’s not something most people can do. And when the sharks ate the catch, he didn/’t boast—he just went to sleep.&quot;</string>
+    <string name="day10_line_59">Chibi: &quot;He’s a man/’s man. Like a Matryoshka doll—every layer you peel away, he/’s still a man. Even the core.&quot;</string>
+    <string name="day10_line_60">Chibi: &quot;You’d totally say something like /‘Believe me, I really caught it!/’ Then post it to Twitter.&quot;</string>
+    <string name="day10_line_61">...Yeah, I’d definitely post it. Hoping it goes viral.</string>
+    <string name="day10_line_62">Chibi: &quot;That’s why I/’ll be a man of the sea too! I will become one!&quot;</string>
     <string name="day10_line_63">What a strong character…!</string>
     <string name="day10_line_64">Chibi: &quot;I once joined a hagfish catching crew—just for a bit. It was super exciting.&quot;</string>
     <string name="day10_line_65">Chibi: &quot;It was in Eden, Australia. Immigrant trainees live onboard a huge ship with a visa! Massive one!&quot;</string>
-    <string name="day10_line_66">Chibi: &quot;Though hagfish are usually caught with traps, so it/’s not like Santiago/’s one-on-one battles.&quot;</string>
+    <string name="day10_line_66">Chibi: &quot;Though hagfish are usually caught with traps, so it/’s not like Santiago’s one-on-one battles.&quot;</string>
     <string name="day10_line_67">You: &quot;Interesting! Are hagfish eaten in Japan?&quot;</string>
     <string name="day10_line_68">Chibi: &quot;Not really. They look gross. Most fishermen treat them as garbage. They/’re all slimy and annoying.&quot;</string>
-    <string name="day10_line_69">Chibi: &quot;But they do eat them in Korea. Busan, I think. And China too, maybe. Ask my sister—she/’d know more.&quot;</string>
-    <string name="day10_line_70">You: &quot;Huh, I/’ve probably never seen one then.&quot;</string>
+    <string name="day10_line_69">Chibi: &quot;But they do eat them in Korea. Busan, I think. And China too, maybe. Ask my sister—she’d know more.&quot;</string>
+    <string name="day10_line_70">You: &quot;Huh, I’ve probably never seen one then.&quot;</string>
     <string name="day10_line_71">Chibi: &quot;They taste like cartilaginous fish. Like stingray.&quot;</string>
     <string name="day10_line_72">You: &quot;Wait, stingrays are edible?&quot;</string>
     <string name="day10_line_73">Chibi: &quot;Of course! Only the spines are poisonous. But if you leave it out, it smells like ammonia. So chill it right away in ice.&quot;</string>
-    <string name="day10_line_74">Chibi: &quot;And the liver/’s edible raw, but there/’s this nasty sac called /‘smell bomb/’—you have to remove it.&quot;</string>
+    <string name="day10_line_74">Chibi: &quot;And the liver’s edible raw, but there’s this nasty sac called /‘smell bomb/’—you have to remove it.&quot;</string>
     <string name="day10_line_75">Chibi: &quot;It/’s easy to cut. Tastes amazing. You can even use scissors for part of it. The liver tastes like raw beef liver.&quot;</string>
     <string name="day10_line_76">Chibi: &quot;The fins, fried, are crispy and chewy—like that chicken cartilage you get at izakayas.&quot;</string>
-    <string name="day10_line_77">You: &quot;Huh… I really don/’t know anything. I/’ve never even gone fishing. The bait/’s just… gross.&quot;</string>
-    <string name="day10_line_78">Chibi: &quot;It/’s easy! I/’ll put the bait on for you!&quot;</string>
+    <string name="day10_line_77">You: &quot;Huh… I really don’t know anything. I’ve never even gone fishing. The bait/’s just… gross.&quot;</string>
+    <string name="day10_line_78">Chibi: &quot;It’s easy! I’ll put the bait on for you!&quot;</string>
     <string name="day10_line_79">Ugh… I feel pathetic.</string>
-    <string name="day10_line_80">Chibi: &quot;Then it/’s settled! I/’m going home for now, but if you keep up your abstinence—I/’ll take you fishing!&quot;</string>
-    <string name="day10_line_81">You: &quot;Really?! Awesome! I/’ll look forward to it!&quot;</string>
+    <string name="day10_line_80">Chibi: &quot;Then it’s settled! I’m going home for now, but if you keep up your abstinence—I’ll take you fishing!&quot;</string>
+    <string name="day10_line_81">You: &quot;Really?! Awesome! I’ll look forward to it!&quot;</string>
 
 
 
@@ -351,6 +442,14 @@
     <string name="day21_choice_0">Yeah. I\'m happy too.</string>
     <string name="day21_choice_1">You don’t have to force yourself.</string>
 
+
+    <string name="day25_comments_0">In Van Gogh’s “Starry Night,” scientists found patterns of turbulence that hadn’t even been discovered yet. That means… he saw “formulas” that shouldn’t be visible.</string>
+    <string name="day25_comments_1">Behind you.</string>
+    <string name="day25_comments_2">Oh, right—</string>
+    <string name="day25_comments_3">That call earlier…</string>
+    <string name="day25_comments_4">It wasn’t me, you know?</string>
+
+
     <!--Eventday28 -->
     <string name="day28_line_0">…The desk is a complete mess.</string>
     <string name="day28_line_1">…On the desk&amp;cigarettes. Alcohol. And… is that a gambling magazine?</string>
@@ -445,6 +544,12 @@
     <string name="comment_3">There\'s a character limit for your goal!</string>
     <string name="comment_4">Once you fill in the required fields, our story begins!</string>
 
+    <string name="last_entered_datetime">Last entered date and time: %1$s</string>
+    <string name="not_entered_yet">Not entered yet</string>
+    <string name="check_last_entered_datetime">Last entered date and time</string>
+    <string name="history_label">preference %1$d: %2$s</string>
+
+
     <!-- PreInitialScreen -->
 
     <string name="preInitial_title">Choose carefully</string>
@@ -490,6 +595,7 @@
     <string name="main_screen_saved_money_prefix">Saved</string>
     <string name="main_screen_saved_money_middle">up</string>
     <string name="main_screen_saved_money_suffix">cash</string>
+    <string name="saved_amount">$%,d</string>
 
     <string name="main_screen_saved_cal_prefix">Saved</string>
     <string name="main_screen_saved_cal_middle">calories</string>
@@ -546,8 +652,9 @@
     <string name="menu_premium">Premium Plan</string>
     <string name="menu_transfer">Transfer</string>
     <string name="menu_transfer_title">About Transfer</string>
+    <string name="menu_Preferences">Event preference</string>
     <string name="menu_transfer_description">
-    <string name=" menu_Preferences">Event preference</string>
+
 
 This app\'s data is automatically backed up to your Google account.
 
